@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 344
+  controlID: 1585
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 345
+  controlID: 1586
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 346
+  controlID: 1587
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,8 +187,8 @@ MonoBehaviour:
     y: 0
     width: 500
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -225,9 +225,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: a2beffff30c0ffff
+      m_SelectedIDs: 6c5b0000
+      m_LastClickedID: 23404
+      m_ExpandedIDs: 36fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -503,9 +503,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 139.44745, y: -0.9924195, z: -13.263231}
+    m_Target: {x: -2.124155, y: 13.036783, z: 0.8393841}
     speed: 2
-    m_Value: {x: 139.44745, y: -0.9924195, z: -13.263231}
+    m_Value: {x: -2.124155, y: 13.036783, z: 0.8393841}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -552,13 +552,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.043780316, y: -0.026977858, z: 0.0011686458, w: 0.9986592}
+    m_Target: {x: -0.013312776, y: -0.985702, z: -0.09460994, w: 0.1386942}
     speed: 2
-    m_Value: {x: 0.04378106, y: -0.026978316, z: 0.0011686657, w: 0.9986762}
+    m_Value: {x: -0.013312957, y: -0.98571545, z: -0.09461123, w: 0.13869609}
   m_Size:
-    m_Target: 18.254305
+    m_Target: 10
     speed: 2
-    m_Value: 18.254305
+    m_Value: 10
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -705,22 +705,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects
+    - Assets/Abandoned_Asylum/Textures/Tiled/Walls
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects
+  - Assets/Abandoned_Asylum/Textures/Tiled/Walls
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\\u9AD8\u539F \u5149\u6708\\Documents\\GitHub\\horror-game"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b69c0000
-    m_LastClickedID: 40118
-    m_ExpandedIDs: 00000000a4970000749c0000b29c0000c09c0000c49c0000c89c000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 60}
+    m_SelectedIDs: 10ca0000
+    m_LastClickedID: 51728
+    m_ExpandedIDs: 000000004a5d00004e5d0000505d0000525d0000545d00008ac80000d2c800000aca000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -748,7 +748,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a497000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000004a5d00004e5d0000505d0000525d0000545d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -773,9 +773,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 6c5b0000
+    m_LastClickedInstanceID: 23404
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
