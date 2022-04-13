@@ -11,7 +11,6 @@ public class Menu : MonoBehaviour {
     public GameObject player;
     public GameObject OnPanel, OnUnPanel;
     public GameObject BuckButton;
-    public GameObject Sound;
 
     private bool pauseGame = false;
     
@@ -30,12 +29,10 @@ public class Menu : MonoBehaviour {
             if (pauseGame == true)
             {
                 OnPause();
-                SoundMute();
             }
             else
             {
                 OnUnPause();
-                SoundRestart();
             }
         }    
     }
@@ -75,21 +72,6 @@ public class Menu : MonoBehaviour {
 
     public void buck(){
         OnUnPause();
-    }
-
-    public void SoundMute()
-    {
-        AudioSource source = Sound.GetComponent<AudioSource>();
-
-        source.Stop();
-    }
-
-    public void SoundRestart()
-    {
-        AudioSource replay = Sound.GetComponent<AudioSource>();
-
-        replay.Play();
-
     }
 
 }
