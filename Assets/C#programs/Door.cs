@@ -10,6 +10,7 @@ public class Door : MonoBehaviour
     public GameObject AnimeObject;
     
     public bool isOpen = false;
+    public bool Action = false;
     public bool OpenDoorText = true;
     public bool CloseDoorText = false;
 
@@ -43,7 +44,9 @@ public class Door : MonoBehaviour
             {
                 CloseDoorUI.SetActive(false);
             }
-           
+            //OpenDoorUI.SetActive(true);
+            Action = true;
+
         }
     }
 
@@ -51,20 +54,21 @@ public class Door : MonoBehaviour
     {
         OpenDoorUI.SetActive(false);
         CloseDoorUI.SetActive(false);
+        Action = false;
     }
 
     void Update()
     {
-        if( OpenDoorText == true || CloseDoorText == true ) { 
+        if( OpenDoorText == true || CloseDoorText == true) { 
            if (Input.GetKeyDown(KeyCode.E))
            {
-            if ( isOpen == false )
+            if ( isOpen == false && Action == true)
             {
                 StartCoroutine(DoorOpenWait());
                 DoorOpenWait();
             }
 
-            if( isOpen == true )
+            if( isOpen == true && Action == true)
             {
                 StartCoroutine(DoorCloseWait());
                 DoorCloseWait();
@@ -76,21 +80,25 @@ public class Door : MonoBehaviour
 
     IEnumerator DoorOpenWait()
     {
-       
+
+        //OpenDoorUI.SetActive(false);
         OpenDoorText = false;
         AnimeObject.GetComponent<Animator>().Play("DoorOpen");
         
         yield return new WaitForSeconds(1);
+        //CloseDoorUI.SetActive(true);
         CloseDoorText = true;
         isOpen = true;
     }
 
     IEnumerator DoorCloseWait()
-    { 
+    {
+        //CloseDoorUI.SetActive(false);
         CloseDoorText = false;
         AnimeObject.GetComponent<Animator>().Play("DoorClose");
        
         yield return new WaitForSeconds(1);
+        //OpenDoorUI.SetActive(true);
         OpenDoorText = true;
         isOpen = false;
     }

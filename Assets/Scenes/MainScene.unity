@@ -1144,6 +1144,7 @@ MonoBehaviour:
   CloseDoorUI: {fileID: 116008874}
   AnimeObject: {fileID: 707315046}
   isOpen: 0
+  Action: 0
   OpenDoorText: 1
   CloseDoorText: 0
 --- !u!1 &663114017
@@ -1455,6 +1456,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: InteractiveObject
       objectReference: {fileID: 0}
+    - target: {fileID: 8605232930705093762, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
+      propertyPath: m_Name
+      value: Door2
+      objectReference: {fileID: 0}
     - target: {fileID: 8605259772284819456, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -1699,6 +1704,7 @@ MonoBehaviour:
   CloseDoorUI: {fileID: 116008874}
   AnimeObject: {fileID: 963771143}
   isOpen: 0
+  Action: 0
   OpenDoorText: 1
   CloseDoorText: 0
 --- !u!65 &871943492
@@ -2300,9 +2306,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: field of view
-      value: 60
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_projectionMatrixMode
@@ -2350,7 +2364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Radius
-      value: 0.3
+      value: 0.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
@@ -2615,6 +2629,7 @@ MonoBehaviour:
   CloseDoorUI: {fileID: 0}
   AnimeObject: {fileID: 0}
   isOpen: 0
+  Action: 0
   OpenDoorText: 1
   CloseDoorText: 0
 --- !u!95 &1742097873
