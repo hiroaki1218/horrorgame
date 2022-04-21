@@ -9,14 +9,17 @@ using UnityEngine.SceneManagement;
 public class ResumeButton : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void Start()
+    public void Start()
     {
         var ResumeButton = GetComponent<Button>();
         ResumeButton.onClick.AddListener(() =>
         {
             SceneManager.LoadScene("TitleScene");
+           
         });
 
     }
+
+  
 
 }
