@@ -1255,7 +1255,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1831838331}
+    m_TransformParent: {fileID: 1656678113}
     m_Modifications:
     - target: {fileID: 100000, guid: 7c4cfd35d7e78fb44a0f5522e37c35b1, type: 3}
       propertyPath: m_Name
@@ -3136,6 +3136,10 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: field of view
       value: 49.5
       objectReference: {fileID: 0}
@@ -3222,6 +3226,10 @@ PrefabInstance:
     - target: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Radius
       value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781796326092557711, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
@@ -3616,6 +3624,11 @@ AudioSource:
 --- !u!82 &1656678109 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+  m_PrefabInstance: {fileID: 1270640629}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1656678113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
   m_PrefabInstance: {fileID: 1270640629}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1724228783
@@ -4111,11 +4124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f3400ffd726644996355b466df9bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1831838331 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-  m_PrefabInstance: {fileID: 1270640629}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1831838338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4169,7 +4177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1831838331}
+  volumeTrigger: {fileID: 0}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 1
