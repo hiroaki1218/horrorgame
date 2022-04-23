@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 #pragma warning disable 618, 649
@@ -28,6 +29,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -42,6 +44,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        public GameObject RayCube;
+        //public GameObject WaterTrigger;
 
         // Use this for initialization
         private void Start()
@@ -56,6 +60,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
             m_MouseLook.Init(transform, m_Camera.transform);
+            //WaterTrigger.GetComponent<EventTrigger>();
         }
 
 
@@ -160,7 +165,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             PlayFootStepAudio();
         }
 
-
+        //ここが音だぁぁぁぁぁ
         private void PlayFootStepAudio()
         {
             if (!m_CharacterController.isGrounded)
@@ -169,13 +174,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             // pick & play a random footstep sound from the array,
             // excluding sound at index 0
-            int n = Random.Range(1, m_FootstepSounds.Length);
-            m_AudioSource.clip = m_FootstepSounds[n];
-            m_AudioSource.PlayOneShot(m_AudioSource.clip);
+            //int n = Random.Range(1, m_FootstepSounds.Length);
+            // m_AudioSource.clip = m_FootstepSounds[0];
+            // m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                   Aoudio();
             // move picked sound to index 0 so it's not picked next time
-            m_FootstepSounds[n] = m_FootstepSounds[0];
-            m_FootstepSounds[0] = m_AudioSource.clip;
+            //m_FootstepSounds[0] = m_FootstepSounds[0];
+            //m_FootstepSounds[0] = m_AudioSource.clip;
         }
+
+        //public void OnTriggerStay(Collider other)
+        //{
+            //if(other.gameObject.tag == "OnWater")
+            //{
+                //Debug.Log("water");
+            //}
+        //}
 
 
         private void UpdateCameraPosition(float speed)
@@ -201,8 +215,108 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Camera.transform.localPosition = newCameraPosition;
         }
 
+        
 
-        private void GetInput(out float speed)
+        float[] slatmap = new float[0];
+        RaycastHit hitInfo;
+        void Aoudio()
+        {
+            //ray可視化
+            //Ray ray = new Ray(transform.position,transform.forward);
+            //Vector3 rayPosition = RayCube.transform.position + new Vector3(0.0f, 0.0f, 0.0f);
+            if (Physics.Raycast(RayCube.transform.position,Vector3.down, out hitInfo,1f))
+            {
+                string hitColliderTag = hitInfo.collider.tag;
+                    //if(hitColliderTag == "OnWater")
+                    //{
+                        //Debug.Log("OnWater");
+                        //m_AudioSource.clip = m_FootstepSounds[4];
+                        //m_AudioSource.volume = 1.0f;
+                        //m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                    //}
+               
+                
+                 if (hitColliderTag == "Terrain")
+                {
+                    // テレインデータ
+                    TerrainData terrainData = hitInfo.collider.gameObject.GetComponent<Terrain>().terrainData;
+
+                    // アルファマップ 
+                    float[,,] alphaMaps = terrainData.GetAlphamaps(Mathf.FloorToInt(hitInfo.textureCoord.x * terrainData.alphamapWidth), Mathf.FloorToInt(hitInfo.textureCoord.y * terrainData.alphamapHeight), 1, 1);
+
+
+                    int layerCount = terrainData.alphamapLayers; // テレインレイヤーの数
+
+                    // 三番目の配列を取り出す
+                    if (slatmap.Length == 0) slatmap = new float[layerCount];
+                    for (int i = 0; i < layerCount; i++)
+                    {
+                        slatmap[i] = alphaMaps[0, 0, i];
+                    }
+
+                    // 最大値のインデックス
+                    int maxIndex = Array.IndexOf(slatmap, Mathf.Max(slatmap));
+
+                    
+                    // 足音を変える
+                    switch (maxIndex)
+                    {
+                        case 0:
+                            //草
+                            m_AudioSource.clip = m_FootstepSounds[3];
+                            m_AudioSource.volume = 1.0f;
+                            m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                            Debug.Log("0000000");
+                            break;
+                        case 1:
+                            //砂
+                            m_AudioSource.clip = m_FootstepSounds[1];
+                            m_AudioSource.volume = 1.0f;
+                            m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                            Debug.Log("1111111");
+                            break;
+                        case 3:
+                            //ない
+                            m_AudioSource.clip = m_FootstepSounds[0];
+                            m_AudioSource.volume = 0.8f;
+                            m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                            Debug.Log("3333333");
+                            break;
+                        case 2:
+                            //コンクリ
+                            m_AudioSource.clip = m_FootstepSounds[2];
+                            m_AudioSource.volume = 1.0f;
+                            m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                            Debug.Log("222222222");
+                            break;
+                        case 4:
+                            Debug.Log("eeeee");
+
+                            break;
+                        //default:
+                            //床
+                            //m_AudioSource.clip = m_FootstepSounds[0];
+                            //m_AudioSource.volume = 1.0f;
+                            //m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                            //Debug.Log("ddddddd");
+                            //break;
+                    }
+                    
+                }
+                else
+                {
+                    //床
+                    m_AudioSource.clip = m_FootstepSounds[0];
+                    m_AudioSource.volume = 0.8f;
+                    m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                    Debug.Log("uuuuuu");
+                }
+            }
+            //Debug.DrawRay(ray.origin, ray.direction * 10, Color.red, 5);
+        }
+         
+
+private void GetInput(out float speed)
         {
             // Read input
             float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
