@@ -13,9 +13,10 @@ public class Menu : MonoBehaviour {
     public GameObject BuckButton;
     public AudioSource audioSource1;
     public AudioSource audioSouse2;
+    [SerializeField] private AudioClip b1;
 
     //雷の音　(Clip)
-    private float rainvolume = 0.2f;
+    private float rainvolume = 0.4f;
 
     private bool pauseGame = false;
     
@@ -25,8 +26,7 @@ public class Menu : MonoBehaviour {
         button();
         audioSource1.Play();
         //雷の音　(Clip)
-        audioSouse2.volume = rainvolume;
-        audioSouse2.Play();
+        audioSouse2.PlayOneShot(b1, rainvolume);
     }  
 
     public void Update()
@@ -51,7 +51,7 @@ public class Menu : MonoBehaviour {
         OnPanel.SetActive(true);        // PanelMenuをtrueにする
         OnUnPanel.SetActive(false);     // PanelEscをfalseにする
         audioSource1.Pause();
-        audioSouse2.Pause();
+        audioSouse2.Stop();
         Time.timeScale = 0;
         pauseGame = true;
         FirstPersonController fpc = player.GetComponent<FirstPersonController>();
@@ -68,7 +68,7 @@ public class Menu : MonoBehaviour {
         OnUnPanel.SetActive(true);      // PanelEscをtrueにする
         audioSource1.Play();
         //雷の音　(Clip)
-        audioSouse2.Play();
+        audioSouse2.PlayOneShot(b1, rainvolume);
         Time.timeScale = 1;
         pauseGame = false;
         FirstPersonController fpc = player.GetComponent<FirstPersonController>();
