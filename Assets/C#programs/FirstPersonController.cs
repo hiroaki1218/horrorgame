@@ -227,16 +227,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Physics.Raycast(RayCube.transform.position,Vector3.down, out hitInfo,1f))
             {
                 string hitColliderTag = hitInfo.collider.tag;
-                    //if(hitColliderTag == "OnWater")
-                    //{
-                        //Debug.Log("OnWater");
-                        //m_AudioSource.clip = m_FootstepSounds[4];
-                        //m_AudioSource.volume = 1.0f;
-                        //m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                    //}
+                    if(hitColliderTag == "OnWater")
+                    {
+                        Debug.Log("OnWater");
+                        m_AudioSource.clip = m_FootstepSounds[4];
+                        m_AudioSource.volume = 1.0f;
+                        m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                    }
+
                
                 
-                 if (hitColliderTag == "Terrain")
+                 else if (hitColliderTag == "Terrain")
                 {
                     // テレインデータ
                     TerrainData terrainData = hitInfo.collider.gameObject.GetComponent<Terrain>().terrainData;

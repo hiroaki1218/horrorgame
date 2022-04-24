@@ -2,26 +2,18 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(AudioSource))]
-public class FootstepSEPlayerSimple : MonoBehaviour
+[RequireComponent(typeof(BoxCollider))]
+public class SoundGround : MonoBehaviour
 {
-    [SerializeField] AudioClip[] clips;
-    [SerializeField] bool randomizePitch = true;
-    [SerializeField] float pitchRange = 0.1f;
-
-    protected AudioSource source;
-
-    private void Awake()
+    private void OnTriggerStay(Collider other)
     {
-        // アタッチしたオーディオソースのうち1番目を使用する
-        source = GetComponents<AudioSource>()[0];
-    }
-
-    public void PlayFootstepSE()
-    {
-        if (randomizePitch)
-            source.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
-
-        source.PlayOneShot(clips[Random.Range(0, clips.Length)]);
+        if(other.gameObject.tag == "OnWater")
+        {
+            Debug.Log("water");
+        }
+        //if(other.gameObject.tag == "Terrain")
+        //{
+            //Debug.Log("T");
+        //}
     }
 }
