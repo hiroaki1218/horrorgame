@@ -364,13 +364,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     {
                         m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
                         int a = Random.Range(0, 2);
+                        m_AudioSource.volume = 0.5f;
                         m_AudioSource.clip = m_FootstepSounds[a];
                         m_AudioSource.PlayOneShot(m_AudioSource.clip);
                     }
                     else if (randomizePitch == false) { 
                     int n = Random.Range(0,2);
                     m_AudioSource.clip = m_FootstepSounds[n];
-                    m_AudioSource.volume = 1.0f;
+                    m_AudioSource.volume = 0.5f;
                     m_AudioSource.PlayOneShot(m_AudioSource.clip);
                     //Debug.Log("uuuuuu");
                     }

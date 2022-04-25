@@ -13,9 +13,9 @@ public class Menu : MonoBehaviour {
     public GameObject BuckButton;
     public AudioSource audioSource1;
     public AudioSource audioSouse2;
-
+    [SerializeField] float rainvolume = 0.2f;
     //雷の音　(Clip)
-    private float rainvolume = 0.2f;
+    //private float rainvolume = 0.2f;
 
     private bool pauseGame = false;
     
