@@ -29,6 +29,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        [SerializeField] bool randomizePitch = true;
+        [SerializeField] float pitchRange = 0.1f;
         
 
         private Camera m_Camera;
@@ -215,6 +217,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Camera.transform.localPosition = newCameraPosition;
         }
 
+        //ランダムピッチ
         
 
         float[] slatmap = new float[0];
@@ -229,10 +232,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 string hitColliderTag = hitInfo.collider.tag;
                     if(hitColliderTag == "OnWater")
                     {
-                        Debug.Log("OnWater");
-                        m_AudioSource.clip = m_FootstepSounds[4];
-                        m_AudioSource.volume = 1.0f;
+                       if (randomizePitch) {
+                    
+                        m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+                        int w = Random.Range(8, 10);
+                        m_AudioSource.clip = m_FootstepSounds[w];
                         m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                        }
+                       else if(randomizePitch == false){ 
+                       //Debug.Log("OnWater");
+                       int p = Random.Range(8, 10);
+                       m_AudioSource.clip = m_FootstepSounds[p];
+                       m_AudioSource.volume = 1.0f;
+                       m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                       }
                     }
 
                
@@ -264,34 +277,74 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     {
                         case 0:
                             //草
-                            m_AudioSource.clip = m_FootstepSounds[3];
+                            if (randomizePitch)
+                            {
+                                m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+                                int q = Random.Range(6, 8);
+                                m_AudioSource.clip = m_FootstepSounds[q];
+                                m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                            }
+                            else if(randomizePitch == false) { 
+                            int j = Random.Range(6, 8);
+                            m_AudioSource.clip = m_FootstepSounds[j];
                             m_AudioSource.volume = 1.0f;
                             m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                            Debug.Log("0000000");
+                            //Debug.Log("0000000");
+                            }
                             break;
                         case 1:
                             //砂
-                            m_AudioSource.clip = m_FootstepSounds[1];
+                            if (randomizePitch)
+                            {
+                                m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+                                int h = Random.Range(2, 4);
+                                m_AudioSource.clip = m_FootstepSounds[h];
+                                m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                            }
+                            else if (randomizePitch == false) { 
+                            int n = Random.Range(2,4);
+                            m_AudioSource.clip = m_FootstepSounds[n];
                             m_AudioSource.volume = 1.0f;
                             m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                            Debug.Log("1111111");
+                           // Debug.Log("1111111");
+                            }
                             break;
                         case 3:
                             //ない
-                            m_AudioSource.clip = m_FootstepSounds[0];
-                            m_AudioSource.volume = 0.8f;
+                            if (randomizePitch)
+                            {
+                                m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+                                int s = Random.Range(0, 2);
+                                m_AudioSource.clip = m_FootstepSounds[s];
+                                m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                            }
+                            else if (randomizePitch == false) { 
+                            int y = Random.Range(0,2);
+                            m_AudioSource.clip = m_FootstepSounds[y];
+                            m_AudioSource.volume = 1.0f;
                             m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                            Debug.Log("3333333");
+                            //Debug.Log("3333333");
+                            }
                             break;
                         case 2:
                             //コンクリ
-                            m_AudioSource.clip = m_FootstepSounds[2];
+                            if (randomizePitch)
+                            {
+                                m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+                                int c = Random.Range(4, 6);
+                                m_AudioSource.clip = m_FootstepSounds[c];
+                                m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                            }
+                            else if (randomizePitch == false) { 
+                            int u = Random.Range(4,6);
+                            m_AudioSource.clip = m_FootstepSounds[u];
                             m_AudioSource.volume = 1.0f;
                             m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                            Debug.Log("222222222");
+                           // Debug.Log("222222222");
+                            }
                             break;
                         case 4:
-                            Debug.Log("eeeee");
+                            //Debug.Log("eeeee");
 
                             break;
                         //default:
@@ -307,10 +360,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 else
                 {
                     //床
-                    m_AudioSource.clip = m_FootstepSounds[0];
-                    m_AudioSource.volume = 0.8f;
+                    if (randomizePitch)
+                    {
+                        m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+                        int a = Random.Range(0, 2);
+                        m_AudioSource.clip = m_FootstepSounds[a];
+                        m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                    }
+                    else if (randomizePitch == false) { 
+                    int n = Random.Range(0,2);
+                    m_AudioSource.clip = m_FootstepSounds[n];
+                    m_AudioSource.volume = 1.0f;
                     m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                    Debug.Log("uuuuuu");
+                    //Debug.Log("uuuuuu");
+                    }
                 }
             }
             //Debug.DrawRay(ray.origin, ray.direction * 10, Color.red, 5);

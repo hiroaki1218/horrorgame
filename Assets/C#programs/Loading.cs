@@ -40,10 +40,10 @@ public class Loading : MonoBehaviour
 
 		//　読み込みが終わるまで進捗状況をスライダーの値に反映させる
 		float p = 0f;
-		for(int i = 0; i < 200; i++)
+		for(int i = 0; i < 1000; i++)
 		{
-			p = (float)(i / 70) * 100f;
-			slider.value = p;
+			p = (float)(i / 70) * 1f;
+			slider.value = p/10;
 			yield return null;
 		} 
 
