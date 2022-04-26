@@ -38,10 +38,14 @@ public class Menu : MonoBehaviour
             pauseGame = !pauseGame;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             if ( pauseGame == true)
 =======
             if (pauseGame == true)
 >>>>>>> a98276b5c018a254427d74285f982b48fc918013
+=======
+            if ( pauseGame == true )
+>>>>>>> 0c33bc93ba12ccb3889108368fbdc36ce822d2ff
             {
                 OnPause();
             }

@@ -4032,7 +4032,11 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
+<<<<<<< HEAD
   m_BoundingSphereOverride: {x: 9.1835e-41, y: NaN, z: 1.5382446e-38, w: 1.83671e-40}
+=======
+  m_BoundingSphereOverride: {x: 4.591775e-39, y: NaN, z: 0, w: 0}
+>>>>>>> 0c33bc93ba12ccb3889108368fbdc36ce822d2ff
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7184,6 +7188,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_FovKick.Camera
+      value: 
+      objectReference: {fileID: 1831838358}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_MouseLook.smooth
       value: 0
       objectReference: {fileID: 0}
@@ -7194,6 +7202,10 @@ PrefabInstance:
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_MouseLook.MinimumX
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_MouseLook.lockCursor
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_MouseLook.XSensitivity
@@ -10392,6 +10404,11 @@ AudioSource:
 --- !u!224 &1831838353 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7781796326092557711, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+  m_PrefabInstance: {fileID: 1270640629}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1831838358 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
   m_PrefabInstance: {fileID: 1270640629}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1851374892
