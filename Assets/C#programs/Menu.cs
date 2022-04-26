@@ -17,7 +17,7 @@ public class Menu : MonoBehaviour {
     //雷の音　(Clip)
     //private float rainvolume = 0.2f;
 
-    private bool esc1;
+    private bool pauseGame = false;
     //private bool esc1 = false;
     
     void Start()
@@ -34,13 +34,13 @@ public class Menu : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
+            pauseGame = !pauseGame;
 
-            if ( esc1 == false )
+            if ( pauseGame == true )
             {
                 OnPause();
             }
-            if ( esc1 == true )
+            else
             {
                 OnUnPause();
                 Debug.Log("now pause");
@@ -55,7 +55,7 @@ public class Menu : MonoBehaviour {
         audioSource1.Pause();
         audioSouse2.Pause();
         Time.timeScale = 0;
-        esc1 = true;
+        pauseGame = true;
         FirstPersonController fpc = player.GetComponent<FirstPersonController>();
         fpc.enabled = false;
         
@@ -72,7 +72,7 @@ public class Menu : MonoBehaviour {
         //雷の音　(Clip)
         audioSouse2.Play();
         Time.timeScale = 1;
-        esc1 = false;
+        pauseGame = false;
         FirstPersonController fpc = player.GetComponent<FirstPersonController>();
         fpc.enabled = true;
 
