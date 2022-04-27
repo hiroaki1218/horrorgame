@@ -62,6 +62,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
             m_MouseLook.Init(transform, m_Camera.transform);
+            Application.targetFrameRate = 60;
             //WaterTrigger.GetComponent<EventTrigger>();
         }
 
