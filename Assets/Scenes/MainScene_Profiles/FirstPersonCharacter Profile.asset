@@ -21,7 +21,7 @@ MonoBehaviour:
     value: 270
   sampleCount:
     overrideState: 1
-    value: 12
+    value: 9
 --- !u!114 &-5729340640372976700
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -43,7 +43,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.81
+    value: 4
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -61,7 +61,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1
+    value: 5.96
   directLightingStrength:
     overrideState: 0
     value: 0
@@ -140,10 +140,10 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: -20.7
+    value: -21.5
   tint:
     overrideState: 1
-    value: 0
+    value: -1.2
   colorFilter:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -152,7 +152,7 @@ MonoBehaviour:
     value: 0
   saturation:
     overrideState: 1
-    value: 11.9
+    value: 11.1
   brightness:
     overrideState: 0
     value: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
     value: 0
   contrast:
     overrideState: 1
-    value: 0.8
+    value: 2.4
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
