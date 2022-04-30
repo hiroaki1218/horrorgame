@@ -14,6 +14,7 @@ public class Loading : MonoBehaviour
 	//　読み込み率を表示するスライダー
 	[SerializeField]
 	private Slider slider;
+	private AsyncOperation async;
 	
 
     public void Start()
@@ -32,23 +33,23 @@ public class Loading : MonoBehaviour
 
 	IEnumerator LoadData()
 	{
+		async = SceneManager.LoadSceneAsync("MainScene");
 
-		 var async = SceneManager.LoadSceneAsync("MainScene");
-
-		 async.allowSceneActivation = false;
+		async.allowSceneActivation = false;
 
 
 		//　読み込みが終わるまで進捗状況をスライダーの値に反映させる
-		float p = 0f;
-		for(int i = 0; i < 1000; i++)
+		while (async.progress < 0.9f)
 		{
-			p = (float)(i / 70) * 1f;
-			slider.value = p/10;
+			slider.value = async.progress;
 			yield return null;
-		} 
+		}
+		slider.value = 1.0f;
+		async.allowSceneActivation = true;
+		yield return async;
 
-		 async.allowSceneActivation = true;
-		
+		async.allowSceneActivation = true;
+
 	}
 
 

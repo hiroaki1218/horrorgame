@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Background Tasks
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 79
+  controlID: 140
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 80
+  controlID: 141
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 328
     height: 687
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProgressWindow
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -269,14 +269,14 @@ MonoBehaviour:
     y: 0
     width: 591
     height: 939
-  m_MinSize: {x: 101, y: 121}
+  m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 12}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 12}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
-  m_Stats: 1
+  m_Stats: 0
   m_SelectedSizes: 05000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
@@ -428,20 +428,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: b032feff0233fefff25cfefffc5cfeff18adfeff34adfeff08fbffff
+      m_SelectedIDs: ec720d00
+      m_LastClickedID: 881388
+      m_ExpandedIDs: ecb8f8ff3eb9f8ff38e3f8ff50e3f8ffe4a5f9ff36a6f9ff1ad0f9ff32d0f9ffac3bfaff003cfafffa65faff1266fafffc16fbffa617fbff843dfbff848ffbff0294fbff5694fbff3ebefbff48befbfffe15fcff321ffcff821ffcff7e49fcff9649fcff6ea2fcffea1afdff5c24fdffac24fdffac4efdffc84efdff6e7cfdffcc3effff08fbffffb05f0000de5f00006c60000016320900089309000c9b090068a10900bca609009aaf090078e10a0018e30a00cce30a003e0f0b0014be0b006c6f0d00
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Flashlight
-        m_OriginalName: Flashlight
+        m_Name: PauseManager
+        m_OriginalName: PauseManager
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 24954
+        m_UserData: 631144
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -563,7 +563,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -679,9 +679,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 140.8018, y: 2.7351499, z: 24.941168}
+    m_Target: {x: 138.78404, y: -6.3763843, z: 6.1714573}
     speed: 2
-    m_Value: {x: 140.8018, y: 2.7351499, z: 24.941168}
+    m_Value: {x: 138.78404, y: -6.3763843, z: 6.1714573}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -728,13 +728,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.034418732, y: -0.9655913, z: 0.18201014, w: -0.1825944}
+    m_Target: {x: -0.0018588497, y: 0.98799556, z: -0.15418601, w: -0.0118692815}
     speed: 2
-    m_Value: {x: -0.034418397, y: -0.9655819, z: 0.18200837, w: -0.18259262}
+    m_Value: {x: -0.0025525982, y: 0.9879061, z: -0.15417202, w: -0.016314697}
   m_Size:
-    m_Target: 0.0010527036
+    m_Target: 11.160747
     speed: 2
-    m_Value: 0.0010527036
+    m_Value: 11.160747
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -812,24 +812,24 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 199}
-    m_SelectedIDs: 109a0000
-    m_LastClickedID: 39440
-    m_ExpandedIDs: 00000000689900006c99000000ca9a3b
+    scrollPos: {x: 0, y: 165}
+    m_SelectedIDs: 36910000
+    m_LastClickedID: 37174
+    m_ExpandedIDs: 000000000e9100001091000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Flashlight
-      m_OriginalName: Flashlight
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 39412
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -843,7 +843,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000689900006a9900006c990000
+    m_ExpandedIDs: 000000000e91000010910000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -920,9 +920,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 766
-    width: 1966
-    height: 233
+    y: 760
+    width: 1328
+    height: 231
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
