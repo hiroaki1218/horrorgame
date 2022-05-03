@@ -7,14 +7,14 @@ public class CountDown : MonoBehaviour
 {
     [SerializeField] float gameTime = 600.0f;
     [SerializeField] private GameObject countUI;
-    [SerializeField] private Slider slider;
+    [SerializeField] private Image slider;
     float maincount;
     float second;
     
 
     private void Start()
     {
-        slider.value = 1;
+        slider.fillAmount = 1;
         countUI.SetActive(true);
         maincount = gameTime;
     }
@@ -24,7 +24,7 @@ public class CountDown : MonoBehaviour
         {
             maincount -= Time.deltaTime;
             second = maincount / gameTime;
-            slider.value = second;
+            slider.fillAmount = second;
         }
         //Debug.Log(maincount);
     }

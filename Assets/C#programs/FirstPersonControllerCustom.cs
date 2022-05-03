@@ -13,6 +13,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
     public class FirstPersonControllerCustom : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
+
+        [SerializeField] private bool m_IsRunning;
+
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
@@ -399,14 +402,36 @@ private void GetInput(out float speed)
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+
+            //m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+            if (_staminaController.hasRegenerated)
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    m_IsRunning = true;
+                    m_IsWalking = false;
+                }
+                else
+                {
+                    m_IsRunning = false;
+                    m_IsWalking = true;
+                }
+                
+            }
+            else
+            {
+                m_IsRunning = false;
+                m_IsWalking = true;
+            }
+
+
 #endif
             if (m_IsWalking)
             {
                 _staminaController.weAreSprinting = false;
             }
 
-            if (!m_IsWalking && m_CharacterController.velocity.sqrMagnitude > 0)
+            if (m_IsRunning && m_CharacterController.velocity.sqrMagnitude > 0)
             {
                 if(_staminaController.playerStamina > 0)
                 {
@@ -415,7 +440,8 @@ private void GetInput(out float speed)
                 }
                 else
                 {
-                    m_IsWalking = true;
+                    //m_IsWalking = true;
+                    m_IsRunning = false;
                 }
                         
             }
