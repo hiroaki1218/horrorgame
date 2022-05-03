@@ -10,7 +10,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 {
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(AudioSource))]
-    public class FirstPersonController : MonoBehaviour
+    public class FirstPersonControllerCustom : MonoBehaviour
     {
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
@@ -48,10 +48,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
         public GameObject RayCube;
         //public GameObject WaterTrigger;
+        [HideInInspector] public StaminaController _staminaController;
 
         // Use this for initialization
         private void Start()
         {
+            _staminaController = GetComponent<StaminaController>();
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -66,6 +68,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //WaterTrigger.GetComponent<EventTrigger>();
         }
 
+        public void SetRunSpeed(float speed)
+        {
+            m_RunSpeed = speed;
+        }
 
         // Update is called once per frame
         private void Update()
@@ -395,6 +401,25 @@ private void GetInput(out float speed)
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
+            if (m_IsWalking)
+            {
+                _staminaController.weAreSprinting = false;
+            }
+
+            if (!m_IsWalking && m_CharacterController.velocity.sqrMagnitude > 0)
+            {
+                if(_staminaController.playerStamina > 0)
+                {
+                    _staminaController.weAreSprinting = true;
+                    _staminaController.Sprinting();
+                }
+                else
+                {
+                    m_IsWalking = true;
+                }
+                        
+            }
+
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
             m_Input = new Vector2(horizontal, vertical);

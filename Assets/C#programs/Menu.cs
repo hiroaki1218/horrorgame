@@ -69,7 +69,7 @@ public class Menu : MonoBehaviour {
         audioSouse2.Pause();
         Time.timeScale = 0;
         gamePause = true;
-        FirstPersonController fpc = player.GetComponent<FirstPersonController>();
+        FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();
         fpc.enabled = false;
         
         Cursor.lockState = CursorLockMode.None;     // 標準モード
@@ -86,7 +86,7 @@ public class Menu : MonoBehaviour {
         audioSouse2.Play();
         Time.timeScale = 1;
         gamePause = false;
-        FirstPersonController fpc = player.GetComponent<FirstPersonController>();
+        FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();
         fpc.enabled = true;
 
         Cursor.lockState = CursorLockMode.Locked;   // 中央にロック
