@@ -1,12 +1,12 @@
 
 using UnityEngine;
 using UnityEngine.AI;
-using UnityStandardAssets.Characters.FirstPerson;
+//using UnityStandardAssets.Characters.FirstPerson;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMove : MonoBehaviour
 {
-    [SerializeField] private FirstPersonControllerCustom _playerController;
+    private RaycastHit[] _raycastHits = new RaycastHit[10];
     private NavMeshAgent _agent;
 
     // Start is called before the first frame update
@@ -15,9 +15,26 @@ public class EnemyMove : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDetectObject(Collider collider)
     {
-        _agent.destination = _playerController.transform.position; 
+        if (collider.CompareTag("Player"))
+        {
+            //_agent.destination = collider.transform.position;
+            var positionDiff = collider.transform.position - transform.position;
+            var distans = positionDiff.magnitude;
+            var direction = positionDiff.normalized;
+            var hitCount = Physics.RaycastNonAlloc(transform.position, direction, _raycastHits, distans);
+            //Debug.Log("hitCount: " + hitCount);
+            if(hitCount == 2)
+            {
+                _agent.isStopped = false;
+                _agent.destination = collider.transform.position;
+            }
+            else
+            {
+                _agent.isStopped = true;
+            }
+        }
     }
+
 }
