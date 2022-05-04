@@ -3123,6 +3123,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 940125597620560762, guid: c0ec2cd63f93487d92d6623d393c83ba, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1010010733671478586, guid: c0ec2cd63f93487d92d6623d393c83ba, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -8735,7 +8739,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 13
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &919850634
 GameObject:
@@ -9156,7 +9160,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 4
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 180
