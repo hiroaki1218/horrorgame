@@ -6,12 +6,13 @@ public class itemTalk : MonoBehaviour
 {
     [SerializeField]
     private GameObject itemUI;
-
+    [SerializeField]
     private Camera mainCamera;
 
     private void Start()
     {
         itemUI.SetActive(false);
+        mainCamera.GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -24,13 +25,18 @@ public class itemTalk : MonoBehaviour
             //Ray‚ª“–‚½‚Á‚Ä‚¢‚ê‚Î
             if (Physics.Raycast(mainCamera.ViewportPointToRay(new Vector2(0.5f,0.5f)),out hit,100.0f))
             {
-                if (hit.collider.CompareTag("Terrain"))
+                if (hit.collider.CompareTag("Item"))
                 {
                     Debug.Log("ƒAƒCƒeƒ€");
                     itemUI.SetActive(true);
                 }
+                else
+                {
+                    itemUI.SetActive(false);
+                }
            
             }
+            
         }
     }
 }
