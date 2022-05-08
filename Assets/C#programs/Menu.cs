@@ -17,8 +17,9 @@ public class Menu : MonoBehaviour {
     public GameObject ResumeButton;
     [SerializeField] private GameObject ResumeLoadUI;
     [SerializeField] private Slider ResumeSlider;
-    public AudioSource audioSource1;
-    public AudioSource audioSouse2;
+    [SerializeField] public AudioSource SlenderAudioSource;
+    [SerializeField] public AudioSource FPSAudioSource;
+    [SerializeField] public AudioSource SEAudioSource;
     [SerializeField] float rainvolume = 0.2f;
     //雷の音　(Clip)
     //private float rainvolume = 0.2f;
@@ -33,10 +34,11 @@ public class Menu : MonoBehaviour {
         buckbutton();
         retrybutton();
         resumebutton();
-        audioSource1.Play();
+        SlenderAudioSource.Play();
+        SEAudioSource.Play();
         //雷の音　(Clip)
-        audioSouse2.volume = rainvolume;
-        audioSouse2.Play();
+        FPSAudioSource.volume = rainvolume;
+        FPSAudioSource.Play();
         //Retryロード処理
         RetryLoadUI.SetActive(false);
         //Resumeロード処理
@@ -56,7 +58,6 @@ public class Menu : MonoBehaviour {
             else if( isLoading == false)
             {
                 OnUnPause();
-                Debug.Log("now pause");
             }
         }    
     }
@@ -65,8 +66,9 @@ public class Menu : MonoBehaviour {
     {   
         OnPanel.SetActive(true);        // PanelMenuをtrueにする
         OnUnPanel.SetActive(false);     // PanelEscをfalseにする
-        audioSource1.Pause();
-        audioSouse2.Pause();
+        SlenderAudioSource.Pause();
+        FPSAudioSource.Pause();
+        SEAudioSource.Pause();
         Time.timeScale = 0;
         gamePause = true;
         FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();
@@ -81,9 +83,10 @@ public class Menu : MonoBehaviour {
         
         OnPanel.SetActive(false);       // PanelMenuをfalseにする
         OnUnPanel.SetActive(true);      // PanelEscをtrueにする
-        audioSource1.Play();
+        SlenderAudioSource.Play();
+        SEAudioSource.Play();
         //雷の音　(Clip)
-        audioSouse2.Play();
+        FPSAudioSource.Play();
         Time.timeScale = 1;
         gamePause = false;
         FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();

@@ -5,14 +5,22 @@ using UnityEngine.EventSystems;
 
 public class Door : MonoBehaviour
 {
+    [HideInInspector] public Menu _menu;
     public GameObject OpenDoorUI;
     public GameObject CloseDoorUI;
+    [SerializeField] private AudioSource Sound;
+    [SerializeField] float Volume;
+    [SerializeField] private AudioClip OpenDoorSound;
+    [SerializeField] private AudioClip CloseDoorSound;
+    [SerializeField] private AudioClip RockSound;
     public GameObject AnimeObject;
-    
-    public bool isOpen = false;
-    public bool Action = false;
-    public bool OpenDoorText = true;
-    public bool CloseDoorText = false;
+    [SerializeField] private float AnimeTime;
+
+    public bool rockSound;
+    private bool isOpen = false;
+    private bool Action = false;
+    private bool OpenDoorText = true;
+    private bool CloseDoorText = false;
 
     void Start()
     {
@@ -60,7 +68,7 @@ public class Door : MonoBehaviour
     void Update()
     {
         if( OpenDoorText == true || CloseDoorText == true) { 
-           if (Input.GetKeyDown(KeyCode.E))
+           if (Input.GetKeyDown(KeyCode.F))
            {
             if ( isOpen == false && Action == true)
             {
@@ -84,8 +92,12 @@ public class Door : MonoBehaviour
         //OpenDoorUI.SetActive(false);
         OpenDoorText = false;
         AnimeObject.GetComponent<Animator>().Play("DoorOpen");
-        
-        yield return new WaitForSeconds(1);
+        //Audio
+        Sound.volume = Volume;
+        Sound.clip = OpenDoorSound;
+        Sound.PlayOneShot(Sound.clip);
+
+        yield return new WaitForSeconds(AnimeTime);
         //CloseDoorUI.SetActive(true);
         CloseDoorText = true;
         isOpen = true;
@@ -96,10 +108,28 @@ public class Door : MonoBehaviour
         //CloseDoorUI.SetActive(false);
         CloseDoorText = false;
         AnimeObject.GetComponent<Animator>().Play("DoorClose");
+
+        //Audio
+        Sound.volume = Volume;
+        Sound.clip = CloseDoorSound;
+        Sound.PlayOneShot(Sound.clip);
+        if (rockSound)
+        {
+            yield return new WaitForSeconds(AnimeTime);
+            Sound.clip = RockSound;
+            Sound.PlayOneShot(Sound.clip);
+            yield return new WaitForSeconds(1);
+            OpenDoorText = true;
+            isOpen = false;
+        }
+        else
+        {
+            yield return new WaitForSeconds(AnimeTime);
+            //OpenDoorUI.SetActive(true);
+            OpenDoorText = true;
+            isOpen = false;
+        }
+
        
-        yield return new WaitForSeconds(1);
-        //OpenDoorUI.SetActive(true);
-        OpenDoorText = true;
-        isOpen = false;
     }
 }

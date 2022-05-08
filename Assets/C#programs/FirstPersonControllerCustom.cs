@@ -30,6 +30,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private LerpControlledBob m_JumpBob = new LerpControlledBob();
         [SerializeField] private float m_StepInterval;
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
+        [SerializeField] private float GrassVolume = 1.0f;
+        [SerializeField] private float SandVolume = 1.0f;
+        [SerializeField] private float StoneVolume = 1.0f;
+        [SerializeField] private float WoodVolume = 1.0f;
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
         [SerializeField] bool randomizePitch = true;
@@ -234,9 +238,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         RaycastHit hitInfo;
         void Aoudio()
         {
-            //ray可視化
-            //Ray ray = new Ray(transform.position,transform.forward);
-            //Vector3 rayPosition = RayCube.transform.position + new Vector3(0.0f, 0.0f, 0.0f);
             if (Physics.Raycast(RayCube.transform.position,Vector3.down, out hitInfo,1f))
             {
                 string hitColliderTag = hitInfo.collider.tag;
@@ -247,6 +248,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
                         int w = Random.Range(8, 10);
                         m_AudioSource.clip = m_FootstepSounds[w];
+                        m_AudioSource.volume = 1.0f;
                         m_AudioSource.PlayOneShot(m_AudioSource.clip);
                         }
                        else if(randomizePitch == false){ 
@@ -261,7 +263,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                
                 
                  else if (hitColliderTag == "Terrain")
-                {
+                 {
                     // テレインデータ
                     TerrainData terrainData = hitInfo.collider.gameObject.GetComponent<Terrain>().terrainData;
 
@@ -292,12 +294,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                 m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
                                 int q = Random.Range(6, 8);
                                 m_AudioSource.clip = m_FootstepSounds[q];
+                                m_AudioSource.volume = GrassVolume;
                                 m_AudioSource.PlayOneShot(m_AudioSource.clip);
                             }
                             else if(randomizePitch == false) { 
                             int j = Random.Range(6, 8);
                             m_AudioSource.clip = m_FootstepSounds[j];
-                            m_AudioSource.volume = 1.0f;
+                            m_AudioSource.volume = GrassVolume;
                             m_AudioSource.PlayOneShot(m_AudioSource.clip);
                             //Debug.Log("0000000");
                             }
@@ -309,12 +312,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                 m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
                                 int h = Random.Range(2, 4);
                                 m_AudioSource.clip = m_FootstepSounds[h];
+                                m_AudioSource.volume = SandVolume;
                                 m_AudioSource.PlayOneShot(m_AudioSource.clip);
                             }
                             else if (randomizePitch == false) { 
                             int n = Random.Range(2,4);
                             m_AudioSource.clip = m_FootstepSounds[n];
-                            m_AudioSource.volume = 1.0f;
+                            m_AudioSource.volume = SandVolume;
                             m_AudioSource.PlayOneShot(m_AudioSource.clip);
                            // Debug.Log("1111111");
                             }
@@ -326,12 +330,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                 m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
                                 int s = Random.Range(0, 2);
                                 m_AudioSource.clip = m_FootstepSounds[s];
+                                m_AudioSource.volume = WoodVolume;
                                 m_AudioSource.PlayOneShot(m_AudioSource.clip);
                             }
                             else if (randomizePitch == false) { 
                             int y = Random.Range(0,2);
                             m_AudioSource.clip = m_FootstepSounds[y];
-                            m_AudioSource.volume = 1.0f;
+                            m_AudioSource.volume = WoodVolume;
                             m_AudioSource.PlayOneShot(m_AudioSource.clip);
                             //Debug.Log("3333333");
                             }
@@ -343,12 +348,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                 m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
                                 int c = Random.Range(4, 6);
                                 m_AudioSource.clip = m_FootstepSounds[c];
+                                m_AudioSource.volume = StoneVolume;
                                 m_AudioSource.PlayOneShot(m_AudioSource.clip);
                             }
                             else if (randomizePitch == false) { 
                             int u = Random.Range(4,6);
                             m_AudioSource.clip = m_FootstepSounds[u];
-                            m_AudioSource.volume = 1.0f;
+                            m_AudioSource.volume = StoneVolume;
                             m_AudioSource.PlayOneShot(m_AudioSource.clip);
                            // Debug.Log("222222222");
                             }
@@ -376,12 +382,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         int a = Random.Range(0, 2);
                         m_AudioSource.volume = 0.5f;
                         m_AudioSource.clip = m_FootstepSounds[a];
+                        m_AudioSource.volume = WoodVolume;
                         m_AudioSource.PlayOneShot(m_AudioSource.clip);
                     }
                     else if (randomizePitch == false) { 
                     int n = Random.Range(0,2);
                     m_AudioSource.clip = m_FootstepSounds[n];
-                    m_AudioSource.volume = 0.5f;
+                    m_AudioSource.volume = WoodVolume;
                     m_AudioSource.PlayOneShot(m_AudioSource.clip);
                     //Debug.Log("uuuuuu");
                     }
