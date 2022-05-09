@@ -13,9 +13,11 @@ public class Door : MonoBehaviour
     [SerializeField] private AudioClip OpenDoorSound;
     [SerializeField] private AudioClip CloseDoorSound;
     [SerializeField] private AudioClip RockSound;
-    public GameObject AnimeObject;
+    [SerializeField] private GameObject AnimeObject1;
+    [SerializeField] private GameObject AnimeObject2;
     [SerializeField] private float AnimeTime;
 
+    public bool SecondAnime;
     public bool rockSound;
     private bool isOpen = false;
     private bool Action = false;
@@ -91,7 +93,13 @@ public class Door : MonoBehaviour
 
         //OpenDoorUI.SetActive(false);
         OpenDoorText = false;
-        AnimeObject.GetComponent<Animator>().Play("DoorOpen");
+        AnimeObject1.GetComponent<Animator>().Play("DoorOpen");
+        if (SecondAnime)
+        {
+            AnimeObject2.GetComponent<Animator>().Play("BDoorOpen");
+        }
+        
+        
         //Audio
         Sound.volume = Volume;
         Sound.clip = OpenDoorSound;
@@ -101,24 +109,31 @@ public class Door : MonoBehaviour
         //CloseDoorUI.SetActive(true);
         CloseDoorText = true;
         isOpen = true;
+        
+
     }
 
     IEnumerator DoorCloseWait()
     {
         //CloseDoorUI.SetActive(false);
         CloseDoorText = false;
-        AnimeObject.GetComponent<Animator>().Play("DoorClose");
-
-        //Audio
+        AnimeObject1.GetComponent<Animator>().Play("DoorClose");
+        if (SecondAnime)
+        {
+             AnimeObject2.GetComponent<Animator>().Play("BDoorClose");
+        }
+       
+         //Audio
         Sound.volume = Volume;
         Sound.clip = CloseDoorSound;
         Sound.PlayOneShot(Sound.clip);
         if (rockSound)
         {
-            yield return new WaitForSeconds(AnimeTime);
+            yield return new WaitForSeconds(AnimeTime+1f);
             Sound.clip = RockSound;
+            Sound.volume = 1;
             Sound.PlayOneShot(Sound.clip);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
             OpenDoorText = true;
             isOpen = false;
         }
@@ -129,7 +144,6 @@ public class Door : MonoBehaviour
             OpenDoorText = true;
             isOpen = false;
         }
-
-       
     }
+   
 }
