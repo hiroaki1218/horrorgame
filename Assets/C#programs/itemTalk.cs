@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class itemTalk : MonoBehaviour
+public class ItemTalk : MonoBehaviour
 {
     [SerializeField]
-    private GameObject itemUI;
+    public GameObject itemUI;
     [SerializeField]
-    private Camera mainCamera;
+    public Camera mainCamera;
+    public bool isHit;
 
     private void Start()
     {
+        isHit = false;
         itemUI.SetActive(false);
         mainCamera.GetComponent<Camera>();
     }
@@ -27,12 +29,14 @@ public class itemTalk : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Item"))
                 {
-                    Debug.Log("アイテム");
+                    //Debug.Log("アイテム");
                     itemUI.SetActive(true);
+                    isHit = true;
                 }
                 else
                 {
                     itemUI.SetActive(false);
+                    isHit = false;
                 }
            
             }
