@@ -18,6 +18,7 @@ public class Gate : MonoBehaviour
     [SerializeField] private GameObject AnimeObject1;
     [SerializeField] private GameObject AnimeObject2;
     [SerializeField] private float AnimeTime;
+    [SerializeField] private GameObject OpenWaitBox;
 
     public bool SecondAnime;
     public bool rockSound;
@@ -50,7 +51,7 @@ public class Gate : MonoBehaviour
             OpenDoorUI.SetActive(true);
               
          }
-         if(isOpen == true)
+         if(isOpen == true || fpstrigger.open == false)
          {
             OpenDoorUI.SetActive(false);  
          }
@@ -70,7 +71,7 @@ public class Gate : MonoBehaviour
          {
              if (isOpen == false && fpstrigger.open == true)
              {
-                    DoorOpenWait();
+                StartCoroutine("DoorOpenWait");
              }
 
          }
@@ -78,7 +79,7 @@ public class Gate : MonoBehaviour
     }
 
 
-    void DoorOpenWait()
+    IEnumerator DoorOpenWait()
     {
         isOpen = true;
         //OpenDoorUI.SetActive(false);
@@ -94,7 +95,8 @@ public class Gate : MonoBehaviour
         Sound.clip = OpenDoorSound;
         Sound.PlayOneShot(Sound.clip);
 
-        //yield return new WaitForSeconds(AnimeTime);
+        yield return new WaitForSeconds(AnimeTime);
+        Destroy(OpenWaitBox);
         //CloseDoorUI.SetActive(true);
         //CloseDoorText = true;
     }

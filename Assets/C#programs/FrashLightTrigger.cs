@@ -7,7 +7,7 @@ public class FrashLightTrigger : MonoBehaviour
 
     public GameObject CollectUI;
     public GameObject FrashLight;
-    public GameObject FPSlight;
+    public Light FPSlight;
 
     private bool Action = false;
     public bool isCollect;
@@ -17,7 +17,7 @@ public class FrashLightTrigger : MonoBehaviour
     {
         CollectUI.SetActive(false);
         isCollect = false;
-        FPSlight.SetActive(false);
+        FPSlight.enabled = false;
     }
 
     public void OnTriggerStay(Collider collision)
@@ -51,7 +51,7 @@ public class FrashLightTrigger : MonoBehaviour
         if( isCollect == true)
         {
             CollectUI.SetActive(false);
-            FPSlight.SetActive(true);
+            FPSlight.enabled = true;
         }
 
     }

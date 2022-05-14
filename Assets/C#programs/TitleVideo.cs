@@ -15,14 +15,24 @@ public class TitleVideo : MonoBehaviour
     [SerializeField]
     private GameObject LoadCanvas;
 
-    void Start()
+    public static bool mainTotitle = false;
+
+    void Awake()
     {
-        //ビデオ再生時のキャンバスの表示設定
-        MainCanvas.SetActive(false);
-        VideoCanvas.SetActive(true);
-        LoadCanvas.SetActive(false);
-        videoPlayer.loopPointReached += LoopPointReached;
-        videoPlayer.Play();
+        if (mainTotitle)
+        {
+           VideoCanvas.SetActive(false);
+        }
+        else
+        {
+           //ビデオ再生時のキャンバスの表示設定
+           VideoCanvas.SetActive(true);
+           videoPlayer.loopPointReached += LoopPointReached;
+           videoPlayer.Play();           
+           MainCanvas.SetActive(false);
+           LoadCanvas.SetActive(false);
+        }
+
     }
 
     // Update is called once per frame

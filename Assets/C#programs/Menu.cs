@@ -27,7 +27,7 @@ public class Menu : MonoBehaviour {
     private bool gamePause;
     private bool isLoading = false;
     //private bool esc1 = false;
-    
+
     void Start()
     {
         OnUnPause();
@@ -155,7 +155,8 @@ public class Menu : MonoBehaviour {
     }
 
     IEnumerator ResumeLoad()
-    {
+    { 
+        TitleVideo.mainTotitle = true;
         isLoading = true;
         async = SceneManager.LoadSceneAsync("TitleScene");
 
@@ -171,7 +172,6 @@ public class Menu : MonoBehaviour {
         RetrySlider.value = 1.0f;
         async.allowSceneActivation = true;
         yield return async;
-
         async.allowSceneActivation = true;
         isLoading = false;
 

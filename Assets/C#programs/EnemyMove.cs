@@ -25,7 +25,7 @@ public class EnemyMove : MonoBehaviour
             var direction = positionDiff.normalized;
             var hitCount = Physics.RaycastNonAlloc(transform.position, direction, _raycastHits, distans);
             Debug.Log("hitCount: " + hitCount);
-            if(hitCount == 2)
+            if(hitCount == 3)
             {
                 _agent.isStopped = false;
                 _agent.destination = collider.transform.position;
