@@ -35,7 +35,7 @@ public class Menu : MonoBehaviour {
         retrybutton();
         resumebutton();
         SlenderAudioSource.Play();
-        SEAudioSource.Play();
+        //SEAudioSource.Play();
         //雷の音　(Clip)
         FPSAudioSource.volume = rainvolume;
         FPSAudioSource.Play();

@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 
 public class Gate : MonoBehaviour
 {
-    FPSTrigger fpstrigger;
-    GameObject FPS;
     public GameObject OpenDoorUI;
     public GameObject CloseDoorUI;
     [SerializeField] private AudioSource Sound;
@@ -30,8 +28,6 @@ public class Gate : MonoBehaviour
 
     void Start()
     {
-        FPS = GameObject.Find("Trigger");
-        fpstrigger = FPS.GetComponent<FPSTrigger>();
         OpenDoorUI.SetActive(false);
         CloseDoorUI.SetActive(false);
     }
@@ -46,18 +42,18 @@ public class Gate : MonoBehaviour
     void Update()
     {
         //DoorOpen
-         if (fpstrigger.open == true && isOpen == false)
+         if (FPSTrigger.open == true && isOpen == false)
          {
             OpenDoorUI.SetActive(true);
               
          }
-         if(isOpen == true || fpstrigger.open == false)
+         if(isOpen == true || FPSTrigger.open == false)
          {
             OpenDoorUI.SetActive(false);  
          }
 
          //DoorClose
-         if(fpstrigger.close == true && isOpen == true)
+         if(FPSTrigger.close == true && isOpen == true)
          {
             if (One)
             {
@@ -69,7 +65,7 @@ public class Gate : MonoBehaviour
 
          if (Input.GetKeyDown(KeyCode.F))
          {
-             if (isOpen == false && fpstrigger.open == true)
+             if (isOpen == false && FPSTrigger.open == true)
              {
                 StartCoroutine("DoorOpenWait");
              }
@@ -96,6 +92,7 @@ public class Gate : MonoBehaviour
         Sound.PlayOneShot(Sound.clip);
 
         yield return new WaitForSeconds(AnimeTime);
+        Sound.clip = null;
         Destroy(OpenWaitBox);
         //CloseDoorUI.SetActive(true);
         //CloseDoorText = true;
@@ -122,12 +119,14 @@ public class Gate : MonoBehaviour
             Sound.volume = 1;
             Sound.PlayOneShot(Sound.clip);
             yield return new WaitForSeconds(2);
+            Sound.clip = null;
             //OpenDoorText = true;
             isOpen = false;
         }
         else
         {
             yield return new WaitForSeconds(AnimeTime);
+            Sound.clip = null;
             //OpenDoorUI.SetActive(true);
             //OpenDoorText = true;
             isOpen = false;

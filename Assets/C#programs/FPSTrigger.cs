@@ -5,11 +5,20 @@ using UnityEngine;
 public class FPSTrigger : MonoBehaviour
 {
     [SerializeField]
-    public bool open = false;
+    public static bool open;
     [SerializeField]
-    public bool close = false;
+    public static bool close;
+    [SerializeField]
+    private GameObject CloseTigger;
 
-    private bool One = true;
+    private bool One;
+
+    private void Start()
+    {
+        open = false;
+        close = false;
+        One = true;
+    }
     void OnTriggerStay(Collider collision)
     {
         if (collision.transform.tag == "DoorOpenTrigger")
@@ -26,6 +35,7 @@ public class FPSTrigger : MonoBehaviour
             if (One)
             {
                close = true;
+                Destroy(CloseTigger);
                 One = false;
             }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OffstFlashlight : MonoBehaviour
 {
+    [SerializeField] private GameObject SubCamera;
     private Vector3 vectOffset;
     private GameObject goFollow;
     [SerializeField] private float speed = 5.0f;
@@ -16,7 +17,15 @@ public class OffstFlashlight : MonoBehaviour
 
     private void Update()
     {
-        transform.position = goFollow.transform.position + vectOffset;
-        transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
+        if (!LookAtTarget.seconding)
+        {
+            transform.position = goFollow.transform.position + vectOffset;
+            transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = SubCamera.transform.position + vectOffset;
+            transform.rotation = Quaternion.Slerp(transform.rotation, SubCamera.transform.rotation, speed * Time.deltaTime);
+        }
     }
 }
