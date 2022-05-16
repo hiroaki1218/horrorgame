@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ItemDateBase : ScriptableObject
 {
+    [SerializeField]
     public List<Items> itemList = new List<Items>();
 }
 

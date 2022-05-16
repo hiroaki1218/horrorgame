@@ -8,13 +8,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class Menu : MonoBehaviour {
 
-    public GameObject player;
-    public GameObject OnPanel, OnUnPanel;
-    public GameObject BuckButton;
-    public GameObject RetryButton;
+    [SerializeField] public GameObject player;
+    [SerializeField] public GameObject OnPanel, OnUnPanel;
+    [SerializeField] public GameObject BuckButton;
+    [SerializeField] public GameObject RetryButton;
     [SerializeField] private GameObject RetryLoadUI;
     [SerializeField] private Slider RetrySlider;
-    public GameObject ResumeButton;
+    [SerializeField] public GameObject ResumeButton;
     [SerializeField] private GameObject ResumeLoadUI;
     [SerializeField] private Slider ResumeSlider;
     [SerializeField] public AudioSource SlenderAudioSource;

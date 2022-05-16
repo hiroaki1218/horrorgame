@@ -8137,9 +8137,9 @@ MonoBehaviour:
   subcamera: {fileID: 1118628926}
   player: {fileID: 1656678102}
   target: {fileID: 560615925}
-  speed: 5
+  speed: 1.4
   FirstRotateTime: 9.3
-  SecondRotateTime: 0.8
+  SecondRotateTime: 2.6
 --- !u!1 &1146733652
 GameObject:
   m_ObjectHideFlags: 0
