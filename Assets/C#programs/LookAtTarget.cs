@@ -7,6 +7,7 @@ public class LookAtTarget : MonoBehaviour
 {
     [SerializeField] private Camera MainCamera;
     [SerializeField] private Camera SubCamera;
+    [SerializeField] private GameObject FPSchr;
     public GameObject maincamera;
     public GameObject subcamera;
     public GameObject player;
@@ -17,15 +18,14 @@ public class LookAtTarget : MonoBehaviour
 
     private GameObject goFollow;
     private Vector3 vectOffset;
+    private Vector3 tmp;
     private bool finish1;
-    public static bool finish2;
     public static bool seconding;
 
     private void Start()
     {
         seconding = false;
         finish1 = false;
-        finish2 = false;
         SubCamera.enabled = false;
     }
     private void Update()
@@ -42,38 +42,34 @@ public class LookAtTarget : MonoBehaviour
         seconding = true;
         SubCamera.enabled = true;
         MainCamera.enabled = false;
-
-        goFollow = maincamera;
-        vectOffset = transform.position - goFollow.transform.position;
-
+        
         FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();
         fpc.enabled = false;
         Vector3 direction = target.position - transform.position;
         Quaternion rotation1 = Quaternion.LookRotation(direction);
+
         if (!finish1)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation1, speed * Time.deltaTime);
-        }
-        yield return new WaitForSeconds(FirstRotateTime);
+            subcamera.transform.rotation = Quaternion.Lerp(subcamera.transform.rotation, rotation1, speed * Time.deltaTime);
 
-        if (!finish2)
+            //FPSchr.transform.rotation = Quaternion.Slerp(FPSchr.transform.rotation, rotation1, speed * Time.deltaTime);
+        }
+        if (finish1)
         {
-            transform.position = goFollow.transform.position + vectOffset;
-            transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
-        }
-
-        yield return new WaitForSeconds(SecondRotateTime);
-
-        seconding = false;
-        subcamera.SetActive(false);
-        MainCamera.enabled = true;
-        fpc.enabled = true;
+            Vector3 direction2 = target.position - transform.position;
+            Quaternion rotation2 = Quaternion.LookRotation(-direction2);
+            yield return new WaitForSeconds(1);
+            subcamera.transform.rotation = Quaternion.Lerp(transform.rotation, rotation2, speed * Time.deltaTime);
+            subcamera.transform.rotation = maincamera.transform.rotation;
+            subcamera.SetActive(false);
+            MainCamera.enabled = true;
+            fpc.enabled = true;
+            seconding = false;
+        }  
     }
     IEnumerator Count()
     {
         yield return new WaitForSeconds(FirstRotateTime);
         finish1 = true;
-        yield return new WaitForSeconds(SecondRotateTime);
-        finish2 = true;
     }
 }

@@ -8133,6 +8133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 1831838364}
   SubCamera: {fileID: 1118628929}
+  FPSchr: {fileID: 1656678102}
   maincamera: {fileID: 1831838325}
   subcamera: {fileID: 1118628926}
   player: {fileID: 1656678102}
@@ -8917,6 +8918,10 @@ PrefabInstance:
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_HDR
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_Depth
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: field of view
@@ -10669,6 +10674,20 @@ MonoBehaviour:
   staminaProgressUI1: {fileID: 930519691}
   staminaProgressUI2: {fileID: 1851468238}
   sliderCamvasGroup: {fileID: 2035988599}
+--- !u!114 &1656678109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656678102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65eff3259719ee4e98ac1b47534e4d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FPSc: {fileID: 1656678102}
+  turnTime: 1
 --- !u!4 &1657834607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 469502, guid: 04c36f15bbecd854cab50deedb5c594f, type: 3}

@@ -55,7 +55,7 @@ public class Menu : MonoBehaviour {
             {
                 OnPause();
             }
-            else if( isLoading == false)
+            else if( isLoading == false )
             {
                 OnUnPause();
             }

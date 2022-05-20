@@ -188,25 +188,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return;
             }
-            // pick & play a random footstep sound from the array,
-            // excluding sound at index 0
-            //int n = Random.Range(1, m_FootstepSounds.Length);
-            // m_AudioSource.clip = m_FootstepSounds[0];
-            // m_AudioSource.PlayOneShot(m_AudioSource.clip);
                    Aoudio();
-            // move picked sound to index 0 so it's not picked next time
-            //m_FootstepSounds[0] = m_FootstepSounds[0];
-            //m_FootstepSounds[0] = m_AudioSource.clip;
         }
-
-        //public void OnTriggerStay(Collider other)
-        //{
-            //if(other.gameObject.tag == "OnWater")
-            //{
-                //Debug.Log("water");
-            //}
-        //}
-
 
         private void UpdateCameraPosition(float speed)
         {
