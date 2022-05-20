@@ -26,6 +26,7 @@ public class Menu : MonoBehaviour {
     private AsyncOperation async;
     private bool gamePause;
     private bool isLoading = false;
+    public static bool pause;
     //private bool esc1 = false;
 
     void Start()
@@ -43,23 +44,28 @@ public class Menu : MonoBehaviour {
         RetryLoadUI.SetActive(false);
         //Resumeロード処理
         ResumeLoadUI.SetActive(false);
+        pause = false;
     }  
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!Inventory.inventory)
         {
-            gamePause = !gamePause;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                gamePause = !gamePause;
 
-            if ( gamePause == true )
-            {
-                OnPause();
-            }
-            else if( isLoading == false )
-            {
-                OnUnPause();
-            }
-        }    
+                if ( gamePause == true )
+                {
+                    OnPause();
+                }
+                else if( isLoading == false )
+                {
+                    OnUnPause();
+                }
+            }    
+        }
+        
     }
 
     public void OnPause()
@@ -71,6 +77,7 @@ public class Menu : MonoBehaviour {
         SEAudioSource.Pause();
         Time.timeScale = 0;
         gamePause = true;
+        pause = true;
         FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();
         fpc.enabled = false;
         
@@ -89,6 +96,7 @@ public class Menu : MonoBehaviour {
         FPSAudioSource.Play();
         Time.timeScale = 1;
         gamePause = false;
+        pause = false;
         FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();
         fpc.enabled = true;
 
