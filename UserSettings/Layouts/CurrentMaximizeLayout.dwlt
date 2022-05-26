@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 7497
+  controlID: 14988
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -45,9 +45,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1507
+    x: 1528
     y: 73
-    width: 486
+    width: 465
     height: 628
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -95,23 +95,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 486
+      width: 465
       height: 607
-    m_Scale: {x: 0.253125, y: 0.253125}
-    m_Translation: {x: 242.99998, y: 303.5}
+    m_Scale: {x: 0.2421875, y: 0.2421875}
+    m_Translation: {x: 232.5, y: 303.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -959.9999
-      y: -1199.0123
-      width: 1919.9999
-      height: 2398.0247
+      x: -960
+      y: -1253.1613
+      width: 1920
+      height: 2506.3225
     m_MinimalGUI: 1
-  m_defaultScale: 0.253125
-  m_LastWindowPixelSize: {x: 486, y: 628}
+  m_defaultScale: 0.2421875
+  m_LastWindowPixelSize: {x: 465, y: 628}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 7498
+  controlID: 14989
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 7499
+  controlID: 14990
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,9 +225,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1a710000
-      m_LastClickedID: 28954
-      m_ExpandedIDs: c656feffe0faffffc0710000
+      m_SelectedIDs: cec80000
+      m_LastClickedID: 0
+      m_ExpandedIDs: b47cfeffd691feff3a52ffff7a52ffff7c52fffff05bffffc46effff1682ffffb0bfffffb0c1ffffecfaffffeeb80000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -268,7 +268,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 364
     y: 0
-    width: 1143
+    width: 1164
     height: 649
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -299,7 +299,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 364
     y: 73
-    width: 1141
+    width: 1162
     height: 628
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -502,9 +502,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 139.86743, y: 0.7770403, z: 229.92667}
+    m_Target: {x: 6.1585712, y: -91.98152, z: 330.28204}
     speed: 2
-    m_Value: {x: 139.86743, y: 0.7770403, z: 229.92667}
+    m_Value: {x: 6.1585712, y: -91.98152, z: 330.28204}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -551,13 +551,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.003308207, y: -0.006872697, z: -0.000008948671, w: 1.000031}
+    m_Target: {x: 0.18644592, y: -0.057083208, z: 0.010404233, w: 0.9809371}
     speed: 2
-    m_Value: {x: 0.0033080082, y: -0.0068722838, z: -0.000008948134, w: 0.9999709}
+    m_Value: {x: 0.18641177, y: -0.05707275, z: 0.0104023265, w: 0.9807574}
   m_Size:
-    m_Target: 121.24355
+    m_Target: 124.40902
     speed: 2
-    m_Value: 121.24355
+    m_Value: 124.40902
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -597,9 +597,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1507
+    x: 1528
     y: 0
-    width: 488
+    width: 467
     height: 649
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -676,22 +676,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Flooded_Grounds/Prefabs/Props
+    - Assets/ScifiOfficeLite/Scene
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Flooded_Grounds/Prefabs/Props
+  - Assets/ScifiOfficeLite/Scene
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\\u9AD8\u539F \u5149\u6708\\Documents\\horrorgame"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 143}
-    m_SelectedIDs: 08980000
-    m_LastClickedID: 38920
-    m_ExpandedIDs: 000000000e900000109000001290000072900000f297000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 447}
+    m_SelectedIDs: b4c90000
+    m_LastClickedID: 51636
+    m_ExpandedIDs: 0000000050920000529200005492000058920000c49500001c9600004c96000004c9000092c900009cc90000f4c9000016ca000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -719,7 +719,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000e900000109000001290000000ca9a3bffffff7f
+    m_ExpandedIDs: 0000000050920000529200005492000058920000c49500001c9600004c96000004c9000092c90000f4c9000016ca000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -744,9 +744,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 1a710000
-    m_LastClickedInstanceID: 28954
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: cec80000
+    m_LastClickedInstanceID: 51406
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
