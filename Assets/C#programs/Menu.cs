@@ -63,7 +63,7 @@ public class Menu : MonoBehaviour {
                 {
                     OnUnPause();
                 }
-            }    
+            }
         }
         
     }
@@ -131,7 +131,6 @@ public class Menu : MonoBehaviour {
     IEnumerator RetryLoad()  
     {
         isLoading = true;
-       // yield return new WaitForSeconds(1);
          async = SceneManager.LoadSceneAsync("MainScene");
 
          async.allowSceneActivation = false;

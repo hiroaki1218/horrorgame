@@ -8,6 +8,7 @@ public class ItemTalk : MonoBehaviour
     public GameObject itemUI;
     [SerializeField]
     public Camera mainCamera;
+    public static string objName;
     public bool isHit;
 
     private void Start()
@@ -31,6 +32,7 @@ public class ItemTalk : MonoBehaviour
                 {
                     //Debug.Log("ƒAƒCƒeƒ€");
                     itemUI.SetActive(true);
+                    objName = hit.transform.gameObject.name;
                     isHit = true;
                 }
                 else

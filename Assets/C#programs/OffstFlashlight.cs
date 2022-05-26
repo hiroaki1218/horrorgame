@@ -17,15 +17,15 @@ public class OffstFlashlight : MonoBehaviour
 
     private void Update()
     {
-        if (!LookAtTarget.seconding)
-        {
+        //if (!LookAtTarget.seconding)
+        
             transform.position = goFollow.transform.position + vectOffset;
             transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
-        }
-        else
-        {
-            transform.position = SubCamera.transform.position + vectOffset;
-            transform.rotation = Quaternion.Slerp(transform.rotation, SubCamera.transform.rotation, speed * Time.deltaTime);
-        }
+        
+        //else
+        //{
+            //transform.position = SubCamera.transform.position + vectOffset;
+            //transform.rotation = Quaternion.Slerp(transform.rotation, SubCamera.transform.rotation, speed * Time.deltaTime);
+        //}
     }
 }

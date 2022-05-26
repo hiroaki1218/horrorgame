@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OutlieController : MonoBehaviour
 {
+    [SerializeField] private GameObject gameobj;
     GameObject mainCamera;
     ItemTalk itemtalk;
     Outline outline;
@@ -11,16 +12,16 @@ public class OutlieController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        outline = GetComponent<Outline>();
         mainCamera = GameObject.Find("FirstPersonCharacter");
         itemtalk = mainCamera.GetComponent<ItemTalk>();
+        outline = gameobj.GetComponent<Outline>();
         outline.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(itemtalk.isHit == true)
+        if(itemtalk.isHit == true && ItemTalk.objName == gameobj.name)
         {
             outline.enabled = true;
         }

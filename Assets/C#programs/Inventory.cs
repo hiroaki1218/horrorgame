@@ -32,12 +32,16 @@ public class Inventory : MonoBehaviour
                     InvUI.SetActive(true);
                     fpc.enabled = false;
                     inventory = true;
+                    Cursor.visible = true;     // カーソル表示
+                    Cursor.lockState = CursorLockMode.None;     // 標準モード
                 }
                 else if (!Active)
                 {
                     InvUI.SetActive(false);
                     fpc.enabled = true;
                     inventory = false;
+                    Cursor.visible = false;     // カーソル非表示
+                    Cursor.lockState = CursorLockMode.Locked;   // 中央にロック
                 }
             }
         }
