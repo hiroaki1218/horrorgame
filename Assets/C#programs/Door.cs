@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
     [HideInInspector] public Menu _menu;
     public GameObject OpenDoorUI;
     public GameObject CloseDoorUI;
-    [SerializeField] private AudioSource Sound;
+    [SerializeField] private AudioSource audiosource;
     [SerializeField] float Volume;
     [SerializeField] private AudioClip OpenDoorSound;
     [SerializeField] private AudioClip CloseDoorSound;
@@ -17,17 +17,21 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject AnimeObject2;
     [SerializeField] private float AnimeTime;
 
-    public bool SecondAnime;
+    public bool SecondDoorAnime;
     public bool rockSound;
-    private bool isOpen = false;
-    private bool Action = false;
-    private bool OpenDoorText = true;
-    private bool CloseDoorText = false;
+    private bool isOpen;
+    private bool Action;
+    private bool OpenDoorText;
+    private bool CloseDoorText;
 
     void Start()
     {
         OpenDoorUI.SetActive(false);
         CloseDoorUI.SetActive(false);
+        isOpen = false;
+        Action = false;
+        OpenDoorText = true;
+        CloseDoorText = false;
     }
 
     //トリガーにプレイヤーが入ったとき
@@ -93,17 +97,17 @@ public class Door : MonoBehaviour
 
         //OpenDoorUI.SetActive(false);
         OpenDoorText = false;
-        AnimeObject1.GetComponent<Animator>().Play("DoorOpen");
-        if (SecondAnime)
+        AnimeObject1.GetComponent<Animator>().Play("SDoorOpen");
+        if (SecondDoorAnime)
         {
-            AnimeObject2.GetComponent<Animator>().Play("BDoorOpen");
+            AnimeObject2.GetComponent<Animator>().Play("SDoorOpen");
         }
         
         
         //Audio
-        Sound.volume = Volume;
-        Sound.clip = OpenDoorSound;
-        Sound.PlayOneShot(Sound.clip);
+        audiosource.volume = Volume;
+        audiosource.clip = OpenDoorSound;
+        audiosource.PlayOneShot(audiosource.clip);
 
         yield return new WaitForSeconds(AnimeTime);
         //CloseDoorUI.SetActive(true);
@@ -117,22 +121,22 @@ public class Door : MonoBehaviour
     {
         //CloseDoorUI.SetActive(false);
         CloseDoorText = false;
-        AnimeObject1.GetComponent<Animator>().Play("DoorClose");
-        if (SecondAnime)
+        AnimeObject1.GetComponent<Animator>().Play("SDoorClose");
+        if (SecondDoorAnime)
         {
-             AnimeObject2.GetComponent<Animator>().Play("BDoorClose");
+             AnimeObject2.GetComponent<Animator>().Play("SDoorClose");
         }
-       
-         //Audio
-        Sound.volume = Volume;
-        Sound.clip = CloseDoorSound;
-        Sound.PlayOneShot(Sound.clip);
+
+        //Audio
+        audiosource.volume = Volume;
+        audiosource.clip = CloseDoorSound;
+        audiosource.PlayOneShot(audiosource.clip);
         if (rockSound)
         {
             yield return new WaitForSeconds(AnimeTime+1f);
-            Sound.clip = RockSound;
-            Sound.volume = 1;
-            Sound.PlayOneShot(Sound.clip);
+            audiosource.clip = RockSound;
+            audiosource.volume = 1;
+            audiosource.PlayOneShot(audiosource.clip);
             yield return new WaitForSeconds(2);
             OpenDoorText = true;
             isOpen = false;
