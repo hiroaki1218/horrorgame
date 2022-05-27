@@ -224,28 +224,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Physics.Raycast(RayCube.transform.position,Vector3.down, out hitInfo,1f))
             {
                 string hitColliderTag = hitInfo.collider.tag;
-                    if(hitColliderTag == "OnWater")
-                    {
-                       if (randomizePitch) {
+                    //if(hitColliderTag == "OnWater")
+                    //{
+                       //if (randomizePitch) {
                     
-                        m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
-                        int w = Random.Range(8, 10);
-                        m_AudioSource.clip = m_FootstepSounds[w];
-                        m_AudioSource.volume = 1.0f;
-                        m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                        }
-                       else if(randomizePitch == false){ 
+                        //m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+                        //int w = Random.Range(8, 10);
+                        //m_AudioSource.clip = m_FootstepSounds[w];
+                        //m_AudioSource.volume = 1.0f;
+                        //m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                        //}
+                       //else if(randomizePitch == false){ 
                        //Debug.Log("OnWater");
-                       int p = Random.Range(8, 10);
-                       m_AudioSource.clip = m_FootstepSounds[p];
-                       m_AudioSource.volume = 1.0f;
-                       m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                       }
-                    }
+                       //int p = Random.Range(8, 10);
+                       //m_AudioSource.clip = m_FootstepSounds[p];
+                       //m_AudioSource.volume = 1.0f;
+                       //m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                       //}
+                    //}
 
-               
-                
-                 else if (hitColliderTag == "Terrain")
+                 if (hitColliderTag == "Terrain")
                  {
                     // テレインデータ
                     TerrainData terrainData = hitInfo.collider.gameObject.GetComponent<Terrain>().terrainData;
@@ -355,7 +353,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             //break;
                     }
                     
-                }
+                 }
                 else
                 {
                     //床
