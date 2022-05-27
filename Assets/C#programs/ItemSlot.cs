@@ -5,12 +5,20 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    Items item;
-    Image image;
+    Items item = null;
+    GameObject empty;
+    [SerializeField] private GameObject backPanel = default;
+    Image image = default;
+    //Image image = default;
 
+    private void Start()
+    {
+        backPanel.SetActive(false);
+    }
     private void Awake()
     {
-        image = GetComponent<Image>();
+        empty = transform.GetChild(1).gameObject;
+        image = empty.GetComponent<Image>();
     }
 
     //空かどうか
@@ -26,11 +34,25 @@ public class ItemSlot : MonoBehaviour
     public void SetItem(Items item)
     {
         this.item = item;
-        UpdateImage(item);
+        image.sprite = item.sprite;
+        //UpdateImage(item);
+    }
+
+    public Items GetItem()
+    {
+        return item;
     }
     //アイテムを受け取ったら画像をスロットに表示
-    void UpdateImage(Items item)
+    //void UpdateImage(Items item)
+    //{
+        
+    //}
+    public void OnSelect()
     {
-        image.sprite = item.sprite;
+        backPanel.SetActive(true);
+    }
+    public void HideBackPanel()
+    {
+        backPanel.SetActive(false);
     }
 }

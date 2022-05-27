@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Item Date Base
   m_EditorClassIdentifier: 
   itemList:
-  - item: {fileID: 1002705123656268, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
-    expalianText: "\u96FB\u6C60\u5F0F\u61D0\u4E2D\u96FB\u706F"
+  - type: 1
+    sprite: {fileID: 21300000, guid: d708950c9099a994daa7209b27f89f60, type: 3}
+  - type: 0
+    sprite: {fileID: 21300000, guid: 971a7513907b33749a9be518df726c31, type: 3}

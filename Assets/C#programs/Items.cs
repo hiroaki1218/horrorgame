@@ -13,7 +13,6 @@ public class Items
     public enum Type
     {
         Key,
-        Battery,
         Flashlight,
     }
 
@@ -21,4 +20,10 @@ public class Items
     public Type type;
     //Item‰æ‘œ‚ğéŒ¾
     public Sprite sprite;
+
+    public Items(Type type, Sprite sprite)
+    {
+        this.type = type;
+        this.sprite = sprite;
+    }
 }
