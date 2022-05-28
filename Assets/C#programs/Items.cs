@@ -14,6 +14,7 @@ public class Items
     {
         Key,
         Flashlight,
+        Phone,
     }
 
     //ItemType‚ğéŒ¾

@@ -353,9 +353,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             //break;
                     }
                     
+                 } //カーペット
+                 else if (hitColliderTag == "Carpet")
+                 {
+                    if (randomizePitch)
+                    {
+                        m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
+                        int l = Random.Range(6, 8);
+                        m_AudioSource.clip = m_FootstepSounds[l];
+                        m_AudioSource.volume = GrassVolume;
+                        m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                    }
+                    else if (randomizePitch == false)
+                    {
+                        int j = Random.Range(6, 8);
+                        m_AudioSource.clip = m_FootstepSounds[j];
+                        m_AudioSource.volume = GrassVolume;
+                        m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                    }
                  }
-                else
-                {
+                 else
+                 {
                     //床
                     if (randomizePitch)
                     {
@@ -366,14 +384,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         m_AudioSource.volume = WoodVolume;
                         m_AudioSource.PlayOneShot(m_AudioSource.clip);
                     }
-                    else if (randomizePitch == false) { 
-                    int n = Random.Range(0,2);
-                    m_AudioSource.clip = m_FootstepSounds[n];
-                    m_AudioSource.volume = WoodVolume;
-                    m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                    //Debug.Log("uuuuuu");
+                    else if (randomizePitch == false)
+                    {
+                        int n = Random.Range(0, 2);
+                        m_AudioSource.clip = m_FootstepSounds[n];
+                        m_AudioSource.volume = WoodVolume;
+                        m_AudioSource.PlayOneShot(m_AudioSource.clip);
+                        //Debug.Log("uuuuuu");
                     }
-                }
+                 }
             }
             //Debug.DrawRay(ray.origin, ray.direction * 10, Color.red, 5);
         }

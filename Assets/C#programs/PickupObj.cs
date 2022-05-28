@@ -19,6 +19,7 @@ public class PickupObj : MonoBehaviour
         fpsLight = false;
         isCollect = false;
         Action = false;
+        CollectUI.SetActive(false);
         //itemType‚É‰‚¶‚Äitem‚ğ¶¬‚·‚é
         item = ItemGenerater.instance.Spawn(itemType);
     }
