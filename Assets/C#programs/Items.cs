@@ -15,6 +15,7 @@ public class Items
         Key,
         Flashlight,
         Phone,
+        Battery,
     }
 
     //ItemType‚ğéŒ¾
