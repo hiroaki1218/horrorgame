@@ -12,10 +12,12 @@ public class PickupObj : MonoBehaviour
     private bool Action;
     public bool isCollect;
     public static bool fpsLight;
+    public static bool collectPhone;
 
     // Start is called before the first frame update
     void Start()
     {
+        collectPhone = false;
         fpsLight = false;
         isCollect = false;
         Action = false;
@@ -53,6 +55,12 @@ public class PickupObj : MonoBehaviour
                 {
                     fpsLight = true;
                 }
+                //拾ったオブジェクトがPhoneだったら、条件3を満たす
+                if(item.type == Items.Type.Phone)
+                {
+                    collectPhone = true;
+                }
+
                 ThisItem.SetActive(false);
                 isCollect = true;
             }
