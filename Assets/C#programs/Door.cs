@@ -19,7 +19,7 @@ public class Door : MonoBehaviour
 
     public bool SecondDoorAnime;
     public bool rockSound;
-    private bool isOpen;
+    public bool isOpen;
     private bool Action;
     private bool OpenDoorText;
     private bool CloseDoorText;
