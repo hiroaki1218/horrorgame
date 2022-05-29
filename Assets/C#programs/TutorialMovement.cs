@@ -28,7 +28,7 @@ public class TutorialMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.W) && two)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.D)) && two)
         {
             Running();
             two = false;
