@@ -1299,6 +1299,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046846539}
     m_Modifications:
+    - target: {fileID: 4484852867027429885, guid: 64c1ca436cc9f024b948da169e23de04, type: 3}
+      propertyPath: m_Size.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484852867027429885, guid: 64c1ca436cc9f024b948da169e23de04, type: 3}
+      propertyPath: m_Center.y
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 4927358655439484529, guid: 64c1ca436cc9f024b948da169e23de04, type: 3}
       propertyPath: m_Name
       value: Tray
@@ -3521,7 +3529,7 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
   m_PrefabInstance: {fileID: 1849903235}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &862146274
+--- !u!114 &862146280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5727,6 +5735,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameobj: {fileID: 1494993694}
+--- !u!65 &1494993700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494993694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.28, y: 0.28, z: 0.25}
+  m_Center: {x: -0.03, y: 0.04, z: -0.06}
 --- !u!1 &1531809660
 GameObject:
   m_ObjectHideFlags: 0
