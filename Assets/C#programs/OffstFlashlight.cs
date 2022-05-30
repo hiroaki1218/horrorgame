@@ -10,8 +10,23 @@ public class OffstFlashlight : MonoBehaviour
     private GameObject goFollow;
     [SerializeField] private float speed = 5.0f;
 
+    [SerializeField] private float maxglowTime = 100.0f;
+    [SerializeField] private float Glowingtime = 100.0f;
+    [SerializeField] private float decrease = 2.0f;
+    [SerializeField] private float batteryRecovery = 20.0f;
+    [HideInInspector] public bool isRemain;
+
+    public static OffstFlashlight instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     private void Start()
     {
+        isRemain = true;
         goFollow = Camera.main.gameObject;
         vectOffset = transform.position - goFollow.transform.position;
         Fpslight.enabled = false;
@@ -19,19 +34,42 @@ public class OffstFlashlight : MonoBehaviour
 
     private void Update()
     {
-        //if (!LookAtTarget.seconding)
-        if (PickupObj.fpsLight)
+        if (PickupObj.fpsLight && isRemain)
         {
             Fpslight.enabled = true;
+        }
+        else
+        {
+            Fpslight.enabled = false;
         }
         
         transform.position = goFollow.transform.position + vectOffset;
         transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
+
+        //光る時間を徐々に減らす&電池残量の確認
+        if (PickupObj.fpsLight)
+        {
+            if(Glowingtime >= 0)
+            {
+                Glowingtime -= decrease * Time.deltaTime;
+                isRemain = true;
+            }
+            else
+            {
+                isRemain = false;
+            }
+        }
         
-        //else
-        //{
-            //transform.position = SubCamera.transform.position + vectOffset;
-            //transform.rotation = Quaternion.Slerp(transform.rotation, SubCamera.transform.rotation, speed * Time.deltaTime);
-        //}
+    }
+    //バッテリーの概念
+    public void SetBattery()
+    {
+        if(Glowingtime <= maxglowTime - 0.01f)
+        {
+            if((Glowingtime += batteryRecovery) > maxglowTime)
+            {
+                Glowingtime = maxglowTime;
+            }
+        }
     }
 }

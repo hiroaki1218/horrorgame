@@ -1619,6 +1619,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fpslight: {fileID: 184223525}
   speed: 9
+  maxglowTime: 100
+  Glowingtime: 100
+  decrease: 2
+  batteryRecovery: 20
+  isRemain: 0
 --- !u!1 &187445997
 GameObject:
   m_ObjectHideFlags: 0
