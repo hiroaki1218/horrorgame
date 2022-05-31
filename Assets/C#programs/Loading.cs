@@ -33,23 +33,44 @@ public class Loading : MonoBehaviour
 
 	IEnumerator LoadData()
 	{
-		async = SceneManager.LoadSceneAsync("MainScene");
+        if (!TitleVideo.mainTotitle)
+        {
+			async = SceneManager.LoadSceneAsync("SubScene");
 
-		async.allowSceneActivation = false;
+			async.allowSceneActivation = false;
 
 
-		//　読み込みが終わるまで進捗状況をスライダーの値に反映させる
-		while (async.progress < 0.9f)
-		{
-			slider.value = async.progress;
-			yield return null;
+			//　読み込みが終わるまで進捗状況をスライダーの値に反映させる
+			while (async.progress < 0.9f)
+			{
+				slider.value = async.progress;
+				yield return null;
+			}
+			slider.value = 1.0f;
+			async.allowSceneActivation = true;
+			yield return async;
+
+			async.allowSceneActivation = true;
 		}
-		slider.value = 1.0f;
-		async.allowSceneActivation = true;
-		yield return async;
+        else
+        {
+			async = SceneManager.LoadSceneAsync("MainScene");
 
-		async.allowSceneActivation = true;
+			async.allowSceneActivation = false;
 
+
+			//　読み込みが終わるまで進捗状況をスライダーの値に反映させる
+			while (async.progress < 0.9f)
+			{
+				slider.value = async.progress;
+				yield return null;
+			}
+			slider.value = 1.0f;
+			async.allowSceneActivation = true;
+			yield return async;
+
+			async.allowSceneActivation = true;
+		}
 	}
 
 

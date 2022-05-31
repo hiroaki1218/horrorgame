@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TutorialMovement : MonoBehaviour
 {
@@ -119,6 +119,7 @@ public class TutorialMovement : MonoBehaviour
             DoorcheckMark.SetActive(true);
             yield return new WaitForSeconds(1.0f);//1sの時差
             doorconditonCanvas.SetActive(false);　//条件４：ドアのUI非表示
+            SceneManager.LoadScene("MainScene");
         }
         else if(four)
         {
