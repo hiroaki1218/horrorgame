@@ -46,33 +46,35 @@ public class PickupObj : MonoBehaviour
     {
         if (Action == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if(!Inventory.inventory && !Menu.pause)
             {
-                if (itemType == Items.Type.Battery)
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    OffstFlashlight.instance.SetBattery();
-                }
-                else
-                {
-                    //ItemSetActive(false)
-                    ItemBox.instance.SetItem(item);
-                    //拾ったオブジェクトがFlashlightだったら、FPSのライトをオンにする
-                    if(item.type == Items.Type.Flashlight)
+                    if (itemType == Items.Type.Battery)
                     {
-                        fpsLight = true;
+                        OffstFlashlight.instance.SetBattery();
                     }
-                    //拾ったオブジェクトがPhoneだったら、条件3を満たす
-                    if(item.type == Items.Type.Phone)
+                    else
                     {
-                        collectPhone = true;
+                        //ItemSetActive(false)
+                        ItemBox.instance.SetItem(item);
+                        //拾ったオブジェクトがFlashlightだったら、FPSのライトをオンにする
+                        if (item.type == Items.Type.Flashlight)
+                        {
+                            fpsLight = true;
+                        }
+                        //拾ったオブジェクトがPhoneだったら、条件3を満たす
+                        if (item.type == Items.Type.Phone)
+                        {
+                            collectPhone = true;
+                        }
                     }
-                }
-                
 
-                ThisItem.SetActive(false);
-                isCollect = true;
+
+                    ThisItem.SetActive(false);
+                    isCollect = true;
+                }
             }
-
         }
         //CollectされたらUIを消す
         if (isCollect)
