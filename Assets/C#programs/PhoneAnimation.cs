@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PhoneAnimation : MonoBehaviour
 {
-    [SerializeField] private GameObject SmartPhone;
+    [SerializeField]
+    private GameObject SmartPhone;
+    private bool Active;
     private void Awake()
     {
         SmartPhone.SetActive(false);
     }
     void Start()
     {
-        
+       
     }
 
     void Update()
@@ -20,8 +22,26 @@ public class PhoneAnimation : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                SmartPhone.SetActive(true);
+                Active = !Active;
+
+                if (Active)
+                {
+                    SmartPhone.SetActive(true);
+                    SmartPhone.GetComponent<Animator>().Play("PhoneOn");
+                }
+                else if (!Active)
+                {
+                    SmartPhone.GetComponent<Animator>().Play("PhoneOff");
+                    StartCoroutine("OffPhone");
+                }
             }
+
         }
+    }
+    IEnumerator OffPhone()
+    {
+        //êîïbå„Ç…è¡Ç¶ÇÈÅiíxâÑÅj
+        yield return new WaitForSeconds(0.37f);
+        SmartPhone.SetActive(false);
     }
 }
