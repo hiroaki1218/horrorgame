@@ -494,9 +494,12 @@ private void GetInput(out float speed)
             }
             body.AddForceAtPosition(m_CharacterController.velocity * 0.1f, hit.point, ForceMode.Impulse);
         }
- 
-    }
 
+        public bool GetIsWalking()
+        {
+            return m_IsWalking;
+        }
+    }
 
    
 }
