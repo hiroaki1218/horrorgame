@@ -7,9 +7,10 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject InvUI;
-    public GameObject player;
+    [SerializeField] private GameObject player;
     private bool Active;
     public static bool inventory;
+    FirstPersonControllerCustom fpc;
 
     public void Start()
     {
@@ -20,13 +21,12 @@ public class Inventory : MonoBehaviour
 
     public void Update()
     {
+        fpc = player.GetComponent<FirstPersonControllerCustom>();
         if (!Menu.pause)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 Active = !Active;
-                FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();
-
                 if (Active)
                 {
                     InvUI.SetActive(true);
@@ -44,6 +44,7 @@ public class Inventory : MonoBehaviour
                     Cursor.lockState = CursorLockMode.Locked;   // íÜâõÇ…ÉçÉbÉN
                 }
             }
+            
         }
         
     }
