@@ -18,6 +18,7 @@ public class PhoneAnimation : MonoBehaviour
     private bool finish2;
     private bool isBrank;
     private bool cameraBack;
+    public static bool isLookPhone;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class PhoneAnimation : MonoBehaviour
         finish2 = true;
         isBrank = false;
         cameraBack = true;
+        isLookPhone = false;
     }
 
     void Update()
@@ -45,27 +47,33 @@ public class PhoneAnimation : MonoBehaviour
     {
         if (PickupObj.collectPhone)
         {
-            if (finish1 && finish2)
+            if(!Inventory.inventory && !Menu.pause)
             {
-                if (Input.GetKey(KeyCode.R) && !isBrank)
+                if (finish1 && finish2)
                 {
-                    Active = !Active;
+                    if (Input.GetKey(KeyCode.R) && !isBrank)
+                    {
+                        Active = !Active;
 
-                    if (Active)
-                    {
-                        fpc.enabled = false;
+                        if (Active)
+                        {
+                            fpc.enabled = false;
+                            isLookPhone = true;
+                        }
+                        else if (!Active)
+                        {
+                            StartCoroutine("FPSenabled");
+                        }
+                        isBrank = true;
+                        yield return new WaitForSeconds(3f);
+                        isBrank = false;
                     }
-                    else if (!Active)
-                    {
-                        StartCoroutine("FPSenabled");
-                    }
-                    isBrank = true;
-                    yield return new WaitForSeconds(3f);
-                    isBrank = false;
+
                 }
-
+                StartCoroutine("OnOffPhone");
             }
-            StartCoroutine("OnOffPhone");
+            
+            
         }
     }
     IEnumerator OnOffPhone()
@@ -124,5 +132,6 @@ public class PhoneAnimation : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         fpc.enabled = true;
+        isLookPhone = false;
     }
 }

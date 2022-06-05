@@ -37,30 +37,36 @@ public class Door : MonoBehaviour
     //トリガーにプレイヤーが入ったとき
     void OnTriggerStay(Collider collision)
     {
-        
-
-        if (collision.transform.tag == "Player")
+        if(!Inventory.inventory && !Menu.pause && !PhoneAnimation.isLookPhone)
         {
-            if( OpenDoorText == true )
-            { 
-                OpenDoorUI.SetActive(true);
-            }
-            if( OpenDoorText == false)
+            if (collision.transform.tag == "Player")
             {
-                OpenDoorUI.SetActive(false);
-            }
+                if (OpenDoorText == true)
+                {
+                    OpenDoorUI.SetActive(true);
+                }
+                if (OpenDoorText == false)
+                {
+                    OpenDoorUI.SetActive(false);
+                }
 
-            if( CloseDoorText == true )
-            {
-                CloseDoorUI.SetActive(true);
-            }
-            if( CloseDoorText == false)
-            {
-                CloseDoorUI.SetActive(false);
-            }
-            //OpenDoorUI.SetActive(true);
-            Action = true;
+                if (CloseDoorText == true)
+                {
+                    CloseDoorUI.SetActive(true);
+                }
+                if (CloseDoorText == false)
+                {
+                    CloseDoorUI.SetActive(false);
+                }
+                //OpenDoorUI.SetActive(true);
+                Action = true;
 
+            }
+        }
+        else
+        {
+            OpenDoorUI.SetActive(false);
+            CloseDoorUI.SetActive(false);
         }
     }
 
@@ -73,22 +79,27 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if( OpenDoorText == true || CloseDoorText == true) { 
-           if (Input.GetKeyDown(KeyCode.F))
-           {
-            if ( isOpen == false && Action == true)
+        if(!Inventory.inventory && !Menu.pause && !PhoneAnimation.isLookPhone)
+        {
+            if (OpenDoorText == true || CloseDoorText == true)
             {
-                StartCoroutine(DoorOpenWait());
-                DoorOpenWait();
-            }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    if (isOpen == false && Action == true)
+                    {
+                        StartCoroutine(DoorOpenWait());
+                        DoorOpenWait();
+                    }
 
-            if( isOpen == true && Action == true)
-            {
-                StartCoroutine(DoorCloseWait());
-                DoorCloseWait();
+                    if (isOpen == true && Action == true)
+                    {
+                        StartCoroutine(DoorCloseWait());
+                        DoorCloseWait();
+                    }
+                }
             }
-           }
         }
+        
     }
 
 

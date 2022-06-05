@@ -41,37 +41,39 @@ public class Gate : MonoBehaviour
 
     void Update()
     {
-        //DoorOpen
-         if (FPSTrigger.open == true && isOpen == false)
-         {
-            OpenDoorUI.SetActive(true);
-              
-         }
-         if(isOpen == true || FPSTrigger.open == false)
-         {
-            OpenDoorUI.SetActive(false);  
-         }
-
-         //DoorClose
-         if(FPSTrigger.close == true && isOpen == true)
-         {
-            if (One)
+        if(!Inventory.inventory && !Menu.pause && !PhoneAnimation.isLookPhone)
+        {
+            //DoorOpen
+            if (FPSTrigger.open == true && isOpen == false)
             {
-               StartCoroutine("DoorCloseWait");
-                One = false;
+                OpenDoorUI.SetActive(true);
+
             }
-            
-         }
+            if (isOpen == true || FPSTrigger.open == false)
+            {
+                OpenDoorUI.SetActive(false);
+            }
 
-         if (Input.GetKeyDown(KeyCode.F))
-         {
-             if (isOpen == false && FPSTrigger.open == true)
-             {
-                StartCoroutine("DoorOpenWait");
-             }
+            //DoorClose
+            if (FPSTrigger.close == true && isOpen == true)
+            {
+                if (One)
+                {
+                    StartCoroutine("DoorCloseWait");
+                    One = false;
+                }
 
-         }
-        
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (isOpen == false && FPSTrigger.open == true)
+                {
+                    StartCoroutine("DoorOpenWait");
+                }
+
+            }
+        }
     }
 
 

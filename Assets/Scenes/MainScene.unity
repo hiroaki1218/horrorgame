@@ -31429,7 +31429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2473399572852928182, guid: ffbcab44e3b514f488eb9304117aede1, type: 3}
       propertyPath: m_Name
-      value: rust_key
+      value: rustkey
       objectReference: {fileID: 0}
     - target: {fileID: 2838105341765803269, guid: ffbcab44e3b514f488eb9304117aede1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31463,6 +31463,10 @@ PrefabInstance:
       propertyPath: FrashLight
       value: 
       objectReference: {fileID: 1348345111}
+    - target: {fileID: 4210744439998667370, guid: ffbcab44e3b514f488eb9304117aede1, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2838105341765803291, guid: ffbcab44e3b514f488eb9304117aede1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ffbcab44e3b514f488eb9304117aede1, type: 3}

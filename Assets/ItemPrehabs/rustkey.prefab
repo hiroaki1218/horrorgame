@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2838105339887119623}
   - component: {fileID: 2838105339887119642}
   m_Layer: 3
-  m_Name: rust_key
+  m_Name: rustkey
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,7 +260,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectUI: {fileID: 0}
   ThisItem: {fileID: 0}
-  item:
-    type: 0
-    sprite: {fileID: 21300000, guid: d708950c9099a994daa7209b27f89f60, type: 3}
+  itemType: 0
   isCollect: 0
