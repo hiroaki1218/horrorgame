@@ -45,8 +45,8 @@ public class PhoneAnimation : MonoBehaviour
 
     IEnumerator StartProcessing()
     {
-        if (PickupObj.collectPhone)
-        {
+        
+        
             if(!Inventory.inventory && !Menu.pause)
             {
                 if (finish1 && finish2)
@@ -74,7 +74,7 @@ public class PhoneAnimation : MonoBehaviour
             }
             
             
-        }
+        
     }
     IEnumerator OnOffPhone()
     {
