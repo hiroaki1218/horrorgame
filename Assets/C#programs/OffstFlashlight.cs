@@ -15,6 +15,7 @@ public class OffstFlashlight : MonoBehaviour
     [SerializeField] private float decrease = 2.0f;
     [SerializeField] private float batteryRecovery = 20.0f;
     [HideInInspector] public bool isRemain;
+    
 
     public static OffstFlashlight instance;
     private void Awake()
@@ -34,20 +35,21 @@ public class OffstFlashlight : MonoBehaviour
 
     private void Update()
     {
-        if (PickupObj.fpsLight && isRemain)
+        
+        if (PickupObj.fpsLight && isRemain && !PhoneAnimation.isLookPhone)
         {
-            Fpslight.enabled = true;
+             Fpslight.enabled = true;
         }
         else
         {
-            Fpslight.enabled = false;
+             Fpslight.enabled = false;
         }
         
         transform.position = goFollow.transform.position + vectOffset;
         transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
 
         //光る時間を徐々に減らす&電池残量の確認
-        if (PickupObj.fpsLight)
+        if (PickupObj.fpsLight && !PhoneAnimation.isLookPhone)
         {
             if(Glowingtime >= 0)
             {
