@@ -59,10 +59,14 @@ public class PhoneAnimation : MonoBehaviour
                         {
                             fpc.enabled = false;
                             isLookPhone = true;
+                            Cursor.lockState = CursorLockMode.None;     // 標準モード
+                            Cursor.visible = true;    // カーソル表示
                         }
                         else if (!Active)
                         {
                             StartCoroutine("FPSenabled");
+                            Cursor.lockState = CursorLockMode.Locked;     // 標準モード
+                            Cursor.visible = false;    // カーソル表示
                         }
                         isBrank = true;
                         yield return new WaitForSeconds(3f);
