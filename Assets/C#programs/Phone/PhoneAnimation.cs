@@ -47,7 +47,7 @@ public class PhoneAnimation : MonoBehaviour
     {
         
         
-            if(!Inventory.inventory && !Menu.pause)
+            if(!Inventory.inventory && !Menu.pause && !Memo.LookMemo)
             {
                 if (finish1 && finish2)
                 {

@@ -57,7 +57,7 @@ public class PickupObj : MonoBehaviour
     {
         if (Action == true)
         {
-            if(!Inventory.inventory && !Menu.pause)
+            if(!Inventory.inventory && !Menu.pause && !Memo.LookMemo)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -78,6 +78,16 @@ public class PickupObj : MonoBehaviour
                         if (item.type == Items.Type.Phone)
                         {
                             collectPhone = true;
+                        }
+                        //拾ったオブジェクトがMemo1だったら、Memo1を出す
+                        if(item.type == Items.Type.Memo1)
+                        {
+                            Memo.Memo1 = true;
+                        }
+                        //拾ったオブジェクトがMemo2だったら、Memo2を出す
+                        if (item.type == Items.Type.Memo2)
+                        {
+                            Memo.Memo2 = true;
                         }
                     }
 

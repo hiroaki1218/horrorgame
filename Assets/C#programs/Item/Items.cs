@@ -17,6 +17,7 @@ public class Items
         Phone,
         Battery,
         Memo1,
+        Memo2,
     }
 
     //ItemType‚ğéŒ¾

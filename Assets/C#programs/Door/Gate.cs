@@ -41,7 +41,7 @@ public class Gate : MonoBehaviour
 
     void Update()
     {
-        if(!Inventory.inventory && !Menu.pause && !PhoneAnimation.isLookPhone)
+        if(!Inventory.inventory && !Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo)
         {
             //DoorOpen
             if (FPSTrigger.open == true && isOpen == false)

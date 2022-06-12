@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject InvUI;
     [SerializeField] private GameObject player;
+    [SerializeField] private Text text;
     private bool Active;
     public static bool inventory;
     FirstPersonControllerCustom fpc;
@@ -22,7 +23,7 @@ public class Inventory : MonoBehaviour
     public void Update()
     {
         fpc = player.GetComponent<FirstPersonControllerCustom>();
-        if (!Menu.pause && !PhoneAnimation.isLookPhone)
+        if (!Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
             {
@@ -46,6 +47,26 @@ public class Inventory : MonoBehaviour
             }
             
         }
-        
+        if (ItemBox.instance.CheckSelectItem(Items.Type.Memo1))
+        {
+            text.text = "メモ\n私はこの館に閉じ込められてしまった。\n早くこの場所から脱出しなければ...魔物に襲われてしまう...。" +
+                "\n後に来た人のために役に立つであろうメモを残しておこう。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo2))
+        {
+            text.text = "メモ\nベッドがたくさんある部屋に二階の鍵があるだろう。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Phone))
+        {
+            text.text = "スマートフォン\n近くの監視カメラの映像を見られる。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Flashlight))
+        {
+            text.text = "懐中電灯\nバッテリーの消費は激しいが、明るい。";
+        }
+        else
+        {
+            text.text = null;
+        }
     }
 }

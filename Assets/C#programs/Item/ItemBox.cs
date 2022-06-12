@@ -49,10 +49,14 @@ public class ItemBox : MonoBehaviour
         //選択アイテム
         selectItem = slots[position].GetItem();
     }
-    //鍵を選択してるかどうか判定
-    public bool CheckSelectItem()
+    //Itemを選択してるかどうか判定
+    public bool CheckSelectItem(Items.Type useItemType)
     {
-        if(selectItem.type == Items.Type.Key)
+        if(selectItem == null)
+        {
+            return false;
+        }
+        if(selectItem.type == useItemType)
         {
             return true;
         }

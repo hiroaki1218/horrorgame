@@ -37,7 +37,7 @@ public class Door : MonoBehaviour
     //トリガーにプレイヤーが入ったとき
     void OnTriggerStay(Collider collision)
     {
-        if(!Inventory.inventory && !Menu.pause && !PhoneAnimation.isLookPhone)
+        if(!Inventory.inventory && !Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo)
         {
             if (collision.transform.tag == "Player")
             {
