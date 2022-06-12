@@ -13,6 +13,7 @@ public class PickupObj : MonoBehaviour
     public bool isCollect;
     public static bool fpsLight;
     public static bool collectPhone;
+    public bool MainScene;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,16 @@ public class PickupObj : MonoBehaviour
         CollectUI.SetActive(false);
         //itemType‚É‰‚¶‚Äitem‚ğ¶¬‚·‚é
         item = ItemGenerater.instance.Spawn(itemType);
+        if (MainScene)
+        {
+            StartSetItem();
+        }
+    }
+
+    void StartSetItem()
+    {
+        item.type = Items.Type.Phone;
+        ItemBox.instance.SetItem(item);
     }
 
     public void OnTriggerStay(Collider collision)
