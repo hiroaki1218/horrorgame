@@ -56,6 +56,22 @@ public class Inventory : MonoBehaviour
         {
             text.text = "メモ\nベッドがたくさんある部屋に二階の鍵があるだろう。";
         }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo3))
+        {
+            text.text = "メモ\n音が鳴っているところにヒントがあるだろう。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo4))
+        {
+            text.text = "メモ\n二階のベランダに食堂のカギがあるだろう。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo5))
+        {
+            text.text = "メモ\nOOに玄関の鍵";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo6))
+        {
+            text.text = "メモ\nOOに門の鍵";
+        }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Phone))
         {
             text.text = "スマートフォン\n近くの監視カメラの映像を見られる。";

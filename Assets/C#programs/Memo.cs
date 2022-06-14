@@ -12,6 +12,10 @@ public class Memo : MonoBehaviour
     public static bool LookMemo;
     public static bool Memo1;
     public static bool Memo2;
+    public static bool Memo3;
+    public static bool Memo4;
+    public static bool Memo5;
+    public static bool Memo6;
     GameObject player;
     FirstPersonControllerCustom _fpc;
     void Start()
@@ -50,10 +54,53 @@ public class Memo : MonoBehaviour
             massage.text = "ベッドがたくさんある部屋に二階の鍵があるだろう。";
             MemoUI.SetActive(true);
         }
+        else if (Memo3)
+        {
+            LookMemo = true;
+            Cursor.lockState = CursorLockMode.None;     // 標準モード
+            Cursor.visible = true;    // カーソル表示
+            _fpc.enabled = false;
+            CrosshairUI.SetActive(false);
+            Time.timeScale = 0;
+            massage.text = "音が鳴っているところにヒントがあるだろう。";
+            MemoUI.SetActive(true);
+        }
+        else if (Memo4)
+        {
+            LookMemo = true;
+            Cursor.lockState = CursorLockMode.None;     // 標準モード
+            Cursor.visible = true;    // カーソル表示
+            _fpc.enabled = false;
+            CrosshairUI.SetActive(false);
+            Time.timeScale = 0;
+            massage.text = "二階のベランダに食堂のカギがあるだろう。";
+            MemoUI.SetActive(true);
+        }
+        else if (Memo5)
+        {
+            LookMemo = true;
+            Cursor.lockState = CursorLockMode.None;     // 標準モード
+            Cursor.visible = true;    // カーソル表示
+            _fpc.enabled = false;
+            CrosshairUI.SetActive(false);
+            Time.timeScale = 0;
+            massage.text = "OOに玄関の鍵";
+            MemoUI.SetActive(true);
+        }
+        else if (Memo6)
+        {
+            LookMemo = true;
+            Cursor.lockState = CursorLockMode.None;     // 標準モード
+            Cursor.visible = true;    // カーソル表示
+            _fpc.enabled = false;
+            CrosshairUI.SetActive(false);
+            Time.timeScale = 0;
+            massage.text = "OOに門の鍵";
+            MemoUI.SetActive(true);
+        }
         else
         {
             CrosshairUI.SetActive(true);
-            Time.timeScale = 1;
             massage.text = null;
             MemoUI.SetActive(false);
         }
@@ -61,8 +108,17 @@ public class Memo : MonoBehaviour
     public void OnButton()
     {
         LookMemo = false;
-        Memo1 = false;
+        Time.timeScale = 1;
+        if (Memo1)
+        {
+            Memo1 = false;
+            SlenderMove.instance.SlenderFirstMove();
+        }
         Memo2 = false;
+        Memo3 = false;
+        Memo4 = false;
+        Memo5 = false;
+        Memo6 = false;
         _fpc.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;     // 固定モード
         Cursor.visible = false;    // カーソル非表示

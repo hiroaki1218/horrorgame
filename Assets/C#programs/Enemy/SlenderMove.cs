@@ -15,26 +15,40 @@ public class SlenderMove : MonoBehaviour
     [SerializeField] private SphereCollider searchArea;
     [SerializeField] private float searchAngle = 110f;
     [SerializeField] private GameObject Slender;
+    [SerializeField] private GameObject SlenderMesh;
+    [SerializeField] private Collider SlenderCollider;
+    [SerializeField] private GameObject AudioSource;
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject UI;
 
+    private AudioSource ads;
     private bool isLooking;
+    private bool firstMove;
     NavMeshAgent agent;
     float attention;
     int state;
     private RaycastHit[] _raycastHits = new RaycastHit[12];
 
+    public static SlenderMove instance;
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
+        Slender.SetActive(false);
         UI.SetActive(true);
         agent = Slender.GetComponent<NavMeshAgent>();
         Slender.GetComponent<Animator>().Play("Walk");
-        Vector3 dest = GetDestinationRandomly();
-        agent.destination = dest;
         agent.speed = 3f;
         gauge.fillAmount = 0f;
         isLooking = false;
+        firstMove = true;
+        ads = AudioSource.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,34 +57,63 @@ public class SlenderMove : MonoBehaviour
         Debug.Log(attention);
         attention = Mathf.Clamp(attention, 0f, 1f);
         gauge.fillAmount = attention;
-
-        //見えてるとき注意度が上がる
-        if (isLooking)
+        if (!firstMove)
         {
-            attention += 0.08f;
-        }
-        //見えてないときは注意度が少しずつ下がる
-        else
-        {
-            attention -= 0.001f;
-        }
-        //注意度0.4以上の時、追いかける
-        if(attention >= 0.2)
-        {
-            agent.destination = Player.transform.position;
-            Slender.GetComponent<Animator>().Play("Run");
-            agent.speed = 4.5f;
-        }
-        // 目的地付近で次の目的地
-        else if (!agent.pathPending && agent.remainingDistance < 0.5f)
-        {
-            Vector3 dest = GetDestinationRandomly();
-            agent.destination = dest;
-            Slender.GetComponent<Animator>().Play("Walk");
-            agent.speed = 3f;
+            Slender.SetActive(true);
+            ads.enabled = true;
+            ads.pitch = attention + 1;
+            
+            //見えてるとき注意度が上がる
+            if (isLooking)
+            {
+                attention += 0.08f;
+            }
+            //見えてないときは注意度が少しずつ下がる
+            else
+            {
+                attention -= 0.001f;
+            }
+            //注意度0.4以上の時、追いかける
+            if (attention >= 0.2)
+            {
+                agent.destination = Player.transform.position;
+                Slender.GetComponent<Animator>().Play("Run");
+                agent.speed = 4.8f;
+            }
+            // 目的地付近で次の目的地
+            else if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            {
+                Vector3 dest = GetDestinationRandomly();
+                agent.destination = dest;
+                Slender.GetComponent<Animator>().Play("Walk");
+                agent.speed = 3f;
+            }
         }
     }
 
+    //最初の動き
+    public void SlenderFirstMove()
+    {
+        Slender.SetActive(true);
+        ads.enabled = false;
+        StartCoroutine("SFirstMove"); 
+    }
+
+    IEnumerator SFirstMove()
+    {
+        Slender.GetComponent<Animator>().Play("Walk");
+        Vector3 dest = points.GetChild(5).transform.position;
+        agent.destination = dest;
+        yield return new WaitForSeconds(4);
+        SlenderMesh.SetActive(false);
+        SlenderCollider.enabled = false;
+        dest = points.GetChild(8).transform.position;
+        agent.destination = dest;
+        yield return new WaitForSeconds(17);
+        SlenderMesh.SetActive(true);
+        SlenderCollider.enabled = true;
+        firstMove = false;
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")

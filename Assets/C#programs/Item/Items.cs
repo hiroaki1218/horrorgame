@@ -18,6 +18,10 @@ public class Items
         Battery,
         Memo1,
         Memo2,
+        Memo3,
+        Memo4,
+        Memo5,
+        Memo6,
     }
 
     //ItemType‚ğéŒ¾

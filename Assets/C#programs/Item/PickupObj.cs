@@ -89,6 +89,26 @@ public class PickupObj : MonoBehaviour
                         {
                             Memo.Memo2 = true;
                         }
+                        //拾ったオブジェクトがMemo3だったら、Memo3を出す
+                        if (item.type == Items.Type.Memo3)
+                        {
+                            Memo.Memo3 = true;
+                        }
+                        //拾ったオブジェクトがMemo4だったら、Memo4を出す
+                        if (item.type == Items.Type.Memo4)
+                        {
+                            Memo.Memo4 = true;
+                        }
+                        //拾ったオブジェクトがMemo5だったら、Memo5を出す
+                        if (item.type == Items.Type.Memo5)
+                        {
+                            Memo.Memo5 = true;
+                        }
+                        //拾ったオブジェクトがMemo6だったら、Memo6を出す
+                        if (item.type == Items.Type.Memo6)
+                        {
+                            Memo.Memo6 = true;
+                        }
                     }
 
 
