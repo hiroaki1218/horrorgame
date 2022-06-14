@@ -21,6 +21,7 @@ public class PhoneCamera : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(change);
         if(change == 0)
         {
             Camera1.enabled = true;
@@ -50,7 +51,6 @@ public class PhoneCamera : MonoBehaviour
 
     public void Onclick()
     {
-        Debug.Log("aaaaaa");
         change = change + 1;
     }
 
