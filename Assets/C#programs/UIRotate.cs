@@ -11,6 +11,10 @@ public class UIRotate : MonoBehaviour
         {
             //@ƒJƒƒ‰‚Æ“¯‚¶Œü‚«‚Éİ’è
             transform.rotation = Camera.main.transform.rotation;
-        } 
+        }
+        else
+        {
+            return;
+        }
     }
 }

@@ -102,14 +102,17 @@ public class SlenderMove : MonoBehaviour
     IEnumerator SFirstMove()
     {
         Slender.GetComponent<Animator>().Play("Walk");
+        agent.speed = 3f;
         Vector3 dest = points.GetChild(5).transform.position;
         agent.destination = dest;
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2.7f);
         SlenderMesh.SetActive(false);
         SlenderCollider.enabled = false;
+        yield return new WaitForSeconds(1.3f);
+        agent.speed = 15f;
         dest = points.GetChild(8).transform.position;
         agent.destination = dest;
-        yield return new WaitForSeconds(17);
+        yield return new WaitForSeconds(23);
         SlenderMesh.SetActive(true);
         SlenderCollider.enabled = true;
         firstMove = false;

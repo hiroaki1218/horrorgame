@@ -10,6 +10,7 @@ public class PhoneAnimation : MonoBehaviour
     [SerializeField] private Camera PhoneCamera;
     [SerializeField] private Camera TrainCamera;
     [SerializeField] private GameObject target1;
+    [SerializeField] private GameObject CrosshairUI;
     FirstPersonControllerCustom fpc;
     GameObject player;
     private bool Active;
@@ -57,6 +58,7 @@ public class PhoneAnimation : MonoBehaviour
 
                         if (Active)
                         {
+                            CrosshairUI.SetActive(false);
                             fpc.enabled = false;
                             isLookPhone = true;
                             Cursor.lockState = CursorLockMode.None;     // ïWèÄÉÇÅ[Éh
@@ -94,7 +96,7 @@ public class PhoneAnimation : MonoBehaviour
             else
             {
                 finish2 = false;
-                cameraBack = true;
+                cameraBack = true;  
                 SmartPhone.GetComponent<Animator>().Play("PhoneOff");
                 yield return new WaitForSeconds(0.37f);
                 SmartPhone.SetActive(false);
@@ -119,8 +121,8 @@ public class PhoneAnimation : MonoBehaviour
         {
             finish1 = false;
             mainCamera.enabled = false;
-            PhoneCamera.enabled = true;
-           
+            PhoneCamera.enabled = true;   
+
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             PhoneCamera.transform.rotation = Quaternion.Slerp(PhoneCamera.transform.rotation, targetRotation, 5 * Time.deltaTime);
 
@@ -137,5 +139,6 @@ public class PhoneAnimation : MonoBehaviour
         yield return new WaitForSeconds(2);
         fpc.enabled = true;
         isLookPhone = false;
+        CrosshairUI.SetActive(true);
     }
 }

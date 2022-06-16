@@ -100,13 +100,13 @@ public class Memo : MonoBehaviour
         }
         else
         {
-            CrosshairUI.SetActive(true);
             massage.text = null;
             MemoUI.SetActive(false);
         }
     }
     public void OnButton()
     {
+        CrosshairUI.SetActive(true);
         LookMemo = false;
         Time.timeScale = 1;
         if (Memo1)
