@@ -12,9 +12,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof(AudioSource))]
     public class FirstPersonControllerCustom : MonoBehaviour
     {
-        [SerializeField] private bool m_IsWalking;
-
-        [SerializeField] private bool m_IsRunning;
+        [SerializeField] public bool m_IsWalking;
+        [SerializeField] public bool m_IsStopping;
+        [SerializeField] public bool m_IsRunning;
 
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
@@ -413,7 +413,7 @@ private void GetInput(out float speed)
             //m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
             if (_staminaController.hasRegenerated)
             {
-                if (Input.GetKey(KeyCode.LeftShift))
+                if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
                 {
                     m_IsRunning = true;
                     m_IsWalking = false;
@@ -430,7 +430,14 @@ private void GetInput(out float speed)
                 m_IsRunning = false;
                 m_IsWalking = true;
             }
-
+            if(Input.GetKey(KeyCode.W) ||Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
+                m_IsStopping = false;
+            }
+            else
+            {
+                m_IsStopping = true;
+            }
 
 #endif
             if (m_IsWalking)

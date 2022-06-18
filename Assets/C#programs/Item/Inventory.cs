@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
     public void Update()
     {
         fpc = player.GetComponent<FirstPersonControllerCustom>();
-        if (!Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo)
+        if (!Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo && !Memo.exitMemo1)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
             {

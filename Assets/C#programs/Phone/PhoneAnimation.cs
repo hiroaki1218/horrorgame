@@ -11,15 +11,18 @@ public class PhoneAnimation : MonoBehaviour
     [SerializeField] private Camera TrainCamera;
     [SerializeField] private GameObject target1;
     [SerializeField] private GameObject CrosshairUI;
+    [SerializeField] private GameObject FirstPerson;
     FirstPersonControllerCustom fpc;
     GameObject player;
-    private bool Active;
+    public static bool Active;
     private bool OntoOff;
     private bool finish1;
     private bool finish2;
     private bool isBrank;
     private bool cameraBack;
     public static bool isLookPhone;
+    public static bool FlashLightEnabled;
+    Animator _anim;
 
     private void Awake()
     {
@@ -37,6 +40,8 @@ public class PhoneAnimation : MonoBehaviour
         isBrank = false;
         cameraBack = true;
         isLookPhone = false;
+        FlashLightEnabled = false;
+        _anim = FirstPerson.GetComponent<Animator>();
     }
 
     void Update()
@@ -48,7 +53,7 @@ public class PhoneAnimation : MonoBehaviour
     {
         
         
-            if(!Inventory.inventory && !Menu.pause && !Memo.LookMemo)
+            if(!Inventory.inventory && !Menu.pause && !Memo.LookMemo && !Memo.exitMemo1)
             {
                 if (finish1 && finish2)
                 {
@@ -61,6 +66,7 @@ public class PhoneAnimation : MonoBehaviour
                             CrosshairUI.SetActive(false);
                             fpc.enabled = false;
                             isLookPhone = true;
+                            FlashLightEnabled = true;
                             Cursor.lockState = CursorLockMode.None;     // 標準モード
                             Cursor.visible = true;    // カーソル表示
                         }
@@ -98,6 +104,7 @@ public class PhoneAnimation : MonoBehaviour
                 finish2 = false;
                 cameraBack = true;  
                 SmartPhone.GetComponent<Animator>().Play("PhoneOff");
+                _anim.Play("FPSPhoneOff");
                 yield return new WaitForSeconds(0.37f);
                 SmartPhone.SetActive(false);
                 yield return new WaitForSeconds(0.63f);
@@ -128,6 +135,7 @@ public class PhoneAnimation : MonoBehaviour
 
             SmartPhone.SetActive(true);
             SmartPhone.GetComponent<Animator>().Play("PhoneOn");
+            _anim.Play("FPSPhoneOn");
 
             yield return new WaitForSeconds(1.3f);
             OntoOff = true;
@@ -136,6 +144,7 @@ public class PhoneAnimation : MonoBehaviour
     }
     IEnumerator FPSenabled()
     {
+        FlashLightEnabled = false;
         yield return new WaitForSeconds(2);
         fpc.enabled = true;
         isLookPhone = false;

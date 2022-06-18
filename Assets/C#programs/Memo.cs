@@ -9,6 +9,11 @@ public class Memo : MonoBehaviour
     [SerializeField] private GameObject CrosshairUI;
     [SerializeField] private GameObject MemoUI;
     [SerializeField] private Text massage;
+
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Camera subCamera;
+    [SerializeField] private Camera trainCamera;
+    [SerializeField] private GameObject target;
     public static bool LookMemo;
     public static bool Memo1;
     public static bool Memo2;
@@ -16,6 +21,9 @@ public class Memo : MonoBehaviour
     public static bool Memo4;
     public static bool Memo5;
     public static bool Memo6;
+    public static bool exitMemo1;
+    private bool looked;
+    private bool One;
     GameObject player;
     FirstPersonControllerCustom _fpc;
     void Start()
@@ -25,7 +33,15 @@ public class Memo : MonoBehaviour
         _fpc = player.GetComponent<FirstPersonControllerCustom>();
         Memo1 = false;
         Memo2 = false;
+        Memo3 = false;
+        Memo4 = false;
+        Memo5 = false;
+        Memo6 = false;
+        exitMemo1 = false;
+        looked = false;
+        One = true;
         MemoUI.SetActive(false);
+        subCamera.enabled = false;
     }
 
     // Update is called once per frame
@@ -103,6 +119,17 @@ public class Memo : MonoBehaviour
             massage.text = null;
             MemoUI.SetActive(false);
         }
+
+        //もしMemo1を見終わったら、カメラを動かす。
+        if (exitMemo1)
+        {
+            StartCoroutine("CameraMove");
+        }
+        else
+        {
+            subCamera.transform.rotation = mainCamera.transform.rotation;
+            subCamera.transform.position = trainCamera.transform.position;
+        }
     }
     public void OnButton()
     {
@@ -112,6 +139,8 @@ public class Memo : MonoBehaviour
         if (Memo1)
         {
             Memo1 = false;
+            exitMemo1 = true;
+            _fpc.enabled = false;
             SlenderMove.instance.SlenderFirstMove();
         }
         Memo2 = false;
@@ -119,8 +148,36 @@ public class Memo : MonoBehaviour
         Memo4 = false;
         Memo5 = false;
         Memo6 = false;
-        _fpc.enabled = true;
+        //_fpc.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;     // 固定モード
         Cursor.visible = false;    // カーソル非表示
+    }
+
+    IEnumerator CameraMove()
+    {
+        Vector3 direction = target.transform.position - subCamera.transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        mainCamera.enabled = false;
+        subCamera.enabled = true;
+        if (!looked)
+        {
+            subCamera.transform.rotation = Quaternion.Slerp(subCamera.transform.rotation, targetRotation, 5 * Time.deltaTime);
+        }
+        else
+        {
+            subCamera.transform.position = mainCamera.transform.position;
+            subCamera.transform.rotation = Quaternion.Slerp(subCamera.transform.rotation, mainCamera.transform.rotation, 5 * Time.deltaTime);
+        }
+        yield return new WaitForSeconds(3.4f);
+        looked = true;
+        yield return new WaitForSeconds(0.5f);
+        if (One)
+        {
+            One = false;
+            _fpc.enabled = true;
+            mainCamera.enabled = true;
+            subCamera.enabled = false;
+        }
+        exitMemo1 = false;
     }
 }

@@ -49,7 +49,7 @@ public class Menu : MonoBehaviour {
 
     public void Update()
     {
-        if (!Inventory.inventory && !PhoneAnimation.isLookPhone && !Memo.LookMemo)
+        if (!Inventory.inventory && !PhoneAnimation.isLookPhone && !Memo.LookMemo && !Memo.exitMemo1)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {

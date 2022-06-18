@@ -55,7 +55,7 @@ public class TutorialMovement : MonoBehaviour
         if (!Inventory.inventory && !PhoneAnimation.isLookPhone)
         {
             //èåè2ÅFëñÇ¡ÇΩéû
-            if ((Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.D)) && two)
+            if ((Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.D)) && two)
             {
                 StartCoroutine("Running");
                 two = false;

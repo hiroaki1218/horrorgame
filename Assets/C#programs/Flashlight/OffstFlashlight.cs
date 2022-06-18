@@ -12,6 +12,8 @@ public class OffstFlashlight : MonoBehaviour
     [SerializeField] private float speed = 5.0f;
 
     [SerializeField] private GameObject FlashlightUI;
+    [SerializeField] private GameObject SubCamera;
+    [SerializeField] private GameObject PhoneCamera;
     [SerializeField] private Image bar;
     [SerializeField] private float maxglowTime = 100.0f;
     [SerializeField] private float Glowingtime = 100.0f;
@@ -40,9 +42,8 @@ public class OffstFlashlight : MonoBehaviour
     private void Update()
     {
         bar.fillAmount = Glowingtime / maxglowTime;
-        Debug.Log(Glowingtime / maxglowTime);
         
-        if (PickupObj.fpsLight && isRemain && !PhoneAnimation.isLookPhone)
+        if (PickupObj.fpsLight && isRemain && !PhoneAnimation.FlashLightEnabled)
         {
              FlashlightUI.SetActive(true);
              Fpslight.enabled = true;
@@ -52,9 +53,24 @@ public class OffstFlashlight : MonoBehaviour
              FlashlightUI.SetActive(false);
              Fpslight.enabled = false;
         }
+
+
+        if (Memo.exitMemo1)
+        {
+            transform.position = goFollow.transform.position + vectOffset;
+            transform.rotation = Quaternion.Slerp(transform.rotation, SubCamera.transform.rotation, speed * Time.deltaTime);
+        }
+        else if (!PhoneAnimation.FlashLightEnabled)
+        {
+            transform.position = goFollow.transform.position + vectOffset;
+            transform.rotation = Quaternion.Slerp(transform.rotation, PhoneCamera.transform.rotation, speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = goFollow.transform.position + vectOffset;
+            transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
+        }
         
-        transform.position = goFollow.transform.position + vectOffset;
-        transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
 
         //光る時間を徐々に減らす&電池残量の確認
         if (PickupObj.fpsLight && !PhoneAnimation.isLookPhone)
