@@ -12,6 +12,7 @@ public class PhoneAnimation : MonoBehaviour
     [SerializeField] private GameObject target1;
     [SerializeField] private GameObject CrosshairUI;
     [SerializeField] private GameObject FirstPerson;
+    [SerializeField] private GameObject Button;
     FirstPersonControllerCustom fpc;
     GameObject player;
     public static bool Active;
@@ -41,6 +42,7 @@ public class PhoneAnimation : MonoBehaviour
         cameraBack = true;
         isLookPhone = false;
         FlashLightEnabled = false;
+        Button.SetActive(false);
         _anim = FirstPerson.GetComponent<Animator>();
     }
 
@@ -63,6 +65,7 @@ public class PhoneAnimation : MonoBehaviour
 
                         if (Active)
                         {
+                            StartCoroutine("ButtonDilay");
                             CrosshairUI.SetActive(false);
                             fpc.enabled = false;
                             isLookPhone = true;
@@ -144,10 +147,18 @@ public class PhoneAnimation : MonoBehaviour
     }
     IEnumerator FPSenabled()
     {
+        Button.SetActive(false);
         FlashLightEnabled = false;
         yield return new WaitForSeconds(2);
         fpc.enabled = true;
         isLookPhone = false;
         CrosshairUI.SetActive(true);
     }
+
+    IEnumerator ButtonDilay()
+    {
+        yield return new WaitForSeconds(1.3f);
+        Button.SetActive(true);
+    }
+
 }
