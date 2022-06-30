@@ -8,7 +8,7 @@ public class OffstFlashlight : MonoBehaviour
     //[SerializeField] private GameObject SubCamera;
     [SerializeField] private Light Fpslight;
     private Vector3 vectOffset;
-    private GameObject goFollow;
+    [SerializeField] private GameObject goFollow;
     [SerializeField] private float speed = 5.0f;
 
     [SerializeField] private GameObject FlashlightUI;
@@ -33,7 +33,6 @@ public class OffstFlashlight : MonoBehaviour
     private void Start()
     {
         isRemain = true;
-        goFollow = Camera.main.gameObject;
         vectOffset = transform.position - goFollow.transform.position;
         Fpslight.enabled = false;
         FlashlightUI.SetActive(false);
@@ -57,7 +56,7 @@ public class OffstFlashlight : MonoBehaviour
 
         if (Memo.exitMemo1)
         {
-            transform.position = goFollow.transform.position + vectOffset;
+            //transform.position = goFollow.transform.position + vectOffset;
             transform.rotation = Quaternion.Slerp(transform.rotation, SubCamera.transform.rotation, speed * Time.deltaTime);
         }
         else if (!PhoneAnimation.FlashLightEnabled)

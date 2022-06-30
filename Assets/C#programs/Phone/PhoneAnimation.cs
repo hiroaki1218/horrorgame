@@ -149,7 +149,7 @@ public class PhoneAnimation : MonoBehaviour
     {
         Button.SetActive(false);
         FlashLightEnabled = false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.5f);
         fpc.enabled = true;
         isLookPhone = false;
         CrosshairUI.SetActive(true);
