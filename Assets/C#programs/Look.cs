@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 using System.Collections;
 
@@ -15,7 +15,7 @@ public class Look : MonoBehaviour
 
     void Update()
     {
-        // ¶‰E‚ÌƒL[“ü—Í‚ÅƒLƒƒƒ‰ƒNƒ^[‚ğ90“xù‰ñ‚·‚é
+        // å·¦å³ã®ã‚­ãƒ¼å…¥åŠ›ã§ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚’90åº¦æ—‹å›ã™ã‚‹
         if (Input.GetKeyDown(KeyCode.J))
         {
             Debug.Log(wantRotation);

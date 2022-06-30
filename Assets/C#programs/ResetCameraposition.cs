@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class ResetCameraposition : MonoBehaviour
     void Start()
     {
         phoneCamera.enabled = false;
-        defaultCameraRot = transform.localRotation; // cameraparent‚Å‚Í‚È‚­©g‚Ì‰ñ“]‚ğ•Û‘¶
+        defaultCameraRot = transform.localRotation; // cameraparentã§ã¯ãªãè‡ªèº«ã®å›è»¢ã‚’ä¿å­˜
     }
 
     // Update is called once per frame
@@ -37,10 +37,10 @@ public class ResetCameraposition : MonoBehaviour
         }
             
 
-        //½Ñ°½Ş‚É¶Ò×‚ğ–ß‚·
+        //ï½½ï¾‘ï½°ï½½ï¾ã«ï½¶ï¾’ï¾—ã‚’æˆ»ã™
         if (timer > 0)
         {
-            // cameraparent.transform‚Ì‘ã‚í‚è‚É©g‚Ìtransform‚ğ‰ñ“]
+            // cameraparent.transformã®ä»£ã‚ã‚Šã«è‡ªèº«ã®transformã‚’å›è»¢
             transform.localRotation = Quaternion.Slerp(transform.localRotation, defaultCameraRot, Time.deltaTime * 10);
 
             timer -= Time.deltaTime;

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +23,7 @@ public class PickupObj : MonoBehaviour
         isCollect = false;
         Action = false;
         CollectUI.SetActive(false);
-        //itemType‚É‰‚¶‚Äitem‚ğ¶¬‚·‚é
+        //itemTypeã«å¿œã˜ã¦itemã‚’ç”Ÿæˆã™ã‚‹
         item = ItemGenerater.instance.Spawn(itemType);
         if (MainScene)
         {
@@ -69,42 +69,42 @@ public class PickupObj : MonoBehaviour
                     {
                         //ItemSetActive(false)
                         ItemBox.instance.SetItem(item);
-                        //E‚Á‚½ƒIƒuƒWƒFƒNƒg‚ªFlashlight‚¾‚Á‚½‚çAFPS‚Ìƒ‰ƒCƒg‚ğƒIƒ“‚É‚·‚é
+                        //æ‹¾ã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒFlashlightã ã£ãŸã‚‰ã€FPSã®ãƒ©ã‚¤ãƒˆã‚’ã‚ªãƒ³ã«ã™ã‚‹
                         if (item.type == Items.Type.Flashlight)
                         {
                             fpsLight = true;
                         }
-                        //E‚Á‚½ƒIƒuƒWƒFƒNƒg‚ªPhone‚¾‚Á‚½‚çAğŒ3‚ğ–‚½‚·
+                        //æ‹¾ã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒPhoneã ã£ãŸã‚‰ã€æ¡ä»¶3ã‚’æº€ãŸã™
                         if (item.type == Items.Type.Phone)
                         {
                             collectPhone = true;
                         }
-                        //E‚Á‚½ƒIƒuƒWƒFƒNƒg‚ªMemo1‚¾‚Á‚½‚çAMemo1‚ğo‚·
+                        //æ‹¾ã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒMemo1ã ã£ãŸã‚‰ã€Memo1ã‚’å‡ºã™
                         if(item.type == Items.Type.Memo1)
                         {
                             Memo.Memo1 = true;
                         }
-                        //E‚Á‚½ƒIƒuƒWƒFƒNƒg‚ªMemo2‚¾‚Á‚½‚çAMemo2‚ğo‚·
+                        //æ‹¾ã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒMemo2ã ã£ãŸã‚‰ã€Memo2ã‚’å‡ºã™
                         if (item.type == Items.Type.Memo2)
                         {
                             Memo.Memo2 = true;
                         }
-                        //E‚Á‚½ƒIƒuƒWƒFƒNƒg‚ªMemo3‚¾‚Á‚½‚çAMemo3‚ğo‚·
+                        //æ‹¾ã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒMemo3ã ã£ãŸã‚‰ã€Memo3ã‚’å‡ºã™
                         if (item.type == Items.Type.Memo3)
                         {
                             Memo.Memo3 = true;
                         }
-                        //E‚Á‚½ƒIƒuƒWƒFƒNƒg‚ªMemo4‚¾‚Á‚½‚çAMemo4‚ğo‚·
+                        //æ‹¾ã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒMemo4ã ã£ãŸã‚‰ã€Memo4ã‚’å‡ºã™
                         if (item.type == Items.Type.Memo4)
                         {
                             Memo.Memo4 = true;
                         }
-                        //E‚Á‚½ƒIƒuƒWƒFƒNƒg‚ªMemo5‚¾‚Á‚½‚çAMemo5‚ğo‚·
+                        //æ‹¾ã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒMemo5ã ã£ãŸã‚‰ã€Memo5ã‚’å‡ºã™
                         if (item.type == Items.Type.Memo5)
                         {
                             Memo.Memo5 = true;
                         }
-                        //E‚Á‚½ƒIƒuƒWƒFƒNƒg‚ªMemo6‚¾‚Á‚½‚çAMemo6‚ğo‚·
+                        //æ‹¾ã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒMemo6ã ã£ãŸã‚‰ã€Memo6ã‚’å‡ºã™
                         if (item.type == Items.Type.Memo6)
                         {
                             Memo.Memo6 = true;
@@ -117,7 +117,7 @@ public class PickupObj : MonoBehaviour
                 }
             }
         }
-        //Collect‚³‚ê‚½‚çUI‚ğÁ‚·
+        //Collectã•ã‚ŒãŸã‚‰UIã‚’æ¶ˆã™
         if (isCollect)
         {
             CollectUI.SetActive(false);

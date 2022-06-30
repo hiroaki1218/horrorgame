@@ -1,4 +1,4 @@
-using System;   // DateTime�ɕK�v
+﻿using System;   // DateTimeに必要
 using System.Collections;
 using UnityEngine;
 

@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class MaintoTitleLoading : MonoBehaviour
 {
-	//@”ñ“¯Šú“®ì‚Åg—p‚·‚éAsyncOperation
+	//ã€€éåŒæœŸå‹•ä½œã§ä½¿ç”¨ã™ã‚‹AsyncOperation
 	//private AsyncOperation async;
-	//@ƒV[ƒ“ƒ[ƒh’†‚É•\¦‚·‚éUI‰æ–Ê
+	//ã€€ã‚·ãƒ¼ãƒ³ãƒ­ãƒ¼ãƒ‰ä¸­ã«è¡¨ç¤ºã™ã‚‹UIç”»é¢
 	[SerializeField]
 	private GameObject loadUI;
-	//@“Ç‚İ‚İ—¦‚ğ•\¦‚·‚éƒXƒ‰ƒCƒ_[
+	//ã€€èª­ã¿è¾¼ã¿ç‡ã‚’è¡¨ç¤ºã™ã‚‹ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼
 	[SerializeField]
 	private Slider slider;
 
@@ -38,7 +38,7 @@ public class MaintoTitleLoading : MonoBehaviour
 		async.allowSceneActivation = false;
 
 
-		//@“Ç‚İ‚İ‚ªI‚í‚é‚Ü‚Åi’»ó‹µ‚ğƒXƒ‰ƒCƒ_[‚Ì’l‚É”½‰f‚³‚¹‚é
+		//ã€€èª­ã¿è¾¼ã¿ãŒçµ‚ã‚ã‚‹ã¾ã§é€²æ—çŠ¶æ³ã‚’ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®å€¤ã«åæ˜ ã•ã›ã‚‹
 		float p = 0f;
 		for (int i = 0; i < 500; i++)
 		{

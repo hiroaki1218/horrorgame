@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,14 +23,14 @@ public class ItemTalk : MonoBehaviour
     {
         if (mainCamera)
         {
-            RaycastHit hit;  //Ray‚ª“–‚½‚Á‚½ƒIƒuƒWƒFƒNƒg‚Ìî•ñ‚ªŠi”[‚³‚ê‚é
+            RaycastHit hit;  //RayãŒå½“ãŸã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æƒ…å ±ãŒæ ¼ç´ã•ã‚Œã‚‹
 
-            //Ray‚ª“–‚½‚Á‚Ä‚¢‚ê‚Î
+            //RayãŒå½“ãŸã£ã¦ã„ã‚Œã°
             if (Physics.Raycast(mainCamera.ViewportPointToRay(new Vector2(0.5f,0.5f)),out hit,100.0f))
             {
                 if (hit.collider.CompareTag("Item"))
                 {
-                    //Debug.Log("ƒAƒCƒeƒ€");
+                    //Debug.Log("ã‚¢ã‚¤ãƒ†ãƒ ");
                     itemUI.SetActive(true);
                     objName = hit.transform.gameObject.name;
                     isHit = true;

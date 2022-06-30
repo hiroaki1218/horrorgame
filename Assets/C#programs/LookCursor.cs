@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +7,8 @@ public class LookCursor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;   // ’†‰›‚ÉƒƒbƒN
-        Cursor.visible = false;     // ƒJ[ƒ\ƒ‹”ñ•\¦
+        Cursor.lockState = CursorLockMode.Locked;   // ä¸­å¤®ã«ãƒ­ãƒƒã‚¯
+        Cursor.visible = false;     // ã‚«ãƒ¼ã‚½ãƒ«éè¡¨ç¤º
     }
 
     // Update is called once per frame

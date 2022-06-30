@@ -1,4 +1,4 @@
-
+ï»¿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +9,7 @@ public class UIRotate : MonoBehaviour
     {
         if(!Inventory.inventory && !Menu.pause && !PhoneAnimation.isLookPhone)
         {
-            //@ƒJƒƒ‰‚Æ“¯‚¶Œü‚«‚Éİ’è
+            //ã€€ã‚«ãƒ¡ãƒ©ã¨åŒã˜å‘ãã«è¨­å®š
             transform.rotation = Camera.main.transform.rotation;
         }
         else

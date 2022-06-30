@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
@@ -25,7 +25,7 @@ public class TitleVideo : MonoBehaviour
         }
         else
         {
-           //ƒrƒfƒIÄ¶‚ÌƒLƒƒƒ“ƒoƒX‚Ì•\¦İ’è
+           //ãƒ“ãƒ‡ã‚ªå†ç”Ÿæ™‚ã®ã‚­ãƒ£ãƒ³ãƒã‚¹ã®è¡¨ç¤ºè¨­å®š
            VideoCanvas.SetActive(true);
            videoPlayer.loopPointReached += LoopPointReached;
            videoPlayer.Play();           
@@ -38,7 +38,7 @@ public class TitleVideo : MonoBehaviour
     // Update is called once per frame
     public void LoopPointReached(VideoPlayer vp)
     {
-        // ƒrƒfƒII—¹Œã‚Ìˆ—
+        // ãƒ“ãƒ‡ã‚ªçµ‚äº†å¾Œã®å‡¦ç†
         VideoCanvas.SetActive(false);
         MainCanvas.SetActive(true);
     }

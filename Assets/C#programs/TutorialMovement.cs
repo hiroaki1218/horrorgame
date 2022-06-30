@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -54,26 +54,26 @@ public class TutorialMovement : MonoBehaviour
     {
         if (!Inventory.inventory && !PhoneAnimation.isLookPhone)
         {
-            //ğŒ2F‘–‚Á‚½
+            //æ¡ä»¶2ï¼šèµ°ã£ãŸæ™‚
             if ((Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.D)) && two)
             {
                 StartCoroutine("Running");
                 two = false;
             }
-            //ğŒ1Fw‚Å•à‚¢‚½
+            //æ¡ä»¶1ï¼šwã§æ­©ã„ãŸæ™‚
             else if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && one)
             {
                 StartCoroutine("Walk");
                 one = false;
             }
-            //ğŒ3FƒXƒ}ƒz‚ğæ‚Á‚½‚Æ‚«
+            //æ¡ä»¶3ï¼šã‚¹ãƒãƒ›ã‚’å–ã£ãŸã¨ã
             if (PickupObj.collectPhone && three)
             {
                 StartCoroutine("GetPhone");
                 three = false;
             }
 
-            //ğŒ4‚ÌƒhƒA‚ÍAllCondition‚ªtrue‚Ì
+            //æ¡ä»¶4ã®ãƒ‰ã‚¢ã¯AllConditionãŒtrueã®æ™‚
             if (FirstCondition && SecondCondition && ThirdCondition)
             {
                 StartCoroutine("GetOpenCondition");
@@ -82,51 +82,51 @@ public class TutorialMovement : MonoBehaviour
         
     }
 
-    //ğŒ1Fw‚Å•à‚¢‚½
+    //æ¡ä»¶1ï¼šwã§æ­©ã„ãŸæ™‚
     IEnumerator Walk()
     {
-        //Debug.Log("ğŒ1");
-        yield return new WaitForSeconds(0.5f);//0.5s‚Ì·
-        WalkcheckMark.SetActive(true); //ƒ`ƒFƒbƒNƒ}[ƒN‚ªŒ©‚¦‚é‚æ‚¤‚É‚·‚éB
-        FirstCondition = true;@       //•à‚«I‚í‚Á‚½‚ç‘–‚é‚±‚Æ‚ª‰Â”\‚É‚È‚é(tutorial‚Ì‚İj
+        //Debug.Log("æ¡ä»¶1");
+        yield return new WaitForSeconds(0.5f);//0.5sã®æ™‚å·®
+        WalkcheckMark.SetActive(true); //ãƒã‚§ãƒƒã‚¯ãƒãƒ¼ã‚¯ãŒè¦‹ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
+        FirstCondition = true;ã€€       //æ­©ãçµ‚ã‚ã£ãŸã‚‰èµ°ã‚‹ã“ã¨ãŒå¯èƒ½ã«ãªã‚‹(tutorialã®ã¿ï¼‰
     }
 
-    //ğŒ2F‘–‚Á‚½
+    //æ¡ä»¶2ï¼šèµ°ã£ãŸæ™‚
     IEnumerator Running()
     {
-        //Debug.Log("ğŒ2");
-        yield return new WaitForSeconds(0.5f);//0.5s‚Ì·
-        RuncheckMark.SetActive(true);  //ƒ`ƒFƒbƒNƒ}[ƒN‚ªŒ©‚¦‚é‚æ‚¤‚É‚·‚éB
-        SecondCondition = true;        //‘–‚èI‚í‚Á‚½‚çE‚¤‚±‚Æ‚ª‰Â”\‚É‚È‚é
+        //Debug.Log("æ¡ä»¶2");
+        yield return new WaitForSeconds(0.5f);//0.5sã®æ™‚å·®
+        RuncheckMark.SetActive(true);  //ãƒã‚§ãƒƒã‚¯ãƒãƒ¼ã‚¯ãŒè¦‹ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
+        SecondCondition = true;        //èµ°ã‚Šçµ‚ã‚ã£ãŸã‚‰æ‹¾ã†ã“ã¨ãŒå¯èƒ½ã«ãªã‚‹
     }
 
-    //ğŒ3FƒXƒ}ƒz‚ğæ‚Á‚½‚Æ‚«
+    //æ¡ä»¶3ï¼šã‚¹ãƒãƒ›ã‚’å–ã£ãŸã¨ã
     IEnumerator GetPhone()
     {
-        //Debug.Log("ğŒ3");
-        yield return new WaitForSeconds(0.5f);//0.5s‚Ì·
-        PhonecheckMark.SetActive(true);//ƒ`ƒFƒbƒNƒ}[ƒN‚ªŒ©‚¦‚é‚æ‚¤‚É‚·‚éB
-        ThirdCondition = true;         //ƒXƒ}ƒz‚ğE‚¤‚ÆğŒ‚R‚ªƒNƒŠƒA‚É‚È‚éB
+        //Debug.Log("æ¡ä»¶3");
+        yield return new WaitForSeconds(0.5f);//0.5sã®æ™‚å·®
+        PhonecheckMark.SetActive(true);//ãƒã‚§ãƒƒã‚¯ãƒãƒ¼ã‚¯ãŒè¦‹ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
+        ThirdCondition = true;         //ã‚¹ãƒãƒ›ã‚’æ‹¾ã†ã¨æ¡ä»¶ï¼“ãŒã‚¯ãƒªã‚¢ã«ãªã‚‹ã€‚
     }
 
-    //ğŒ4FƒhƒA‚ğŠJ‚¯‚½‚Æ‚«
+    //æ¡ä»¶4ï¼šãƒ‰ã‚¢ã‚’é–‹ã‘ãŸã¨ã
     IEnumerator GetOpenCondition()
     {
         _door.gameObject.SetActive(true);
-        //‚à‚µƒhƒA‚ªŠJ‚¢‚½‚çADoorcheckMark.SetActive(true)
+        //ã‚‚ã—ãƒ‰ã‚¢ãŒé–‹ã„ãŸã‚‰ã€DoorcheckMark.SetActive(true)
         if (_door.isOpen)
         {
             DoorcheckMark.SetActive(true);
-            yield return new WaitForSeconds(1.0f);//1s‚Ì·
-            doorconditonCanvas.SetActive(false);@//ğŒ‚SFƒhƒA‚ÌUI”ñ•\¦
+            yield return new WaitForSeconds(1.0f);//1sã®æ™‚å·®
+            doorconditonCanvas.SetActive(false);ã€€//æ¡ä»¶ï¼”ï¼šãƒ‰ã‚¢ã®UIéè¡¨ç¤º
             SceneManager.LoadScene("MainScene");
         }
         else if(four)
         {
-            //Debug.Log("ğŒ4");
-            yield return new WaitForSeconds(1.0f);@@//1s‚Ì·
-            conditionCanvas.SetActive(false); @@@@//ğŒƒNƒŠƒA‚µ‚½‚çAğŒ1`3‚ÌUI‚ğÁ‚·B
-            doorconditonCanvas.SetActive(true);@@@ //ğŒ‚SFƒhƒA‚ÌUI•\¦
+            //Debug.Log("æ¡ä»¶4");
+            yield return new WaitForSeconds(1.0f);ã€€ã€€//1sã®æ™‚å·®
+            conditionCanvas.SetActive(false); ã€€ã€€ã€€ã€€//æ¡ä»¶ã‚¯ãƒªã‚¢ã—ãŸã‚‰ã€æ¡ä»¶1ï½3ã®UIã‚’æ¶ˆã™ã€‚
+            doorconditonCanvas.SetActive(true);ã€€ã€€ã€€ //æ¡ä»¶ï¼”ï¼šãƒ‰ã‚¢ã®UIè¡¨ç¤º
             four = false;
         }  
     }

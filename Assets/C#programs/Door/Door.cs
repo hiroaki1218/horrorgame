@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -34,7 +34,7 @@ public class Door : MonoBehaviour
         CloseDoorText = false;
     }
 
-    //ƒgƒŠƒK[‚ÉƒvƒŒƒCƒ„[‚ª“ü‚Á‚½‚Æ‚«
+    //ãƒˆãƒªã‚¬ãƒ¼ã«ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒå…¥ã£ãŸã¨ã
     void OnTriggerStay(Collider collision)
     {
         if(!Inventory.inventory && !Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo)

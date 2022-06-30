@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +17,7 @@ public class ItemGenerater : MonoBehaviour
 
     public Items Spawn(Items.Type type)
     {
-        //type‚Æˆê’v‚·‚éitem‚ğ¶¬‚µ‚Ä“n‚·
+        //typeã¨ä¸€è‡´ã™ã‚‹itemã‚’ç”Ÿæˆã—ã¦æ¸¡ã™
         foreach(Items item in itemDateBase.itemList)
         {
             if(item.type == type)

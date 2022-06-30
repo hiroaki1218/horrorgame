@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class PhoneCamera : MonoBehaviour
     void Start()
     {
         change = 0;
-        //Å‰‚ÍƒJƒƒ‰‚P‚¾‚¯‚ª—LŒø
+        //æœ€åˆã¯ã‚«ãƒ¡ãƒ©ï¼‘ã ã‘ãŒæœ‰åŠ¹
         Camera1.enabled = true;
         Camera2.enabled = false;
         Camera3.enabled = false;

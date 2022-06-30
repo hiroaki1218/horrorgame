@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -50,68 +50,68 @@ public class Memo : MonoBehaviour
         if (Memo1)
         {
             LookMemo = true;
-            Cursor.lockState = CursorLockMode.None;     // •W€ƒ‚[ƒh
-            Cursor.visible = true;    // ƒJ[ƒ\ƒ‹•\¦
+            Cursor.lockState = CursorLockMode.None;     // æ¨™æº–ãƒ¢ãƒ¼ãƒ‰
+            Cursor.visible = true;    // ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤º
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
             Time.timeScale = 0;
-            massage.text = "„‚Í‚±‚ÌŠÙ‚É•Â‚¶‚ß‚ç‚ê‚Ä‚µ‚Ü‚Á‚½B\n‘‚­‚±‚ÌêŠ‚©‚ç’Eo‚µ‚È‚¯‚ê‚Î...–‚•¨‚ÉP‚í‚ê‚Ä‚µ‚Ü‚¤...B" +
-                "\nŒã‚É—ˆ‚½l‚Ì‚½‚ß‚É–ğ‚É—§‚Â‚Å‚ ‚ë‚¤ƒƒ‚‚ğc‚µ‚Ä‚¨‚±‚¤B";
+            massage.text = "ç§ã¯ã“ã®é¤¨ã«é–‰ã˜è¾¼ã‚ã‚‰ã‚Œã¦ã—ã¾ã£ãŸã€‚\næ—©ãã“ã®å ´æ‰€ã‹ã‚‰è„±å‡ºã—ãªã‘ã‚Œã°...é­”ç‰©ã«è¥²ã‚ã‚Œã¦ã—ã¾ã†...ã€‚" +
+                "\nå¾Œã«æ¥ãŸäººã®ãŸã‚ã«å½¹ã«ç«‹ã¤ã§ã‚ã‚ã†ãƒ¡ãƒ¢ã‚’æ®‹ã—ã¦ãŠã“ã†ã€‚";
             MemoUI.SetActive(true);
         }
         else if (Memo2)
         {
             LookMemo = true;
-            Cursor.lockState = CursorLockMode.None;     // •W€ƒ‚[ƒh
-            Cursor.visible = true;    // ƒJ[ƒ\ƒ‹•\¦
+            Cursor.lockState = CursorLockMode.None;     // æ¨™æº–ãƒ¢ãƒ¼ãƒ‰
+            Cursor.visible = true;    // ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤º
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
             Time.timeScale = 0;
-            massage.text = "ƒxƒbƒh‚ª‚½‚­‚³‚ñ‚ ‚é•”‰®‚É“ñŠK‚ÌŒ®‚ª‚ ‚é‚¾‚ë‚¤B";
+            massage.text = "ãƒ™ãƒƒãƒ‰ãŒãŸãã•ã‚“ã‚ã‚‹éƒ¨å±‹ã«äºŒéšã®éµãŒã‚ã‚‹ã ã‚ã†ã€‚";
             MemoUI.SetActive(true);
         }
         else if (Memo3)
         {
             LookMemo = true;
-            Cursor.lockState = CursorLockMode.None;     // •W€ƒ‚[ƒh
-            Cursor.visible = true;    // ƒJ[ƒ\ƒ‹•\¦
+            Cursor.lockState = CursorLockMode.None;     // æ¨™æº–ãƒ¢ãƒ¼ãƒ‰
+            Cursor.visible = true;    // ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤º
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
             Time.timeScale = 0;
-            massage.text = "‰¹‚ª–Â‚Á‚Ä‚¢‚é‚Æ‚±‚ë‚Éƒqƒ“ƒg‚ª‚ ‚é‚¾‚ë‚¤B";
+            massage.text = "éŸ³ãŒé³´ã£ã¦ã„ã‚‹ã¨ã“ã‚ã«ãƒ’ãƒ³ãƒˆãŒã‚ã‚‹ã ã‚ã†ã€‚";
             MemoUI.SetActive(true);
         }
         else if (Memo4)
         {
             LookMemo = true;
-            Cursor.lockState = CursorLockMode.None;     // •W€ƒ‚[ƒh
-            Cursor.visible = true;    // ƒJ[ƒ\ƒ‹•\¦
+            Cursor.lockState = CursorLockMode.None;     // æ¨™æº–ãƒ¢ãƒ¼ãƒ‰
+            Cursor.visible = true;    // ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤º
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
             Time.timeScale = 0;
-            massage.text = "“ñŠK‚Ìƒxƒ‰ƒ“ƒ_‚ÉH“°‚ÌƒJƒM‚ª‚ ‚é‚¾‚ë‚¤B";
+            massage.text = "äºŒéšã®ãƒ™ãƒ©ãƒ³ãƒ€ã«é£Ÿå ‚ã®ã‚«ã‚®ãŒã‚ã‚‹ã ã‚ã†ã€‚";
             MemoUI.SetActive(true);
         }
         else if (Memo5)
         {
             LookMemo = true;
-            Cursor.lockState = CursorLockMode.None;     // •W€ƒ‚[ƒh
-            Cursor.visible = true;    // ƒJ[ƒ\ƒ‹•\¦
+            Cursor.lockState = CursorLockMode.None;     // æ¨™æº–ãƒ¢ãƒ¼ãƒ‰
+            Cursor.visible = true;    // ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤º
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
             Time.timeScale = 0;
-            massage.text = "OO‚ÉŒºŠÖ‚ÌŒ®";
+            massage.text = "OOã«ç„é–¢ã®éµ";
             MemoUI.SetActive(true);
         }
         else if (Memo6)
         {
             LookMemo = true;
-            Cursor.lockState = CursorLockMode.None;     // •W€ƒ‚[ƒh
-            Cursor.visible = true;    // ƒJ[ƒ\ƒ‹•\¦
+            Cursor.lockState = CursorLockMode.None;     // æ¨™æº–ãƒ¢ãƒ¼ãƒ‰
+            Cursor.visible = true;    // ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤º
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
             Time.timeScale = 0;
-            massage.text = "OO‚É–å‚ÌŒ®";
+            massage.text = "OOã«é–€ã®éµ";
             MemoUI.SetActive(true);
         }
         else
@@ -120,7 +120,7 @@ public class Memo : MonoBehaviour
             MemoUI.SetActive(false);
         }
 
-        //‚à‚µMemo1‚ğŒ©I‚í‚Á‚½‚çAƒJƒƒ‰‚ğ“®‚©‚·B
+        //ã‚‚ã—Memo1ã‚’è¦‹çµ‚ã‚ã£ãŸã‚‰ã€ã‚«ãƒ¡ãƒ©ã‚’å‹•ã‹ã™ã€‚
         if (exitMemo1)
         {
             StartCoroutine("CameraMove");
@@ -149,8 +149,8 @@ public class Memo : MonoBehaviour
         Memo5 = false;
         Memo6 = false;
         //_fpc.enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;     // ŒÅ’èƒ‚[ƒh
-        Cursor.visible = false;    // ƒJ[ƒ\ƒ‹”ñ•\¦
+        Cursor.lockState = CursorLockMode.Locked;     // å›ºå®šãƒ¢ãƒ¼ãƒ‰
+        Cursor.visible = false;    // ã‚«ãƒ¼ã‚½ãƒ«éè¡¨ç¤º
     }
 
     IEnumerator CameraMove()

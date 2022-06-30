@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -181,7 +181,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             PlayFootStepAudio();
         }
 
-        //‚±‚±‚ª‰¹‚¾‚Ÿ‚Ÿ‚Ÿ‚Ÿ‚Ÿ
+        //ã“ã“ãŒéŸ³ã ããããã
         private void PlayFootStepAudio()
         {
             if (!m_CharacterController.isGrounded)
@@ -214,7 +214,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Camera.transform.localPosition = newCameraPosition;
         }
 
-        //ƒ‰ƒ“ƒ_ƒ€ƒsƒbƒ`
+        //ãƒ©ãƒ³ãƒ€ãƒ ãƒ”ãƒƒãƒ
         
 
         float[] slatmap = new float[0];
@@ -245,31 +245,31 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                  if (hitColliderTag == "Terrain")
                  {
-                    // ƒeƒŒƒCƒ“ƒf[ƒ^
+                    // ãƒ†ãƒ¬ã‚¤ãƒ³ãƒ‡ãƒ¼ã‚¿
                     TerrainData terrainData = hitInfo.collider.gameObject.GetComponent<Terrain>().terrainData;
 
-                    // ƒAƒ‹ƒtƒ@ƒ}ƒbƒv 
+                    // ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒƒãƒ— 
                     float[,,] alphaMaps = terrainData.GetAlphamaps(Mathf.FloorToInt(hitInfo.textureCoord.x * terrainData.alphamapWidth), Mathf.FloorToInt(hitInfo.textureCoord.y * terrainData.alphamapHeight), 1, 1);
 
 
-                    int layerCount = terrainData.alphamapLayers; // ƒeƒŒƒCƒ“ƒŒƒCƒ„[‚Ì”
+                    int layerCount = terrainData.alphamapLayers; // ãƒ†ãƒ¬ã‚¤ãƒ³ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æ•°
 
-                    // O”Ô–Ú‚Ì”z—ñ‚ğæ‚èo‚·
+                    // ä¸‰ç•ªç›®ã®é…åˆ—ã‚’å–ã‚Šå‡ºã™
                     if (slatmap.Length == 0) slatmap = new float[layerCount];
                     for (int i = 0; i < layerCount; i++)
                     {
                         slatmap[i] = alphaMaps[0, 0, i];
                     }
 
-                    // Å‘å’l‚ÌƒCƒ“ƒfƒbƒNƒX
+                    // æœ€å¤§å€¤ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
                     int maxIndex = Array.IndexOf(slatmap, Mathf.Max(slatmap));
 
                     
-                    // ‘«‰¹‚ğ•Ï‚¦‚é
+                    // è¶³éŸ³ã‚’å¤‰ãˆã‚‹
                     switch (maxIndex)
                     {
                         case 0:
-                            //‘
+                            //è‰
                             if (randomizePitch)
                             {
                                 m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
@@ -287,7 +287,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             }
                             break;
                         case 1:
-                            //»
+                            //ç ‚
                             if (randomizePitch)
                             {
                                 m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
@@ -305,7 +305,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             }
                             break;
                         case 3:
-                            //‚È‚¢
+                            //ãªã„
                             if (randomizePitch)
                             {
                                 m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
@@ -323,7 +323,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             }
                             break;
                         case 2:
-                            //ƒRƒ“ƒNƒŠ
+                            //ã‚³ãƒ³ã‚¯ãƒª
                             if (randomizePitch)
                             {
                                 m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
@@ -345,7 +345,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                             break;
                         //default:
-                            //°
+                            //åºŠ
                             //m_AudioSource.clip = m_FootstepSounds[0];
                             //m_AudioSource.volume = 1.0f;
                             //m_AudioSource.PlayOneShot(m_AudioSource.clip);
@@ -353,7 +353,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                             //break;
                     }
                     
-                 } //ƒJ[ƒyƒbƒg
+                 } //ã‚«ãƒ¼ãƒšãƒƒãƒˆ
                  else if (hitColliderTag == "Carpet")
                  {
                     if (randomizePitch)
@@ -374,7 +374,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                  }
                  else
                  {
-                    //°
+                    //åºŠ
                     if (randomizePitch)
                     {
                         m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);

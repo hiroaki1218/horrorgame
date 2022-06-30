@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +21,7 @@ public class ItemSlot : MonoBehaviour
         image = empty.GetComponent<Image>();
     }
 
-    //‹ó‚©‚Ç‚¤‚©
+    //ç©ºã‹ã©ã†ã‹
     public bool IsEmpty()
     {
         if (item == null)
@@ -42,7 +42,7 @@ public class ItemSlot : MonoBehaviour
     {
         return item;
     }
-    //ƒAƒCƒeƒ€‚ğó‚¯æ‚Á‚½‚ç‰æ‘œ‚ğƒXƒƒbƒg‚É•\¦
+    //ã‚¢ã‚¤ãƒ†ãƒ ã‚’å—ã‘å–ã£ãŸã‚‰ç”»åƒã‚’ã‚¹ãƒ­ãƒƒãƒˆã«è¡¨ç¤º
     //void UpdateImage(Items item)
     //{
         

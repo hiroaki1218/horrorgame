@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -10,7 +10,7 @@ public class SlenderMove : MonoBehaviour
 {
     [SerializeField] FirstPersonControllerCustom sc_fps;
     [SerializeField] Transform points;
-    [SerializeField] Image gauge; //ƒvƒƒOƒŒƒXƒo[
+    [SerializeField] Image gauge; //ãƒ—ãƒ­ã‚°ãƒ¬ã‚¹ãƒãƒ¼
     [SerializeField] Text text;
     [SerializeField] private SphereCollider searchArea;
     [SerializeField] private float searchAngle = 110f;
@@ -63,24 +63,24 @@ public class SlenderMove : MonoBehaviour
             ads.enabled = true;
             ads.pitch = attention + 1;
             
-            //Œ©‚¦‚Ä‚é‚Æ‚«’ˆÓ“x‚ªã‚ª‚é
+            //è¦‹ãˆã¦ã‚‹ã¨ãæ³¨æ„åº¦ãŒä¸ŠãŒã‚‹
             if (isLooking)
             {
                 attention += 0.08f;
             }
-            //Œ©‚¦‚Ä‚È‚¢‚Æ‚«‚Í’ˆÓ“x‚ª­‚µ‚¸‚Â‰º‚ª‚é
+            //è¦‹ãˆã¦ãªã„ã¨ãã¯æ³¨æ„åº¦ãŒå°‘ã—ãšã¤ä¸‹ãŒã‚‹
             else
             {
                 attention -= 0.001f;
             }
-            //’ˆÓ“x0.4ˆÈã‚ÌA’Ç‚¢‚©‚¯‚é
+            //æ³¨æ„åº¦0.4ä»¥ä¸Šã®æ™‚ã€è¿½ã„ã‹ã‘ã‚‹
             if (attention >= 0.2)
             {
                 agent.destination = Player.transform.position;
                 Slender.GetComponent<Animator>().Play("Run");
                 agent.speed = 4.8f;
             }
-            // –Ú“I’n•t‹ß‚ÅŸ‚Ì–Ú“I’n
+            // ç›®çš„åœ°ä»˜è¿‘ã§æ¬¡ã®ç›®çš„åœ°
             else if (!agent.pathPending && agent.remainingDistance < 0.5f)
             {
                 Vector3 dest = GetDestinationRandomly();
@@ -91,7 +91,7 @@ public class SlenderMove : MonoBehaviour
         }
     }
 
-    //Å‰‚Ì“®‚«
+    //æœ€åˆã®å‹•ã
     public void SlenderFirstMove()
     {
         Slender.SetActive(true);
@@ -121,9 +121,9 @@ public class SlenderMove : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //@ålŒö‚Ì•ûŒü
+            //ã€€ä¸»äººå…¬ã®æ–¹å‘
             var playerDirection = other.transform.position - transform.position;
-            //@“G‚Ì‘O•û‚©‚ç‚ÌålŒö‚Ì•ûŒü
+            //ã€€æ•µã®å‰æ–¹ã‹ã‚‰ã®ä¸»äººå…¬ã®æ–¹å‘
             var angle = Vector3.Angle(transform.forward, playerDirection);
 
             var positionDiff = other.transform.position - transform.position;
@@ -133,17 +133,17 @@ public class SlenderMove : MonoBehaviour
             Debug.Log("hitCount: " + hitCount);
             if(hitCount == 3)
             {
-                //@ƒT[ƒ`‚·‚éŠp“x“à‚¾‚Á‚½‚ç”­Œ©
+                //ã€€ã‚µãƒ¼ãƒã™ã‚‹è§’åº¦å†…ã ã£ãŸã‚‰ç™ºè¦‹
                 if (angle <= searchAngle)
                 {
-                    //Debug.Log("ålŒö”­Œ©: " + angle);
+                    //Debug.Log("ä¸»äººå…¬ç™ºè¦‹: " + angle);
                     isLooking = true;
                 }
                 else
                 {
                     if (Vector3.Distance(other.transform.position, transform.position) <= searchArea.radius * 0.5f)
                     {
-                        //Debug.Log("ålŒö‚ğ”­Œ©2");
+                        //Debug.Log("ä¸»äººå…¬ã‚’ç™ºè¦‹2");
                         isLooking = true;
                     }
                 }
@@ -159,13 +159,13 @@ public class SlenderMove : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //Debug.Log("Œ©‚¦‚Ä‚È‚¢");
+            //Debug.Log("è¦‹ãˆã¦ãªã„");
             isLooking = false;
         }
     }
 
 
-    // ƒ‰ƒ“ƒ_ƒ€‚Å–Ú“I’n‚ğ•Ô‚·
+    // ãƒ©ãƒ³ãƒ€ãƒ ã§ç›®çš„åœ°ã‚’è¿”ã™
     Vector3 GetDestinationRandomly()
     {
         return points.GetChild(Random.Range(0, points.childCount)).transform.position;

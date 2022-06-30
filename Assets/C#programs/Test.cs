@@ -1,7 +1,7 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
-// ƒV[ƒ“‚ğÀs‚µ‚È‚­‚Ä‚àƒJƒƒ‰ƒ[ƒN‚ª”½‰f‚³‚ê‚é‚æ‚¤AExecuteInEditMode‚ğ•t—^
+// ã‚·ãƒ¼ãƒ³ã‚’å®Ÿè¡Œã—ãªãã¦ã‚‚ã‚«ãƒ¡ãƒ©ãƒ¯ãƒ¼ã‚¯ãŒåæ˜ ã•ã‚Œã‚‹ã‚ˆã†ã€ExecuteInEditModeã‚’ä»˜ä¸
 [ExecuteInEditMode]
 public class Test : MonoBehaviour
 {

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,52 +33,52 @@ public class Inventory : MonoBehaviour
                     InvUI.SetActive(true);
                     fpc.enabled = false;
                     inventory = true;
-                    Cursor.visible = true;     // ƒJ[ƒ\ƒ‹•\¦
-                    Cursor.lockState = CursorLockMode.None;     // •W€ƒ‚[ƒh
+                    Cursor.visible = true;     // ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤º
+                    Cursor.lockState = CursorLockMode.None;     // æ¨™æº–ãƒ¢ãƒ¼ãƒ‰
                 }
                 else if (!Active)
                 {
                     InvUI.SetActive(false);
                     fpc.enabled = true;
                     inventory = false;
-                    Cursor.visible = false;     // ƒJ[ƒ\ƒ‹”ñ•\¦
-                    Cursor.lockState = CursorLockMode.Locked;   // ’†‰›‚ÉƒƒbƒN
+                    Cursor.visible = false;     // ã‚«ãƒ¼ã‚½ãƒ«éè¡¨ç¤º
+                    Cursor.lockState = CursorLockMode.Locked;   // ä¸­å¤®ã«ãƒ­ãƒƒã‚¯
                 }
             }
             
         }
         if (ItemBox.instance.CheckSelectItem(Items.Type.Memo1))
         {
-            text.text = "ƒƒ‚\n„‚Í‚±‚ÌŠÙ‚É•Â‚¶‚ß‚ç‚ê‚Ä‚µ‚Ü‚Á‚½B\n‘‚­‚±‚ÌêŠ‚©‚ç’Eo‚µ‚È‚¯‚ê‚Î...–‚•¨‚ÉP‚í‚ê‚Ä‚µ‚Ü‚¤...B" +
-                "\nŒã‚É—ˆ‚½l‚Ì‚½‚ß‚É–ğ‚É—§‚Â‚Å‚ ‚ë‚¤ƒƒ‚‚ğc‚µ‚Ä‚¨‚±‚¤B";
+            text.text = "ãƒ¡ãƒ¢\nç§ã¯ã“ã®é¤¨ã«é–‰ã˜è¾¼ã‚ã‚‰ã‚Œã¦ã—ã¾ã£ãŸã€‚\næ—©ãã“ã®å ´æ‰€ã‹ã‚‰è„±å‡ºã—ãªã‘ã‚Œã°...é­”ç‰©ã«è¥²ã‚ã‚Œã¦ã—ã¾ã†...ã€‚" +
+                "\nå¾Œã«æ¥ãŸäººã®ãŸã‚ã«å½¹ã«ç«‹ã¤ã§ã‚ã‚ã†ãƒ¡ãƒ¢ã‚’æ®‹ã—ã¦ãŠã“ã†ã€‚";
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo2))
         {
-            text.text = "ƒƒ‚\nƒxƒbƒh‚ª‚½‚­‚³‚ñ‚ ‚é•”‰®‚É“ñŠK‚ÌŒ®‚ª‚ ‚é‚¾‚ë‚¤B";
+            text.text = "ãƒ¡ãƒ¢\nãƒ™ãƒƒãƒ‰ãŒãŸãã•ã‚“ã‚ã‚‹éƒ¨å±‹ã«äºŒéšã®éµãŒã‚ã‚‹ã ã‚ã†ã€‚";
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo3))
         {
-            text.text = "ƒƒ‚\n‰¹‚ª–Â‚Á‚Ä‚¢‚é‚Æ‚±‚ë‚Éƒqƒ“ƒg‚ª‚ ‚é‚¾‚ë‚¤B";
+            text.text = "ãƒ¡ãƒ¢\néŸ³ãŒé³´ã£ã¦ã„ã‚‹ã¨ã“ã‚ã«ãƒ’ãƒ³ãƒˆãŒã‚ã‚‹ã ã‚ã†ã€‚";
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo4))
         {
-            text.text = "ƒƒ‚\n“ñŠK‚Ìƒxƒ‰ƒ“ƒ_‚ÉH“°‚ÌƒJƒM‚ª‚ ‚é‚¾‚ë‚¤B";
+            text.text = "ãƒ¡ãƒ¢\näºŒéšã®ãƒ™ãƒ©ãƒ³ãƒ€ã«é£Ÿå ‚ã®ã‚«ã‚®ãŒã‚ã‚‹ã ã‚ã†ã€‚";
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo5))
         {
-            text.text = "ƒƒ‚\nOO‚ÉŒºŠÖ‚ÌŒ®";
+            text.text = "ãƒ¡ãƒ¢\nOOã«ç„é–¢ã®éµ";
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo6))
         {
-            text.text = "ƒƒ‚\nOO‚É–å‚ÌŒ®";
+            text.text = "ãƒ¡ãƒ¢\nOOã«é–€ã®éµ";
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Phone))
         {
-            text.text = "ƒXƒ}[ƒgƒtƒHƒ“\n‹ß‚­‚ÌŠÄ‹ƒJƒƒ‰‚Ì‰f‘œ‚ğŒ©‚ç‚ê‚éB";
+            text.text = "ã‚¹ãƒãƒ¼ãƒˆãƒ•ã‚©ãƒ³\nè¿‘ãã®ç›£è¦–ã‚«ãƒ¡ãƒ©ã®æ˜ åƒã‚’è¦‹ã‚‰ã‚Œã‚‹ã€‚";
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Flashlight))
         {
-            text.text = "‰ù’†“d“”\nƒoƒbƒeƒŠ[‚ÌÁ”ï‚ÍŒƒ‚µ‚¢‚ªA–¾‚é‚¢B";
+            text.text = "æ‡ä¸­é›»ç¯\nãƒãƒƒãƒ†ãƒªãƒ¼ã®æ¶ˆè²»ã¯æ¿€ã—ã„ãŒã€æ˜ã‚‹ã„ã€‚";
         }
         else
         {

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -71,7 +71,7 @@ public class OffstFlashlight : MonoBehaviour
         }
         
 
-        //Œõ‚éŠÔ‚ğ™X‚ÉŒ¸‚ç‚·&“d’rc—Ê‚ÌŠm”F
+        //å…‰ã‚‹æ™‚é–“ã‚’å¾ã€…ã«æ¸›ã‚‰ã™&é›»æ± æ®‹é‡ã®ç¢ºèª
         if (PickupObj.fpsLight && !PhoneAnimation.isLookPhone)
         {
             if(Glowingtime >= 0)
@@ -86,7 +86,7 @@ public class OffstFlashlight : MonoBehaviour
         }
         
     }
-    //ƒoƒbƒeƒŠ[‚ÌŠT”O
+    //ãƒãƒƒãƒ†ãƒªãƒ¼ã®æ¦‚å¿µ
     public void SetBattery()
     {
         if(Glowingtime <= maxglowTime - 0.01f)

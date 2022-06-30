@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -9,7 +9,7 @@ public class Items
     //public GameObject item;
     //public string expalianText;
 
-    //�񋓌^�F��ނ��`
+    //列挙型：種類を定義
     public enum Type
     {
         Key,
@@ -24,9 +24,9 @@ public class Items
         Memo6,
     }
 
-    //ItemType��錾
+    //ItemTypeを宣言
     public Type type;
-    //Item�摜��錾
+    //Item画像を宣言
     public Sprite sprite;
 
     public Items(Type type, Sprite sprite)

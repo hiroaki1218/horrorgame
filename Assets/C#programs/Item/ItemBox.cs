@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ public class ItemBox : MonoBehaviour
             instance = this;
         }
     }
-    //PickupObj‚ªƒNƒŠƒbƒN‚³‚ê‚½‚çAƒXƒƒbƒg‚ÉƒAƒCƒeƒ€‚ğ“ü‚ê‚é
+    //PickupObjãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã‚‰ã€ã‚¹ãƒ­ãƒƒãƒˆã«ã‚¢ã‚¤ãƒ†ãƒ ã‚’å…¥ã‚Œã‚‹
     public void SetItem(Items item)
     {
         for(int i=0; i< slots.Length; i++)
@@ -30,26 +30,26 @@ public class ItemBox : MonoBehaviour
         }
     }
 
-    //ƒXƒƒbƒg‚ğƒNƒŠƒbƒN‚µ‚½‚Æ‚«
+    //ã‚¹ãƒ­ãƒƒãƒˆã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã¨ã
     public void OnSlotClick(int position)
     {
-        //‘I‘ğ‚µ‚½‚Æ‚±‚ë‚ÉƒAƒCƒeƒ€‚ª‚È‚©‚Á‚½‚ç‰½‚à‚µ‚È‚¢
+        //é¸æŠã—ãŸã¨ã“ã‚ã«ã‚¢ã‚¤ãƒ†ãƒ ãŒãªã‹ã£ãŸã‚‰ä½•ã‚‚ã—ãªã„
         if (slots[position].IsEmpty())
         {
             return;
         }
-        //ˆê“x‚·‚×‚Ä”’‚É‚·‚é
+        //ä¸€åº¦ã™ã¹ã¦ç™½ã«ã™ã‚‹
         for(int i=0; i<slots.Length; i++)
         {
-            //slots[i]‚Ì”wŒi‚ğ‚È‚­‚·
+            //slots[i]ã®èƒŒæ™¯ã‚’ãªãã™
             slots[i].HideBackPanel();
         }
-        //ƒNƒŠƒbƒN‚µ‚½ƒXƒƒbƒg‚Ì”wŒi‚ğ•‚É‚·‚é
+        //ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¹ãƒ­ãƒƒãƒˆã®èƒŒæ™¯ã‚’é»’ã«ã™ã‚‹
         slots[position].OnSelect();
-        //‘I‘ğƒAƒCƒeƒ€
+        //é¸æŠã‚¢ã‚¤ãƒ†ãƒ 
         selectItem = slots[position].GetItem();
     }
-    //Item‚ğ‘I‘ğ‚µ‚Ä‚é‚©‚Ç‚¤‚©”»’è
+    //Itemã‚’é¸æŠã—ã¦ã‚‹ã‹ã©ã†ã‹åˆ¤å®š
     public bool CheckSelectItem(Items.Type useItemType)
     {
         if(selectItem == null)

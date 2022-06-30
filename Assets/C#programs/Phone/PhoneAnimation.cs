@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -70,14 +70,14 @@ public class PhoneAnimation : MonoBehaviour
                             fpc.enabled = false;
                             isLookPhone = true;
                             FlashLightEnabled = true;
-                            Cursor.lockState = CursorLockMode.None;     // ïWèÄÉÇÅ[Éh
-                            Cursor.visible = true;    // ÉJÅ[É\Éãï\é¶
+                            Cursor.lockState = CursorLockMode.None;     // Ê®ôÊ∫ñ„É¢„Éº„Éâ
+                            Cursor.visible = true;    // „Ç´„Éº„ÇΩ„É´Ë°®Á§∫
                         }
                         else if (!Active)
                         {
                             StartCoroutine("FPSenabled");
-                            Cursor.lockState = CursorLockMode.Locked;     // ïWèÄÉÇÅ[Éh
-                            Cursor.visible = false;    // ÉJÅ[É\Éãï\é¶
+                            Cursor.lockState = CursorLockMode.Locked;     // Ê®ôÊ∫ñ„É¢„Éº„Éâ
+                            Cursor.visible = false;    // „Ç´„Éº„ÇΩ„É´Ë°®Á§∫
                         }
                         isBrank = true;
                         yield return new WaitForSeconds(3f);
