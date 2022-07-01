@@ -14,6 +14,9 @@ public class Memo : MonoBehaviour
     [SerializeField] private Camera subCamera;
     [SerializeField] private Camera trainCamera;
     [SerializeField] private GameObject target;
+
+    [SerializeField] private GameObject firstBarrier;
+
     public static bool LookMemo;
     public static bool Memo1;
     public static bool Memo2;
@@ -138,6 +141,7 @@ public class Memo : MonoBehaviour
         Time.timeScale = 1;
         if (Memo1)
         {
+            firstBarrier.SetActive(false);
             Memo1 = false;
             exitMemo1 = true;
             _fpc.enabled = false;
