@@ -16,6 +16,10 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject AnimeObject1;
     [SerializeField] private GameObject AnimeObject2;
     [SerializeField] private float AnimeTime;
+    [SerializeField] private string opendoor = "SDoorOpen";
+    [SerializeField] private string closedoor = "SDoorClose";
+    [SerializeField] private string secondopendoor = "SDoorOpen";
+    [SerializeField] private string secondclosedoor = "SDoorClose";
 
     public bool SecondDoorAnime;
     public bool rockSound;
@@ -108,10 +112,10 @@ public class Door : MonoBehaviour
 
         //OpenDoorUI.SetActive(false);
         OpenDoorText = false;
-        AnimeObject1.GetComponent<Animator>().Play("SDoorOpen");
+        AnimeObject1.GetComponent<Animator>().Play(opendoor);
         if (SecondDoorAnime)
         {
-            AnimeObject2.GetComponent<Animator>().Play("SDoorOpen");
+            AnimeObject2.GetComponent<Animator>().Play(secondopendoor);
         }
         
         
@@ -132,10 +136,10 @@ public class Door : MonoBehaviour
     {
         //CloseDoorUI.SetActive(false);
         CloseDoorText = false;
-        AnimeObject1.GetComponent<Animator>().Play("SDoorClose");
+        AnimeObject1.GetComponent<Animator>().Play(closedoor);
         if (SecondDoorAnime)
         {
-             AnimeObject2.GetComponent<Animator>().Play("SDoorClose");
+             AnimeObject2.GetComponent<Animator>().Play(secondclosedoor);
         }
 
         //Audio
