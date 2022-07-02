@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemBox : MonoBehaviour
 {
     [SerializeField] ItemSlot[] slots = default;
+    [SerializeField] Button[] SlotButton;
     public static ItemBox instance;
 
     Items selectItem;
@@ -16,6 +18,15 @@ public class ItemBox : MonoBehaviour
             instance = this;
         }
     }
+    private void Start()
+    {
+        SlotButton[0].interactable = false;
+        SlotButton[1].interactable = false;
+        SlotButton[2].interactable = false;
+        SlotButton[3].interactable = false;
+        SlotButton[4].interactable = false;
+        SlotButton[5].interactable = false;
+    }
     //PickupObjがクリックされたら、スロットにアイテムを入れる
     public void SetItem(Items item)
     {
@@ -24,6 +35,7 @@ public class ItemBox : MonoBehaviour
             ItemSlot slot = slots[i];
             if (slot.IsEmpty())
             {
+                SlotButton[i].interactable = true;
                 slot.SetItem(item);
                 break;
             }
@@ -35,7 +47,7 @@ public class ItemBox : MonoBehaviour
     {
         //選択したところにアイテムがなかったら何もしない
         if (slots[position].IsEmpty())
-        {
+        { 
             return;
         }
         //一度すべて白にする

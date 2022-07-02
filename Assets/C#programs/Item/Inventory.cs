@@ -9,6 +9,11 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject InvUI;
     [SerializeField] private GameObject player;
     [SerializeField] private Text text;
+
+    //アイテムを使用するかしないか
+    [SerializeField] private GameObject UseItemUI;
+    [SerializeField] private Text useItemText;
+
     private bool Active;
     public static bool inventory;
     FirstPersonControllerCustom fpc;
@@ -16,8 +21,10 @@ public class Inventory : MonoBehaviour
     public void Start()
     {
         InvUI.SetActive(false);
+        UseItemUI.SetActive(false);
         Active = false;
         inventory = false;
+        useItemText.text = null;
     }
 
     public void Update()
@@ -43,6 +50,7 @@ public class Inventory : MonoBehaviour
                     inventory = false;
                     Cursor.visible = false;     // カーソル非表示
                     Cursor.lockState = CursorLockMode.Locked;   // 中央にロック
+                    OnClickBackButton();
                 }
             }
             
@@ -83,6 +91,31 @@ public class Inventory : MonoBehaviour
         else
         {
             text.text = null;
+            useItemText.text = null;
+            UseItemUI.SetActive(false);
         }
+    }
+    //アイテムを使用するかどうか
+    public void OnClickSomeItem()
+    {
+        if (ItemBox.instance.CheckSelectItem(Items.Type.Phone))
+        {
+            UseItemUI.SetActive(true);
+            useItemText.text = "スマートフォンを使用しますか？";
+        }
+    }
+    public void OnclickYesButton()
+    {
+        if (ItemBox.instance.CheckSelectItem(Items.Type.Phone))
+        {
+            InvUI.SetActive(false);
+            UseItemUI.SetActive(false);
+            inventory = false;
+            PhoneAnimation.instance.OnclickYesButton();
+        }
+    }
+    public void OnClickBackButton()
+    {
+        UseItemUI.SetActive(false);
     }
 }

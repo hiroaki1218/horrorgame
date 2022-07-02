@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class PhoneAnimation : MonoBehaviour
@@ -12,21 +13,27 @@ public class PhoneAnimation : MonoBehaviour
     [SerializeField] private GameObject target1;
     [SerializeField] private GameObject CrosshairUI;
     [SerializeField] private GameObject FirstPerson;
-    [SerializeField] private GameObject Button;
+    [SerializeField] private GameObject CameraChangeButton;
     FirstPersonControllerCustom fpc;
     GameObject player;
     public static bool Active;
     private bool OntoOff;
     private bool finish1;
     private bool finish2;
-    private bool isBrank;
+    //private bool isBrank;
     private bool cameraBack;
     public static bool isLookPhone;
     public static bool FlashLightEnabled;
     Animator _anim;
 
+    public static PhoneAnimation instance;
+
     private void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
         TrainCamera.enabled = false;
         SmartPhone.SetActive(false);
     }
@@ -38,58 +45,71 @@ public class PhoneAnimation : MonoBehaviour
         OntoOff = false;
         finish1 = true;
         finish2 = true;
-        isBrank = false;
+        //isBrank = false;
         cameraBack = true;
         isLookPhone = false;
         FlashLightEnabled = false;
-        Button.SetActive(false);
+        CameraChangeButton.SetActive(false);
         _anim = FirstPerson.GetComponent<Animator>();
     }
 
     void Update()
     {
-        StartCoroutine("StartProcessing");
+        StartProcessing();
     }
 
-    IEnumerator StartProcessing()
+    public void OnclickExitButton()
     {
-        
-        
-            if(!Inventory.inventory && !Menu.pause && !Memo.LookMemo && !Memo.exitMemo1)
+        Active = false;
+        StartCoroutine("FPSenabled");
+        Cursor.lockState = CursorLockMode.Locked;     // 標準モード
+        Cursor.visible = false;    // カーソル表示
+    }
+    public void OnclickYesButton()
+    {
+        Active = true;
+        StartCoroutine("ButtonDilay");
+        CrosshairUI.SetActive(false);
+        fpc.enabled = false;
+        isLookPhone = true;
+        FlashLightEnabled = true;
+        Cursor.lockState = CursorLockMode.None;     // 標準モード
+        Cursor.visible = true;    // カーソル表示
+    }
+    public void StartProcessing()
+    {
+        if(!Inventory.inventory && !Menu.pause && !Memo.LookMemo && !Memo.exitMemo1)
+        {
+            if (finish1 && finish2)
             {
-                if (finish1 && finish2)
-                {
-                    if (Input.GetKey(KeyCode.R) && !isBrank)
-                    {
-                        Active = !Active;
+               // if (Input.GetKey(KeyCode.R) && !isBrank)
+                //{
+                //Active = !Active;
 
-                        if (Active)
-                        {
-                            StartCoroutine("ButtonDilay");
-                            CrosshairUI.SetActive(false);
-                            fpc.enabled = false;
-                            isLookPhone = true;
-                            FlashLightEnabled = true;
-                            Cursor.lockState = CursorLockMode.None;     // 標準モード
-                            Cursor.visible = true;    // カーソル表示
-                        }
-                        else if (!Active)
-                        {
-                            StartCoroutine("FPSenabled");
-                            Cursor.lockState = CursorLockMode.Locked;     // 標準モード
-                            Cursor.visible = false;    // カーソル表示
-                        }
-                        isBrank = true;
-                        yield return new WaitForSeconds(3f);
-                        isBrank = false;
-                    }
+                ///if (Active)
+                ///{
+                    ///StartCoroutine("ButtonDilay");
+                    ///CrosshairUI.SetActive(false);
+                    ///fpc.enabled = false;
+                    ///isLookPhone = true;
+                    ///FlashLightEnabled = true;
+                    ///Cursor.lockState = CursorLockMode.None;     // 標準モード
+                    ///Cursor.visible = true;    // カーソル表示
+                ///}
+                ///else if (!active)
+                ///{
+                    ///StartCoroutine("FPSenabled");
+                    ///Cursor.lockState = CursorLockMode.Locked;     // 標準モード
+                    ///Cursor.visible = false;    // カーソル表示
+                ///}
+                //isBrank = true;
+                //yield return new WaitForSeconds(3f);
+                //isBrank = false;
+                //}
 
-                }
-                StartCoroutine("OnOffPhone");
             }
-            
-            
-        
+            StartCoroutine("OnOffPhone");
+        }   
     }
     IEnumerator OnOffPhone()
     {
@@ -147,7 +167,7 @@ public class PhoneAnimation : MonoBehaviour
     }
     IEnumerator FPSenabled()
     {
-        Button.SetActive(false);
+        CameraChangeButton.SetActive(false);
         FlashLightEnabled = false;
         yield return new WaitForSeconds(2.5f);
         fpc.enabled = true;
@@ -158,7 +178,7 @@ public class PhoneAnimation : MonoBehaviour
     IEnumerator ButtonDilay()
     {
         yield return new WaitForSeconds(1.3f);
-        Button.SetActive(true);
+        CameraChangeButton.SetActive(true);
     }
 
 }
