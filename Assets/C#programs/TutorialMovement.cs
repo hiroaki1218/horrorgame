@@ -117,9 +117,9 @@ public class TutorialMovement : MonoBehaviour
         if (_door.isOpen)
         {
             DoorcheckMark.SetActive(true);
+            FadeManager.Instance.LoadScene("MainScene", 1.0f);//シーンのフェードアウト
             yield return new WaitForSeconds(1.0f);//1sの時差
             doorconditonCanvas.SetActive(false);　//条件４：ドアのUI非表示
-            SceneManager.LoadScene("MainScene");
         }
         else if(four)
         {
