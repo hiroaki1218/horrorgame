@@ -36,6 +36,7 @@ public class ItemBox : MonoBehaviour
             if (slot.IsEmpty())
             {
                 SlotButton[i].interactable = true;
+                Inventory.r++;
                 slot.SetItem(item);
                 break;
             }
@@ -45,6 +46,7 @@ public class ItemBox : MonoBehaviour
     //スロットをクリックしたとき
     public void OnSlotClick(int position)
     {
+        Inventory.k = position;
         //選択したところにアイテムがなかったら何もしない
         if (slots[position].IsEmpty())
         { 
@@ -55,9 +57,13 @@ public class ItemBox : MonoBehaviour
         {
             //slots[i]の背景をなくす
             slots[i].HideBackPanel();
+
+            Inventory.instance.ItemCheckButton[i].interactable = false;
         }
         //クリックしたスロットの背景を黒にする
         slots[position].OnSelect();
+
+        Inventory.instance.ItemCheckButton[position].interactable = true;
         //選択アイテム
         selectItem = slots[position].GetItem();
     }

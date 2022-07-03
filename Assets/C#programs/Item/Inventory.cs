@@ -7,17 +7,29 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject InvUI;
+    [SerializeField] private Scrollbar bar;
+    [SerializeField] private ScrollRect scrollrect;
     [SerializeField] private GameObject player;
     [SerializeField] private Text text;
 
     //アイテムを使用するかしないか
     [SerializeField] private GameObject UseItemUI;
     [SerializeField] private Text useItemText;
+    [SerializeField] public Button[] ItemCheckButton;
+    public static int k;
+    public static int r;
 
     private bool Active;
     public static bool inventory;
     FirstPersonControllerCustom fpc;
-
+    public static Inventory instance;
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     public void Start()
     {
         InvUI.SetActive(false);
@@ -25,6 +37,7 @@ public class Inventory : MonoBehaviour
         Active = false;
         inventory = false;
         useItemText.text = null;
+        r = 0;
     }
 
     public void Update()
@@ -100,6 +113,9 @@ public class Inventory : MonoBehaviour
     {
         if (ItemBox.instance.CheckSelectItem(Items.Type.Phone))
         {
+            bar.interactable = false;
+            scrollrect.enabled = false;
+
             UseItemUI.SetActive(true);
             useItemText.text = "スマートフォンを使用しますか？";
         }
@@ -108,14 +124,20 @@ public class Inventory : MonoBehaviour
     {
         if (ItemBox.instance.CheckSelectItem(Items.Type.Phone))
         {
+            OnClickBackButton();
             InvUI.SetActive(false);
-            UseItemUI.SetActive(false);
             inventory = false;
             PhoneAnimation.instance.OnclickYesButton();
         }
     }
     public void OnClickBackButton()
     {
+        bar.interactable = true;
+        scrollrect.enabled = true;
+        for(int i = 0; i<=r; i++)
+        {
+            ItemCheckButton[i].interactable = true;
+        }
         UseItemUI.SetActive(false);
     }
 }

@@ -27064,10 +27064,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InvUI: {fileID: 1714148522}
+  bar: {fileID: 981109614}
+  scrollrect: {fileID: 1615211526}
   player: {fileID: 1656678102}
   text: {fileID: 1581811811}
   UseItemUI: {fileID: 688095384}
   useItemText: {fileID: 77277639}
+  ItemCheckButton:
+  - {fileID: 794313434}
+  - {fileID: 1508932661}
+  - {fileID: 1838209287}
+  - {fileID: 1419524205}
+  - {fileID: 1483924034}
+  - {fileID: 1114631114}
 --- !u!4 &1805269253
 Transform:
   m_ObjectHideFlags: 0

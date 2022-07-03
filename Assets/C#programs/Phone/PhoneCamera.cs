@@ -21,7 +21,6 @@ public class PhoneCamera : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(change);
         if(change == 0)
         {
             Camera1.enabled = true;
