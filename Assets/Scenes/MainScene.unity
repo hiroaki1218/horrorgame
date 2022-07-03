@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0076107224, g: 0.0012761268, b: 0.00008880605, a: 1}
+  m_IndirectSpecularColor: {r: 0.0076107066, g: 0.0012761251, b: 0.00008880596, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24283,6 +24283,7 @@ MonoBehaviour:
   CrosshairUI: {fileID: 302887641}
   FirstPerson: {fileID: 101109405}
   CameraChangeButton: {fileID: 1685029327}
+  ExitButton: {fileID: 1668385719}
 --- !u!114 &1656678112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27064,8 +27065,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InvUI: {fileID: 1714148522}
-  bar: {fileID: 981109614}
-  scrollrect: {fileID: 1615211526}
   player: {fileID: 1656678102}
   text: {fileID: 1581811811}
   UseItemUI: {fileID: 688095384}

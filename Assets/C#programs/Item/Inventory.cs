@@ -7,8 +7,6 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject InvUI;
-    [SerializeField] private Scrollbar bar;
-    [SerializeField] private ScrollRect scrollrect;
     [SerializeField] private GameObject player;
     [SerializeField] private Text text;
 
@@ -21,6 +19,7 @@ public class Inventory : MonoBehaviour
 
     private bool Active;
     public static bool inventory;
+    public static bool canPushTab;
     FirstPersonControllerCustom fpc;
     public static Inventory instance;
     private void Awake()
@@ -38,12 +37,13 @@ public class Inventory : MonoBehaviour
         inventory = false;
         useItemText.text = null;
         r = 0;
+        canPushTab = false;
     }
 
     public void Update()
     {
         fpc = player.GetComponent<FirstPersonControllerCustom>();
-        if (!Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo && !Memo.exitMemo1)
+        if (!Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo && !Memo.exitMemo1 && !canPushTab)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
             {
@@ -113,17 +113,20 @@ public class Inventory : MonoBehaviour
     {
         if (ItemBox.instance.CheckSelectItem(Items.Type.Phone))
         {
-            bar.interactable = false;
-            scrollrect.enabled = false;
-
             UseItemUI.SetActive(true);
             useItemText.text = "スマートフォンを使用しますか？";
+        }
+        else
+        {
+            UseItemUI.SetActive(false);
+            useItemText.text = null;
         }
     }
     public void OnclickYesButton()
     {
         if (ItemBox.instance.CheckSelectItem(Items.Type.Phone))
         {
+            canPushTab = true;
             OnClickBackButton();
             InvUI.SetActive(false);
             inventory = false;
@@ -132,12 +135,6 @@ public class Inventory : MonoBehaviour
     }
     public void OnClickBackButton()
     {
-        bar.interactable = true;
-        scrollrect.enabled = true;
-        for(int i = 0; i<=r; i++)
-        {
-            ItemCheckButton[i].interactable = true;
-        }
         UseItemUI.SetActive(false);
     }
 }
