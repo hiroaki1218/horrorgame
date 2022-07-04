@@ -12,14 +12,13 @@ public class SlenderMove : MonoBehaviour
     [SerializeField] Transform points;
     [SerializeField] Image gauge; //プログレスバー
     [SerializeField] Text text;
-    [SerializeField] private SphereCollider searchArea;
-    [SerializeField] private float searchAngle = 110f;
     [SerializeField] private GameObject Slender;
     [SerializeField] private GameObject SlenderMesh;
     [SerializeField] private Collider SlenderCollider;
     [SerializeField] private GameObject AudioSource;
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject UI;
+
 
     private AudioSource ads;
     private bool isLooking;
@@ -54,7 +53,6 @@ public class SlenderMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(attention);
         attention = Mathf.Clamp(attention, 0f, 1f);
         gauge.fillAmount = attention;
         if (!firstMove)
@@ -66,12 +64,12 @@ public class SlenderMove : MonoBehaviour
             //見えてるとき注意度が上がる
             if (isLooking)
             {
-                attention += 0.08f;
+                attention += 0.06f;
             }
             //見えてないときは注意度が少しずつ下がる
             else
             {
-                attention -= 0.001f;
+                attention -= 0.003f;
             }
             //注意度0.4以上の時、追いかける
             if (attention >= 0.2)
@@ -121,31 +119,20 @@ public class SlenderMove : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //　主人公の方向
-            var playerDirection = other.transform.position - transform.position;
-            //　敵の前方からの主人公の方向
-            var angle = Vector3.Angle(transform.forward, playerDirection);
-
             var positionDiff = other.transform.position - transform.position;
             var distans = positionDiff.magnitude;
             var direction = positionDiff.normalized;
             var hitCount = Physics.RaycastNonAlloc(transform.position, direction, _raycastHits, distans);
-            Debug.Log("hitCount: " + hitCount);
-            if(hitCount == 3)
+            Debug.Log(hitCount);
+            if (hitCount == 2)
             {
-                //　サーチする角度内だったら発見
-                if (angle <= searchAngle)
+                if (SlenderSearch.onAngle)
                 {
-                    //Debug.Log("主人公発見: " + angle);
                     isLooking = true;
                 }
                 else
                 {
-                    if (Vector3.Distance(other.transform.position, transform.position) <= searchArea.radius * 0.5f)
-                    {
-                        //Debug.Log("主人公を発見2");
-                        isLooking = true;
-                    }
+                    isLooking = false;
                 }
             }
             else

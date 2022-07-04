@@ -69,14 +69,21 @@ public class PhoneAnimation : MonoBehaviour
     }
     public void OnclickYesButton()
     {
-        Active = true;
-        StartCoroutine("ButtonDilay");
-        CrosshairUI.SetActive(false);
-        fpc.enabled = false;
-        isLookPhone = true;
-        FlashLightEnabled = true;
-        Cursor.lockState = CursorLockMode.None;     // 標準モード
-        Cursor.visible = true;    // カーソル表示
+        if (SlenderAttack.canCheckTabandItems)
+        {
+            Active = true;
+            StartCoroutine("ButtonDilay");
+            CrosshairUI.SetActive(false);
+            fpc.enabled = false;
+            isLookPhone = true;
+            FlashLightEnabled = true;
+            Cursor.lockState = CursorLockMode.None;     // 標準モード
+            Cursor.visible = true;    // カーソル表示
+        }
+        else
+        {
+            return;
+        }
     }
     public void StartProcessing()
     {
@@ -84,30 +91,6 @@ public class PhoneAnimation : MonoBehaviour
         {
             if (finish1 && finish2)
             {
-               // if (Input.GetKey(KeyCode.R) && !isBrank)
-                //{
-                //Active = !Active;
-
-                ///if (Active)
-                ///{
-                    ///StartCoroutine("ButtonDilay");
-                    ///CrosshairUI.SetActive(false);
-                    ///fpc.enabled = false;
-                    ///isLookPhone = true;
-                    ///FlashLightEnabled = true;
-                    ///Cursor.lockState = CursorLockMode.None;     // 標準モード
-                    ///Cursor.visible = true;    // カーソル表示
-                ///}
-                ///else if (!active)
-                ///{
-                    ///StartCoroutine("FPSenabled");
-                    ///Cursor.lockState = CursorLockMode.Locked;     // 標準モード
-                    ///Cursor.visible = false;    // カーソル表示
-                ///}
-                //isBrank = true;
-                //yield return new WaitForSeconds(3f);
-                //isBrank = false;
-                //}
 
             }
             StartCoroutine("OnOffPhone");

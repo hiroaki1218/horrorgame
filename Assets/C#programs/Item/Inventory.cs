@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour
     public static int k;
     public static int r;
 
-    private bool Active;
+    public static bool Active;
     public static bool inventory;
     public static bool canPushTab;
     FirstPersonControllerCustom fpc;
@@ -47,26 +47,8 @@ public class Inventory : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Tab))
             {
-                Active = !Active;
-                if (Active)
-                {
-                    InvUI.SetActive(true);
-                    fpc.enabled = false;
-                    inventory = true;
-                    Cursor.visible = true;     // カーソル表示
-                    Cursor.lockState = CursorLockMode.None;     // 標準モード
-                }
-                else if (!Active)
-                {
-                    InvUI.SetActive(false);
-                    fpc.enabled = true;
-                    inventory = false;
-                    Cursor.visible = false;     // カーソル非表示
-                    Cursor.lockState = CursorLockMode.Locked;   // 中央にロック
-                    OnClickBackButton();
-                }
-            }
-            
+                OnClickTab();
+            }  
         }
         if (ItemBox.instance.CheckSelectItem(Items.Type.Memo1))
         {
@@ -106,6 +88,34 @@ public class Inventory : MonoBehaviour
             text.text = null;
             useItemText.text = null;
             UseItemUI.SetActive(false);
+        }
+    }
+    public void OnClickTab()
+    {
+        if (SlenderAttack.canCheckTabandItems)
+        {
+            Active = !Active;
+        }
+        else
+        {
+            Active = false;
+        }
+        if (Active)
+        {
+            InvUI.SetActive(true);
+            fpc.enabled = false;
+            inventory = true;
+            Cursor.visible = true;     // カーソル表示
+            Cursor.lockState = CursorLockMode.None;     // 標準モード
+        }
+        else if (!Active)
+        {
+            InvUI.SetActive(false);
+            fpc.enabled = true;
+            inventory = false;
+            Cursor.visible = false;     // カーソル非表示
+            Cursor.lockState = CursorLockMode.Locked;   // 中央にロック
+            OnClickBackButton();
         }
     }
     //アイテムを使用するかどうか

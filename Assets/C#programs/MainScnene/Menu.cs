@@ -20,6 +20,7 @@ public class Menu : MonoBehaviour {
     [SerializeField] public AudioSource SlenderAudioSource;
     [SerializeField] public AudioSource FPSAudioSource;
     [SerializeField] public AudioSource SEAudioSource;
+    [SerializeField] public AudioSource BreathAudioSource;
     [SerializeField] float rainvolume = 0.2f;
     //雷の音　(Clip)
     //private float rainvolume = 0.2f;
@@ -75,6 +76,7 @@ public class Menu : MonoBehaviour {
         SlenderAudioSource.Pause();
         FPSAudioSource.Pause();
         SEAudioSource.Pause();
+        BreathAudioSource.Pause();
         Time.timeScale = 0;
         gamePause = true;
         pause = true;
@@ -92,6 +94,7 @@ public class Menu : MonoBehaviour {
         OnUnPanel.SetActive(true);      // PanelEscをtrueにする
         SlenderAudioSource.Play();
         SEAudioSource.Play();
+        BreathAudioSource.Play();
         //雷の音　(Clip)
         FPSAudioSource.Play();
         Time.timeScale = 1;

@@ -25,11 +25,16 @@ public class StaminaController : MonoBehaviour
     [SerializeField] private Image staminaProgressUI2;
     [SerializeField] private CanvasGroup sliderCamvasGroup;
 
-    private FirstPersonControllerCustom playerController;
+    //吐息
+    [SerializeField] private AudioSource _audiosource;
+    [SerializeField] private AudioClip _breathsound;
 
+    private FirstPersonControllerCustom playerController;
+    private bool one;
     private void Start()
     {
         playerController = GetComponent<FirstPersonControllerCustom>();
+        one = true;
     }
 
     private void Update()
@@ -48,6 +53,21 @@ public class StaminaController : MonoBehaviour
                     hasRegenerated = true;
                 }
             }
+        }
+        //吐息
+        if (!hasRegenerated)
+        {
+            _audiosource.clip = _breathsound;
+            if (one)
+            {
+                one = false;
+                _audiosource.PlayOneShot(_breathsound);
+            }
+        }
+        else
+        {
+            _audiosource.clip = null;
+            one = true;
         }
     }
 
