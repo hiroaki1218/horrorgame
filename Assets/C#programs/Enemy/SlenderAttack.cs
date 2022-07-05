@@ -30,6 +30,17 @@ public class SlenderAttack : MonoBehaviour
             }
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            //もしメモを見ていたら、バツボタンを押した時と同じようにする
+            if (Memo.Memo1 || Memo.Memo2 || Memo.Memo3 || Memo.Memo4 || Memo.Memo5 || Memo.Memo6)
+            {
+                Memo.instance.OnButton();
+            }
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if(other.tag == "Player")

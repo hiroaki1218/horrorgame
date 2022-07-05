@@ -61,7 +61,7 @@ public class StaminaController : MonoBehaviour
             if (one)
             {
                 one = false;
-                _audiosource.PlayOneShot(_breathsound);
+                _audiosource.PlayOneShot(_audiosource.clip);
             }
         }
         else

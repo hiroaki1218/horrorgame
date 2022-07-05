@@ -16,6 +16,7 @@ public class Memo : MonoBehaviour
     [SerializeField] private GameObject target;
 
     [SerializeField] private GameObject firstBarrier;
+    [SerializeField] private GameObject _memo2;
 
     public static bool LookMemo;
     public static bool Memo1;
@@ -29,6 +30,15 @@ public class Memo : MonoBehaviour
     private bool One;
     GameObject player;
     FirstPersonControllerCustom _fpc;
+
+    public static Memo instance;
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         LookMemo = false;
@@ -45,6 +55,7 @@ public class Memo : MonoBehaviour
         One = true;
         MemoUI.SetActive(false);
         subCamera.enabled = false;
+        _memo2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -57,7 +68,7 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             massage.text = "私はこの館に閉じ込められてしまった。\n早くこの場所から脱出しなければ...魔物に襲われてしまう...。" +
                 "\n後に来た人のために役に立つであろうメモを残しておこう。";
             MemoUI.SetActive(true);
@@ -69,7 +80,7 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             massage.text = "ベッドがたくさんある部屋に二階の鍵があるだろう。";
             MemoUI.SetActive(true);
         }
@@ -80,7 +91,7 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             massage.text = "音が鳴っているところにヒントがあるだろう。";
             MemoUI.SetActive(true);
         }
@@ -91,7 +102,7 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             massage.text = "二階のベランダに食堂のカギがあるだろう。";
             MemoUI.SetActive(true);
         }
@@ -102,7 +113,7 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             massage.text = "OOに玄関の鍵";
             MemoUI.SetActive(true);
         }
@@ -113,7 +124,7 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             massage.text = "OOに門の鍵";
             MemoUI.SetActive(true);
         }
@@ -138,16 +149,23 @@ public class Memo : MonoBehaviour
     {
         CrosshairUI.SetActive(true);
         LookMemo = false;
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         if (Memo1)
         {
-            firstBarrier.SetActive(false);
             Memo1 = false;
             exitMemo1 = true;
             _fpc.enabled = false;
+            firstBarrier.SetActive(false);
             SlenderMove.instance.SlenderFirstMove();
+
+            _memo2.SetActive(true);
         }
-        Memo2 = false;
+        if (Memo2)
+        {
+            Memo2 = false;
+            _fpc.enabled = true;
+        }
+        
         Memo3 = false;
         Memo4 = false;
         Memo5 = false;

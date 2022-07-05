@@ -31,6 +31,7 @@ public class Inventory : MonoBehaviour
     }
     public void Start()
     {
+        SlenderAttack.canCheckTabandItems = true;
         InvUI.SetActive(false);
         UseItemUI.SetActive(false);
         Active = false;

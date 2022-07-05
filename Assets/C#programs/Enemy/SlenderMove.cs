@@ -59,7 +59,7 @@ public class SlenderMove : MonoBehaviour
         {
             Slender.SetActive(true);
             ads.enabled = true;
-            ads.pitch = attention + 1;
+            ads.pitch = attention * 2;
             
             //見えてるとき注意度が上がる
             if (isLooking)
@@ -71,12 +71,12 @@ public class SlenderMove : MonoBehaviour
             {
                 attention -= 0.003f;
             }
-            //注意度0.4以上の時、追いかける
+            //注意度0.2以上の時、追いかける
             if (attention >= 0.2)
             {
                 agent.destination = Player.transform.position;
                 Slender.GetComponent<Animator>().Play("Run");
-                agent.speed = 4.8f;
+                agent.speed = 6f;
             }
             // 目的地付近で次の目的地
             else if (!agent.pathPending && agent.remainingDistance < 0.5f)
@@ -110,7 +110,7 @@ public class SlenderMove : MonoBehaviour
         agent.speed = 15f;
         dest = points.GetChild(8).transform.position;
         agent.destination = dest;
-        yield return new WaitForSeconds(23);
+        yield return new WaitForSeconds(25);
         SlenderMesh.SetActive(true);
         SlenderCollider.enabled = true;
         firstMove = false;
