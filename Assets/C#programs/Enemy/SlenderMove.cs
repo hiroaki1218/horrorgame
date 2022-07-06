@@ -19,6 +19,10 @@ public class SlenderMove : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject UI;
 
+    //Sound
+    [SerializeField] private AudioSource _audiosource;
+    [SerializeField] private AudioClip _LookSound;
+    private bool canLookSound;
 
     private AudioSource ads;
     private bool isLooking;
@@ -48,6 +52,8 @@ public class SlenderMove : MonoBehaviour
         isLooking = false;
         firstMove = true;
         ads = AudioSource.GetComponent<AudioSource>();
+        //Audio
+        canLookSound = false;
     }
 
     // Update is called once per frame
@@ -69,11 +75,21 @@ public class SlenderMove : MonoBehaviour
             //見えてないときは注意度が少しずつ下がる
             else
             {
-                attention -= 0.003f;
+                if (!Memo.Memo1 && !Memo.Memo2 && !Memo.Memo3 && !Memo.Memo4 && !Memo.Memo5 && !Memo.Memo6 && !Menu.pause)
+                {
+                    attention -= 0.003f;
+                }
             }
             //注意度0.2以上の時、追いかける
             if (attention >= 0.2)
             {
+                //Audio
+                if (canLookSound)
+                {
+                    _audiosource.PlayOneShot(_LookSound);
+                    canLookSound = false;
+                }
+
                 agent.destination = Player.transform.position;
                 Slender.GetComponent<Animator>().Play("Run");
                 agent.speed = 6f;
@@ -85,6 +101,10 @@ public class SlenderMove : MonoBehaviour
                 agent.destination = dest;
                 Slender.GetComponent<Animator>().Play("Walk");
                 agent.speed = 3f;
+            }
+            else
+            {
+                canLookSound = true;
             }
         }
     }
@@ -137,7 +157,10 @@ public class SlenderMove : MonoBehaviour
             }
             else
             {
-                attention -= 0.002f;
+                if(!Memo.Memo1 && !Memo.Memo2 && !Memo.Memo3 && !Memo.Memo4 && !Memo.Memo5 && !Memo.Memo6 && !Menu.pause)
+                {
+                    attention -= 0.002f;
+                } 
             }
         }
     }

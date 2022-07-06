@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0076107224, g: 0.0012761268, b: 0.00008880605, a: 1}
+  m_IndirectSpecularColor: {r: 0.0076107066, g: 0.0012761251, b: 0.00008880596, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -911,6 +911,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Lamp_D
       objectReference: {fileID: 0}
+    - target: {fileID: 122826, guid: 85bb8601e5e500b4d944c4ac64c546c2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 196478, guid: 85bb8601e5e500b4d944c4ac64c546c2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 196478, guid: 85bb8601e5e500b4d944c4ac64c546c2, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -1605,6 +1613,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Bed_B
       objectReference: {fileID: 0}
+    - target: {fileID: 113680, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 190340, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 190340, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -1869,6 +1885,14 @@ PrefabInstance:
     - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_Name
       value: Prop_Chair_A (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_NavMeshLayer
@@ -2736,6 +2760,14 @@ PrefabInstance:
     - target: {fileID: 113680, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}
       propertyPath: m_Name
       value: Prop_Bed_B (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 113680, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 190340, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 190340, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4408,6 +4440,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 164674, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 164674, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4418,6 +4454,10 @@ PrefabInstance:
     - target: {fileID: 190816, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_Name
       value: Prop_Cabinet_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 190816, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 428554, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_RootOrder
@@ -4559,6 +4599,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 120198, guid: de989d50c4fd676479d25b597fc65314, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 120198, guid: de989d50c4fd676479d25b597fc65314, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4569,6 +4613,10 @@ PrefabInstance:
     - target: {fileID: 145104, guid: de989d50c4fd676479d25b597fc65314, type: 3}
       propertyPath: m_Name
       value: Prop_SmallTable_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 145104, guid: de989d50c4fd676479d25b597fc65314, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 437890, guid: de989d50c4fd676479d25b597fc65314, type: 3}
       propertyPath: m_RootOrder
@@ -4815,6 +4863,14 @@ PrefabInstance:
     - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_Name
       value: Prop_Chair_A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_NavMeshLayer
@@ -5605,6 +5661,10 @@ PrefabInstance:
       value: Prop_Rug_C
       objectReference: {fileID: 0}
     - target: {fileID: 107462, guid: 8280470fa5800964fa583bd96da6eff8, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 107462, guid: 8280470fa5800964fa583bd96da6eff8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 16
       objectReference: {fileID: 0}
@@ -5767,6 +5827,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 103078, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 103078, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -5777,6 +5841,14 @@ PrefabInstance:
     - target: {fileID: 194242, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_Name
       value: Prop_Bed_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 194242, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 196794, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 196794, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_NavMeshLayer
@@ -5909,6 +5981,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 120198, guid: de989d50c4fd676479d25b597fc65314, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 120198, guid: de989d50c4fd676479d25b597fc65314, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -5919,6 +5995,10 @@ PrefabInstance:
     - target: {fileID: 145104, guid: de989d50c4fd676479d25b597fc65314, type: 3}
       propertyPath: m_Name
       value: Prop_SmallTable_B (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 145104, guid: de989d50c4fd676479d25b597fc65314, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 437890, guid: de989d50c4fd676479d25b597fc65314, type: 3}
       propertyPath: m_RootOrder
@@ -6545,6 +6625,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 107590, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 107590, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -6555,6 +6639,10 @@ PrefabInstance:
     - target: {fileID: 126718, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
       propertyPath: m_Name
       value: Prop_Cabinet_B (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 126718, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 408488, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
       propertyPath: m_RootOrder
@@ -6870,6 +6958,14 @@ PrefabInstance:
     - target: {fileID: 100346, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
       propertyPath: m_Name
       value: Prop_Lamp_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 100346, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 155034, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 155034, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9557,6 +9653,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 103078, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 103078, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -9567,6 +9667,14 @@ PrefabInstance:
     - target: {fileID: 194242, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_Name
       value: Prop_Bed_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 194242, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 196794, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 196794, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9640,6 +9748,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 164674, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 164674, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -9650,6 +9762,10 @@ PrefabInstance:
     - target: {fileID: 190816, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_Name
       value: Prop_Cabinet_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 190816, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 428554, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_RootOrder
@@ -12352,7 +12468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 733365195}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: inside ob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12439,6 +12555,10 @@ PrefabInstance:
       value: Prop_Rug_A
       objectReference: {fileID: 0}
     - target: {fileID: 122088, guid: 210d38b43ba064d418e74fe6c3791d87, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 122088, guid: 210d38b43ba064d418e74fe6c3791d87, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 16
       objectReference: {fileID: 0}
@@ -12511,6 +12631,14 @@ PrefabInstance:
     - target: {fileID: 174376, guid: 1e627c2e1810cde4897b566ba90fd986, type: 3}
       propertyPath: m_Name
       value: Prop_Clock_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 174376, guid: 1e627c2e1810cde4897b566ba90fd986, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 197594, guid: 1e627c2e1810cde4897b566ba90fd986, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 197594, guid: 1e627c2e1810cde4897b566ba90fd986, type: 3}
       propertyPath: m_NavMeshLayer
@@ -12787,6 +12915,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 124570, guid: d8740ed2b9dd7eb4f9b01ee19dcf0cd3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 124570, guid: d8740ed2b9dd7eb4f9b01ee19dcf0cd3, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12797,6 +12929,10 @@ PrefabInstance:
     - target: {fileID: 132456, guid: d8740ed2b9dd7eb4f9b01ee19dcf0cd3, type: 3}
       propertyPath: m_Name
       value: Prop_Sofa_A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 132456, guid: d8740ed2b9dd7eb4f9b01ee19dcf0cd3, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 432834, guid: d8740ed2b9dd7eb4f9b01ee19dcf0cd3, type: 3}
       propertyPath: m_RootOrder
@@ -13119,6 +13255,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Lamp_D (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 122826, guid: 85bb8601e5e500b4d944c4ac64c546c2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 196478, guid: 85bb8601e5e500b4d944c4ac64c546c2, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 196478, guid: 85bb8601e5e500b4d944c4ac64c546c2, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -13330,6 +13474,14 @@ PrefabInstance:
     - target: {fileID: 100346, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
       propertyPath: m_Name
       value: Prop_Lamp_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 100346, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 155034, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 155034, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
       propertyPath: m_NavMeshLayer
@@ -14005,6 +14157,8 @@ MonoBehaviour:
   AudioSource: {fileID: 481827699}
   Player: {fileID: 1656678102}
   UI: {fileID: 1798899325}
+  _audiosource: {fileID: 1811786739}
+  _LookSound: {fileID: 8300000, guid: a795c7a6061fa4481a87e3b2fcaf9924, type: 3}
 --- !u!33 &903739035
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14578,6 +14732,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Chair_A
       objectReference: {fileID: 0}
+    - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -14999,6 +15161,10 @@ PrefabInstance:
       value: Prop_Rug_D
       objectReference: {fileID: 0}
     - target: {fileID: 198172, guid: e33a26c53858bbd42ae3880d4443fc61, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198172, guid: e33a26c53858bbd42ae3880d4443fc61, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 119
       objectReference: {fileID: 0}
@@ -15122,6 +15288,14 @@ PrefabInstance:
     - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_Name
       value: Prop_Chair_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_NavMeshLayer
@@ -16042,6 +16216,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Clock_A
       objectReference: {fileID: 0}
+    - target: {fileID: 174376, guid: 1e627c2e1810cde4897b566ba90fd986, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 197594, guid: 1e627c2e1810cde4897b566ba90fd986, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 197594, guid: 1e627c2e1810cde4897b566ba90fd986, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -16302,6 +16484,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 110066, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 110066, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -16312,6 +16498,10 @@ PrefabInstance:
     - target: {fileID: 172672, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_Name
       value: Prop_LargeTable_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 172672, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 429048, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_RootOrder
@@ -16694,6 +16884,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 107590, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 107590, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -16704,6 +16898,10 @@ PrefabInstance:
     - target: {fileID: 126718, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
       propertyPath: m_Name
       value: Prop_Cabinet_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 126718, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 408488, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
       propertyPath: m_RootOrder
@@ -16811,6 +17009,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 110066, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 110066, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -16821,6 +17023,10 @@ PrefabInstance:
     - target: {fileID: 172672, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_Name
       value: Prop_LargeTable_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 172672, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 429048, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_RootOrder
@@ -16990,6 +17196,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Lamp_B
       objectReference: {fileID: 0}
+    - target: {fileID: 100346, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 155034, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 155034, guid: 0be8dee6ec685e54080e3e3cb3c0101b, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -17061,6 +17275,10 @@ PrefabInstance:
       value: Prop_Rug_B
       objectReference: {fileID: 0}
     - target: {fileID: 199316, guid: fac85779e5fda1c4493c6d5276271dde, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 199316, guid: fac85779e5fda1c4493c6d5276271dde, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 16
       objectReference: {fileID: 0}
@@ -17126,6 +17344,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 103078, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 103078, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -17136,6 +17358,14 @@ PrefabInstance:
     - target: {fileID: 194242, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_Name
       value: Prop_Bed_A (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 194242, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 196794, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 196794, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_NavMeshLayer
@@ -18887,7 +19117,7 @@ GameObject:
   - component: {fileID: 1241796632}
   - component: {fileID: 1241796631}
   - component: {fileID: 1241796630}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StepAssist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19238,6 +19468,14 @@ PrefabInstance:
     - target: {fileID: 108810, guid: d56462b3ff64676458a7fead7cda0e5f, type: 3}
       propertyPath: m_Name
       value: Prop_Vase_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 108810, guid: d56462b3ff64676458a7fead7cda0e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 137640, guid: d56462b3ff64676458a7fead7cda0e5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 137640, guid: d56462b3ff64676458a7fead7cda0e5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -19741,6 +19979,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Bed_B (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 113680, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 190340, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 190340, guid: 91365c327d21a0343b4fa73a722f938d, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -19808,6 +20054,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 110066, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 110066, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -19818,6 +20068,10 @@ PrefabInstance:
     - target: {fileID: 172672, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_Name
       value: Prop_LargeTable_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 172672, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 429048, guid: a11e981b37ff86749a7a41b2999e3199, type: 3}
       propertyPath: m_RootOrder
@@ -20312,6 +20566,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 103078, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 103078, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -20322,6 +20580,14 @@ PrefabInstance:
     - target: {fileID: 194242, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_Name
       value: Prop_Bed_A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 194242, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 196794, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 196794, guid: 46aad46494938c844a7bfbbcb53b98e1, type: 3}
       propertyPath: m_NavMeshLayer
@@ -21137,6 +21403,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 164674, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 164674, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -21147,6 +21417,10 @@ PrefabInstance:
     - target: {fileID: 190816, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_Name
       value: Prop_Cabinet_A (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 190816, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 428554, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_RootOrder
@@ -21527,6 +21801,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 107590, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 107590, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -21537,6 +21815,10 @@ PrefabInstance:
     - target: {fileID: 126718, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
       propertyPath: m_Name
       value: Prop_Cabinet_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 126718, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 408488, guid: 6dc78eb22702ea84296ffaf6e8826c15, type: 3}
       propertyPath: m_RootOrder
@@ -22120,6 +22402,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Chair_A (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -22361,6 +22651,14 @@ PrefabInstance:
     - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_Name
       value: Prop_Chair_A (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_NavMeshLayer
@@ -23916,6 +24214,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 164674, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 164674, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -23926,6 +24228,10 @@ PrefabInstance:
     - target: {fileID: 190816, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_Name
       value: Prop_Cabinet_A (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 190816, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 428554, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_RootOrder
@@ -24201,6 +24507,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 133434, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 133434, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -24211,6 +24521,10 @@ PrefabInstance:
     - target: {fileID: 166050, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
       propertyPath: m_Name
       value: Prop_Lamp_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 166050, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 459410, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
       propertyPath: m_RootOrder
@@ -26822,6 +27136,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 164674, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 164674, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -26832,6 +27150,10 @@ PrefabInstance:
     - target: {fileID: 190816, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_Name
       value: Prop_Cabinet_A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 190816, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 428554, guid: d5d4dde01c76a7e4397910ce96898cb1, type: 3}
       propertyPath: m_RootOrder
@@ -26973,12 +27295,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 131464, guid: d23cbbfe0da7d2548ad2401d0323c728, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 131464, guid: d23cbbfe0da7d2548ad2401d0323c728, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 131464, guid: d23cbbfe0da7d2548ad2401d0323c728, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 142902, guid: d23cbbfe0da7d2548ad2401d0323c728, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 142902, guid: d23cbbfe0da7d2548ad2401d0323c728, type: 3}
       propertyPath: m_NavMeshLayer
@@ -26991,6 +27321,10 @@ PrefabInstance:
     - target: {fileID: 148580, guid: d23cbbfe0da7d2548ad2401d0323c728, type: 3}
       propertyPath: m_Name
       value: Prop_SmallTable_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 148580, guid: d23cbbfe0da7d2548ad2401d0323c728, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 408016, guid: d23cbbfe0da7d2548ad2401d0323c728, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27308,6 +27642,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 133434, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 133434, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -27318,6 +27656,10 @@ PrefabInstance:
     - target: {fileID: 166050, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
       propertyPath: m_Name
       value: Prop_Lamp_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 166050, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 459410, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
       propertyPath: m_RootOrder
@@ -28316,6 +28658,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 133434, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 133434, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -28326,6 +28672,10 @@ PrefabInstance:
     - target: {fileID: 166050, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
       propertyPath: m_Name
       value: Prop_Lamp_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 166050, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 459410, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
       propertyPath: m_RootOrder
@@ -28794,6 +29144,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Chair_A (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -29084,6 +29442,14 @@ PrefabInstance:
     - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_Name
       value: Prop_Chair_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_NavMeshLayer
@@ -29788,6 +30154,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 733365195}
     m_Modifications:
     - target: {fileID: 124570, guid: d8740ed2b9dd7eb4f9b01ee19dcf0cd3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 124570, guid: d8740ed2b9dd7eb4f9b01ee19dcf0cd3, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -29798,6 +30168,10 @@ PrefabInstance:
     - target: {fileID: 132456, guid: d8740ed2b9dd7eb4f9b01ee19dcf0cd3, type: 3}
       propertyPath: m_Name
       value: Prop_Sofa_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 132456, guid: d8740ed2b9dd7eb4f9b01ee19dcf0cd3, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 432834, guid: d8740ed2b9dd7eb4f9b01ee19dcf0cd3, type: 3}
       propertyPath: m_RootOrder
@@ -30677,6 +31051,14 @@ PrefabInstance:
     - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_Name
       value: Prop_Chair_A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116360, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 179906, guid: ab34233292d193c47948f094a12fc6c7, type: 3}
       propertyPath: m_NavMeshLayer

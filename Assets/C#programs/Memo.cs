@@ -80,8 +80,8 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            //Time.timeScale = 0;
-            massage.text = "ベッドがたくさんある部屋に二階の鍵があるだろう。";
+            Time.timeScale = 0;
+            massage.text = "大広間の隣の部屋に二階の鍵があるだろう。";
             MemoUI.SetActive(true);
         }
         else if (Memo3)
@@ -91,7 +91,7 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
             massage.text = "音が鳴っているところにヒントがあるだろう。";
             MemoUI.SetActive(true);
         }
@@ -102,7 +102,7 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
             massage.text = "二階のベランダに食堂のカギがあるだろう。";
             MemoUI.SetActive(true);
         }
@@ -113,7 +113,7 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
             massage.text = "OOに玄関の鍵";
             MemoUI.SetActive(true);
         }
@@ -124,7 +124,7 @@ public class Memo : MonoBehaviour
             Cursor.visible = true;    // カーソル表示
             _fpc.enabled = false;
             CrosshairUI.SetActive(false);
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
             massage.text = "OOに門の鍵";
             MemoUI.SetActive(true);
         }
@@ -149,7 +149,7 @@ public class Memo : MonoBehaviour
     {
         CrosshairUI.SetActive(true);
         LookMemo = false;
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
         if (Memo1)
         {
             Memo1 = false;

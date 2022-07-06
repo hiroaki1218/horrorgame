@@ -58,7 +58,7 @@ public class Inventory : MonoBehaviour
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo2))
         {
-            text.text = "メモ\nベッドがたくさんある部屋に二階の鍵があるだろう。";
+            text.text = "メモ\n大広間の隣の部屋に二階の鍵があるだろう。";
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Memo3))
         {
