@@ -72,7 +72,7 @@ public class Menu : MonoBehaviour {
     public void OnPause()
     {   
         OnPanel.SetActive(true);        // PanelMenuをtrueにする
-        OnUnPanel.SetActive(false);     // PanelEscをfalseにする
+        OnUnPanel.SetActive(true);     // PanelEscをfalseにする
         SlenderAudioSource.Pause();
         FPSAudioSource.Pause();
         SEAudioSource.Pause();
@@ -91,7 +91,7 @@ public class Menu : MonoBehaviour {
     {   
         
         OnPanel.SetActive(false);       // PanelMenuをfalseにする
-        OnUnPanel.SetActive(true);      // PanelEscをtrueにする
+        OnUnPanel.SetActive(false);      // PanelEscをtrueにする
         SlenderAudioSource.Play();
         SEAudioSource.Play();
         BreathAudioSource.Play();

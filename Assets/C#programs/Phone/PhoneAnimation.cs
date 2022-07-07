@@ -168,8 +168,11 @@ public class PhoneAnimation : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
         Inventory.canPushTab = false;
-        CameraChangeButton.SetActive(true);
-        ExitButton.SetActive(true);
+        if (Active)
+        {
+            CameraChangeButton.SetActive(true);
+            ExitButton.SetActive(true);
+        }
     }
 
 }
