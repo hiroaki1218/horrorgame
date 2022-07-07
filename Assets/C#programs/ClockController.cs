@@ -10,15 +10,17 @@ public class ClockController : MonoBehaviour
     float realtime;
     int clocktime;
     int minutes;
+    public static bool timeIsUP;
 
     void Start()
     {
         realtime = 0;
+        timeIsUP = false;
     }
 
     void Update()
     {
-        if (!Menu.pause)
+        if (!Menu.pause && minutes == 10)
         {
             realtime += Time.deltaTime ;
             clocktime = (int)realtime;
@@ -26,5 +28,9 @@ public class ClockController : MonoBehaviour
             second.transform.eulerAngles = new Vector3(0, 0, -clocktime * 6);
             minute.transform.eulerAngles = new Vector3(0, 0, -minutes * 6);
         }   
+        if(minutes == 10)
+        {
+            timeIsUP = true;
+        }
     }
 }

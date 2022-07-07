@@ -50,7 +50,7 @@ public class Menu : MonoBehaviour {
 
     public void Update()
     {
-        if (!Inventory.inventory && !PhoneAnimation.isLookPhone && !Memo.LookMemo && !Memo.exitMemo1)
+        if (!Memo.LookMemo && !Memo.exitMemo1)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -101,10 +101,15 @@ public class Menu : MonoBehaviour {
         gamePause = false;
         pause = false;
         FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();
-        fpc.enabled = true;
-
-        Cursor.lockState = CursorLockMode.Locked;   // 中央にロック
-        Cursor.visible = false;     // カーソル非表示
+        if (!PhoneAnimation.isLookPhone)
+        {
+            fpc.enabled = true;
+        }
+        if (!Inventory.inventory && !PhoneAnimation.Active)
+        {
+            Cursor.lockState = CursorLockMode.Locked;   // 中央にロック
+            Cursor.visible = false;     // カーソル非表示
+        }
     }
 
     public void buckbutton(){

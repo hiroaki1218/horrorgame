@@ -66,46 +66,55 @@ public class SlenderMove : MonoBehaviour
             Slender.SetActive(true);
             ads.enabled = true;
             ads.pitch = attention * 2;
-            
-            //見えてるとき注意度が上がる
-            if (isLooking)
-            {
-                attention += 0.06f;
-            }
-            //見えてないときは注意度が少しずつ下がる
-            else
-            {
-                if (!Memo.Memo1 && !Memo.Memo2 && !Memo.Memo3 && !Memo.Memo4 && !Memo.Memo5 && !Memo.Memo6 && !Menu.pause)
-                {
-                    attention -= 0.003f;
-                }
-            }
-            //注意度0.2以上の時、追いかける
-            if (attention >= 0.2)
-            {
-                //Audio
-                if (canLookSound)
-                {
-                    _audiosource.PlayOneShot(_LookSound);
-                    canLookSound = false;
-                }
 
-                agent.destination = Player.transform.position;
-                Slender.GetComponent<Animator>().Play("Run");
-                agent.speed = 6f;
-            }
-            // 目的地付近で次の目的地
-            else if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            //時間が無くなったとき（10分になったとき）
+            if (ClockController.timeIsUP)
             {
-                Vector3 dest = GetDestinationRandomly();
-                agent.destination = dest;
-                Slender.GetComponent<Animator>().Play("Walk");
-                agent.speed = 3f;
+                agent.destination = Player.transform.position;
+                agent.speed = 13f;
             }
             else
             {
-                canLookSound = true;
-            }
+                //見えてるとき注意度が上がる
+                if (isLooking)
+                {
+                    attention += 0.06f;
+                }
+                //見えてないときは注意度が少しずつ下がる
+                else
+                {
+                    if (!Memo.Memo1 && !Memo.Memo2 && !Memo.Memo3 && !Memo.Memo4 && !Memo.Memo5 && !Memo.Memo6 && !Menu.pause)
+                    {
+                        attention -= 0.003f;
+                    }
+                }
+                //注意度0.2以上の時、追いかける
+                if (attention >= 0.2)
+                {
+                    //Audio
+                    if (canLookSound)
+                    {
+                        _audiosource.PlayOneShot(_LookSound);
+                        canLookSound = false;
+                    }
+
+                    agent.destination = Player.transform.position;
+                    Slender.GetComponent<Animator>().Play("Run");
+                    agent.speed = 6f;
+                }
+                // 目的地付近で次の目的地
+                else if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                {
+                    Vector3 dest = GetDestinationRandomly();
+                    agent.destination = dest;
+                    Slender.GetComponent<Animator>().Play("Walk");
+                    agent.speed = 3f;
+                }
+                else
+                {
+                    canLookSound = true;
+                }
+            } 
         }
     }
 

@@ -20,7 +20,6 @@ public class Inventory : MonoBehaviour
     public static bool Active;
     public static bool inventory;
     public static bool canPushTab;
-    FirstPersonControllerCustom fpc;
     public static Inventory instance;
     private void Awake()
     {
@@ -43,7 +42,6 @@ public class Inventory : MonoBehaviour
 
     public void Update()
     {
-        fpc = player.GetComponent<FirstPersonControllerCustom>();
         if (!Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo && !Memo.exitMemo1 && !canPushTab)
         {
             if (Input.GetKeyDown(KeyCode.Tab))
@@ -104,7 +102,8 @@ public class Inventory : MonoBehaviour
         if (Active)
         {
             InvUI.SetActive(true);
-            fpc.enabled = false;
+            MouseLook.XSensitivity = 0;
+            MouseLook.YSensitivity = 0;
             inventory = true;
             Cursor.visible = true;     // カーソル表示
             Cursor.lockState = CursorLockMode.None;     // 標準モード
@@ -112,7 +111,8 @@ public class Inventory : MonoBehaviour
         else if (!Active)
         {
             InvUI.SetActive(false);
-            fpc.enabled = true;
+            MouseLook.XSensitivity = 0.5f;
+            MouseLook.YSensitivity = 0.5f;
             inventory = false;
             Cursor.visible = false;     // カーソル非表示
             Cursor.lockState = CursorLockMode.Locked;   // 中央にロック

@@ -64,6 +64,8 @@ public class PhoneAnimation : MonoBehaviour
     {
         Active = false;
         StartCoroutine("FPSenabled");
+        MouseLook.XSensitivity = 0.5f;
+        MouseLook.YSensitivity = 0.5f;
         Cursor.lockState = CursorLockMode.Locked;     // 標準モード
         Cursor.visible = false;    // カーソル表示
     }
@@ -115,18 +117,18 @@ public class PhoneAnimation : MonoBehaviour
                 _anim.Play("FPSPhoneOff");
                 yield return new WaitForSeconds(0.37f);
                 SmartPhone.SetActive(false);
-                yield return new WaitForSeconds(0.63f);
+                yield return new WaitForSeconds(0.1f);
                 if (cameraBack)
                 {
                     PhoneCamera.transform.position = mainCamera.transform.position;
-                    PhoneCamera.transform.rotation = Quaternion.Slerp(PhoneCamera.transform.rotation, mainCamera.transform.rotation, 5 * Time.deltaTime);
+                    PhoneCamera.transform.rotation = Quaternion.Slerp(PhoneCamera.transform.rotation, mainCamera.transform.rotation, 10 * Time.deltaTime);
                 }
                 else
                 {
                     yield return new WaitForSeconds(0.8f);
                     PhoneCamera.transform.position = TrainCamera.transform.position;
                 }
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.2f);
                 cameraBack = false;
                 OntoOff = false;
                 finish2 = true;
@@ -156,7 +158,7 @@ public class PhoneAnimation : MonoBehaviour
         ExitButton.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         FlashLightEnabled = false;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         fpc.enabled = true;
         isLookPhone = false;
         CrosshairUI.SetActive(true);

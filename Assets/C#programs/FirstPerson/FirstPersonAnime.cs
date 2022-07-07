@@ -29,7 +29,7 @@ public class FirstPersonAnime : MonoBehaviour
         {
            
         }
-        else if (Menu.pause || Memo.exitMemo1 || Inventory.inventory || Memo.LookMemo)
+        else if (Menu.pause || Memo.exitMemo1 || Memo.LookMemo)
         {
             _anim.Play("BasicMotions@Idle01");
         }
