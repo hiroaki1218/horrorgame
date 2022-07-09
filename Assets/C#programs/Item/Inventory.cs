@@ -82,6 +82,10 @@ public class Inventory : MonoBehaviour
         {
             text.text = "懐中電灯\nバッテリーの消費は激しいが、明るい。";
         }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Hammer))
+        {
+            text.text = "ハンマー\n木の板を破壊することができる。";
+        }
         else
         {
             text.text = null;
@@ -127,6 +131,11 @@ public class Inventory : MonoBehaviour
             UseItemUI.SetActive(true);
             useItemText.text = "スマートフォンを使用しますか？";
         }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Hammer))
+        {
+            UseItemUI.SetActive(true);
+            useItemText.text = "ハンマーを使用しますか？";
+        }
         else
         {
             UseItemUI.SetActive(false);
@@ -142,6 +151,12 @@ public class Inventory : MonoBehaviour
             InvUI.SetActive(false);
             inventory = false;
             PhoneAnimation.instance.OnclickYesButton();
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Hammer))
+        {
+            canPushTab = true;
+            OnClickTab();
+            HammerAnimation.instance.OnClickYesButon();
         }
     }
     public void OnClickBackButton()

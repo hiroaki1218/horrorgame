@@ -29,21 +29,28 @@ public class FirstPersonAnime : MonoBehaviour
         {
            
         }
+        else if (HammerAnimation.instance.Action)
+        {
+
+        }
         else if (Menu.pause || Memo.exitMemo1 || Memo.LookMemo)
         {
             _anim.Play("BasicMotions@Idle01");
         }
         else if (_fpc.m_IsStopping)
         {
+            MouseLook.MaximumX = 57f;
             yield return new WaitForSeconds(0f);
             _anim.Play("BasicMotions@Idle01");
         }
         else if (_fpc.m_IsWalking)
         {
+            MouseLook.MaximumX = 57f;
             _anim.Play("BasicMotions@Walk01 - Forwards");
         }
         else if (_fpc.m_IsRunning)
         {
+            MouseLook.MaximumX = 47f;
             _anim.Play("BasicMotions@Run01 - Forwards");
         }
     }

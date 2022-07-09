@@ -17,6 +17,7 @@ public class Memo : MonoBehaviour
 
     [SerializeField] private GameObject firstBarrier;
     [SerializeField] private GameObject _memo2;
+    [SerializeField] private GameObject Hammer;
 
     public static bool LookMemo;
     public static bool Memo1;
@@ -56,6 +57,7 @@ public class Memo : MonoBehaviour
         MemoUI.SetActive(false);
         subCamera.enabled = false;
         _memo2.SetActive(false);
+        Hammer.SetActive(true);///
     }
 
     // Update is called once per frame
@@ -164,6 +166,7 @@ public class Memo : MonoBehaviour
         {
             Memo2 = false;
             _fpc.enabled = true;
+            Hammer.SetActive(true);
         }
         
         Memo3 = false;

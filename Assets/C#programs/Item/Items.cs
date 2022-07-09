@@ -16,6 +16,7 @@ public class Items
         Flashlight,
         Phone,
         Battery,
+        Hammer,
         Memo1,
         Memo2,
         Memo3,

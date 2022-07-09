@@ -113,7 +113,7 @@ public class PhoneAnimation : MonoBehaviour
             {
                 finish2 = false;
                 cameraBack = true;  
-                SmartPhone.GetComponent<Animator>().Play("PhoneOff");
+                //SmartPhone.GetComponent<Animator>().Play("PhoneOff");
                 _anim.Play("FPSPhoneOff");
                 yield return new WaitForSeconds(0.37f);
                 SmartPhone.SetActive(false);
@@ -144,7 +144,7 @@ public class PhoneAnimation : MonoBehaviour
             PhoneCamera.transform.rotation = Quaternion.Slerp(PhoneCamera.transform.rotation, targetRotation, 5 * Time.deltaTime);
 
             SmartPhone.SetActive(true);
-            SmartPhone.GetComponent<Animator>().Play("PhoneOn");
+            //SmartPhone.GetComponent<Animator>().Play("PhoneOn");
             _anim.Play("FPSPhoneOn");
 
             yield return new WaitForSeconds(1.3f);

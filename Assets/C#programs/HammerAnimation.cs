@@ -6,8 +6,10 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class HammerAnimation : MonoBehaviour
 {
     [SerializeField] private GameObject FirstPerson;
+    [SerializeField] private GameObject FPSHammer;
+    GameObject _fpc;
+    FirstPersonControllerCustom fpc;
     Animator _anim;
-    FirstPersonControllerCustom _fpc;
     public static HammerAnimation instance;
     public bool Action;
     private bool canShake;
@@ -26,10 +28,12 @@ public class HammerAnimation : MonoBehaviour
         canShake = false;
         canClick = true;
         isHammerShake = false;
+        FPSHammer.SetActive(false);
         _anim = FirstPerson.GetComponent<Animator>();
-        _fpc = FirstPerson.GetComponent<FirstPersonControllerCustom>();
+        _fpc = GameObject.Find("FPSController");
+        fpc = _fpc.GetComponent<FirstPersonControllerCustom>();
     }
-    void OnClickYesButon()
+    public void OnClickYesButon()
     {
         Action = true;
     }
@@ -40,6 +44,7 @@ public class HammerAnimation : MonoBehaviour
         if(Action && canClick && Input.GetMouseButton(1))
         {
             Action = false;
+            Inventory.canPushTab = false;
         }
         ChangeAction();
         StartCoroutine("HammerShake");
@@ -48,40 +53,49 @@ public class HammerAnimation : MonoBehaviour
     {
         if (Action)
         {
+            FPSHammer.SetActive(true);
             if (Input.GetMouseButton(0))
             {
                 if (canClick)
                 {
                     canShake = true;
                 }
+                else
+                {
+                    canShake = false;
+                }
             }
+        }
+        else
+        {
+            FPSHammer.SetActive(false);
         }
     }
     IEnumerator HammerShake() 
     {
-        if (canShake)
+        if (canShake && Action)
         {
             canClick = false;
             isHammerShake = true;
             _anim.Play("FPSHammerShake");
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(2f);
             isHammerShake = false;
             canClick = true;
             canShake = false;
         }
         else if(Action && !canShake)
         {
-            if (_fpc.m_IsStopping)
+            if (fpc.m_IsStopping)
             {
-                _anim.Play("FPSHammerHaving(Idle)");
+                _anim.Play("BasicMotions@Idle01");
             }
-            else if (_fpc.m_IsWalking)
+            else if (fpc.m_IsWalking)
             {
-                _anim.Play("FPSHammerHaving(Walk)");
+                _anim.Play("BasicMotions@Walk01 - Forwards");
             }
-            else if (_fpc.m_IsRunning)
+            else if (fpc.m_IsRunning)
             {
-                _anim.Play("FPSHammerHaving(Run)");
+                _anim.Play("BasicMotions@Run01 - Forwards");
             }
            
         }

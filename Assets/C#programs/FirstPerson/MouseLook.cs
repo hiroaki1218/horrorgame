@@ -10,8 +10,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public static float XSensitivity = 0.5f;
         public static float YSensitivity = 0.5f;
         public bool clampVerticalRotation = true;
-        public float MinimumX = -90F;
-        public float MaximumX = 90F;
+        public static float MinimumX = -80F;
+        public static float MaximumX = 54F;
         public bool smooth;
         public float smoothTime = 5f;
         public bool lockCursor = true;
