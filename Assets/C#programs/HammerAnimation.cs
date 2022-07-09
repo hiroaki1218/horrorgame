@@ -60,10 +60,6 @@ public class HammerAnimation : MonoBehaviour
                 {
                     canShake = true;
                 }
-                else
-                {
-                    canShake = false;
-                }
             }
         }
         else
@@ -73,12 +69,12 @@ public class HammerAnimation : MonoBehaviour
     }
     IEnumerator HammerShake() 
     {
-        if (canShake && Action)
+        if (canShake && Action && !isHammerShake)
         {
             canClick = false;
             isHammerShake = true;
             _anim.Play("FPSHammerShake");
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             isHammerShake = false;
             canClick = true;
             canShake = false;
@@ -87,14 +83,17 @@ public class HammerAnimation : MonoBehaviour
         {
             if (fpc.m_IsStopping)
             {
+                MouseLook.MaximumX = 57f;
                 _anim.Play("BasicMotions@Idle01");
             }
             else if (fpc.m_IsWalking)
             {
+                MouseLook.MaximumX = 57f;
                 _anim.Play("BasicMotions@Walk01 - Forwards");
             }
             else if (fpc.m_IsRunning)
             {
+                MouseLook.MaximumX = 47f;
                 _anim.Play("BasicMotions@Run01 - Forwards");
             }
            

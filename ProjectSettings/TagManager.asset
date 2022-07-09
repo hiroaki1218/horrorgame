@@ -11,6 +11,7 @@ TagManager:
   - DoorCloseTrigger
   - Carpet
   - FPSHead
+  - FPSHammer
   layers:
   - Default
   - TransparentFX
