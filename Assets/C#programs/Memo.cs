@@ -40,7 +40,7 @@ public class Memo : MonoBehaviour
             instance = this;
         }
     }
-    void Start()
+    private void Start()
     {
         LookMemo = false;
         player = GameObject.Find("FPSController");
