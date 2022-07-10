@@ -8377,7 +8377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectUI: {fileID: 1492295993}
   ThisItem: {fileID: 1947104595}
-  itemType: 5
+  itemType: 6
   isCollect: 0
   MainScene: 0
 --- !u!135 &527778301
@@ -15960,7 +15960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectUI: {fileID: 1533691282}
   ThisItem: {fileID: 19111750}
-  itemType: 8
+  itemType: 9
   isCollect: 0
   MainScene: 0
 --- !u!135 &875718592
@@ -19085,7 +19085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectUI: {fileID: 1736164855}
   ThisItem: {fileID: 1570191305}
-  itemType: 7
+  itemType: 8
   isCollect: 0
   MainScene: 0
 --- !u!135 &1079200045
@@ -20431,7 +20431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectUI: {fileID: 2105083215}
   ThisItem: {fileID: 1889618272}
-  itemType: 4
+  itemType: 5
   isCollect: 0
   MainScene: 0
 --- !u!135 &1142031031
@@ -20546,7 +20546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectUI: {fileID: 1954932028}
   ThisItem: {fileID: 439743031}
-  itemType: 9
+  itemType: 10
   isCollect: 0
   MainScene: 0
 --- !u!135 &1145400911
@@ -34584,7 +34584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectUI: {fileID: 685343690}
   ThisItem: {fileID: 383044887}
-  itemType: 6
+  itemType: 7
   isCollect: 0
   MainScene: 0
 --- !u!135 &1914279397
