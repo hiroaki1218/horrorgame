@@ -57,7 +57,7 @@ public class Memo : MonoBehaviour
         MemoUI.SetActive(false);
         subCamera.enabled = false;
         _memo2.SetActive(false);
-        Hammer.SetActive(true);///
+        Hammer.SetActive(false);
     }
 
     // Update is called once per frame

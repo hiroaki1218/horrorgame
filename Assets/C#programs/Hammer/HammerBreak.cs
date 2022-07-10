@@ -8,7 +8,15 @@ public class HammerBreak : MonoBehaviour
     [SerializeField] private int MaxBreakObj;
     public static int count;
     public static int breaknumber;
+    public static HammerBreak instance;
     // Start is called before the first frame update
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         count = 0;
@@ -23,5 +31,10 @@ public class HammerBreak : MonoBehaviour
                 Destroy(Parents);
             }
         }
+    }
+    IEnumerator WaitBreak()
+    {
+        yield return new WaitForSeconds(0.9f);
+        HammerBreakChild.canBreak = true;
     }
 }
