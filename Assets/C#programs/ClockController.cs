@@ -20,7 +20,7 @@ public class ClockController : MonoBehaviour
 
     void Update()
     {
-        if (!Menu.pause && minutes == 10)
+        if (!Menu.pause && minutes != 10)
         {
             realtime += Time.deltaTime ;
             clocktime = (int)realtime;

@@ -13,6 +13,7 @@ public class Items
     public enum Type
     {
         Key,
+        RoomKey,
         Flashlight,
         Phone,
         Battery,

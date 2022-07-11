@@ -26,7 +26,7 @@ public class ItemTalk : MonoBehaviour
             RaycastHit hit;  //Rayが当たったオブジェクトの情報が格納される
 
             //Rayが当たっていれば
-            if (Physics.Raycast(mainCamera.ViewportPointToRay(new Vector2(0.5f,0.5f)),out hit,100.0f))
+            if (Physics.SphereCast(mainCamera.ViewportPointToRay(new Vector2(0.5f,0.5f)),0.3f,out hit,100f))
             {
                 if (hit.collider.CompareTag("Item"))
                 {

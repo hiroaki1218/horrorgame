@@ -13,7 +13,7 @@ public class PickupObj : MonoBehaviour
     public bool isCollect;
     public static bool fpsLight;
     public static bool collectPhone;
-    public bool MainScene;
+    [SerializeField] public bool MainScene;
 
     // Start is called before the first frame update
     void Start()

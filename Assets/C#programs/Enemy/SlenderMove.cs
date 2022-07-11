@@ -27,6 +27,7 @@ public class SlenderMove : MonoBehaviour
     private AudioSource ads;
     private bool isLooking;
     private bool firstMove;
+    private bool canAllMove;
     NavMeshAgent agent;
     float attention;
     int state;
@@ -54,11 +55,16 @@ public class SlenderMove : MonoBehaviour
         ads = AudioSource.GetComponent<AudioSource>();
         //Audio
         canLookSound = false;
+        canAllMove = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Memo.Memo3)
+        {
+            canAllMove = true;
+        }
         attention = Mathf.Clamp(attention, 0f, 1f);
         gauge.fillAmount = attention;
         if (!firstMove)
@@ -187,6 +193,13 @@ public class SlenderMove : MonoBehaviour
     // ランダムで目的地を返す
     Vector3 GetDestinationRandomly()
     {
-        return points.GetChild(Random.Range(0, points.childCount)).transform.position;
+        if (canAllMove)
+        {
+            return points.GetChild(Random.Range(0, points.childCount)).transform.position;
+        }
+        else
+        {
+            return points.GetChild(Random.Range(0, 9)).transform.position;
+        }
     }
 }

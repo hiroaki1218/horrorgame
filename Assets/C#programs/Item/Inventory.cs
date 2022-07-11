@@ -86,6 +86,10 @@ public class Inventory : MonoBehaviour
         {
             text.text = "ハンマー\n木の板を破壊することができる。";
         }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.RoomKey))
+        {
+            text.text = "部屋の鍵\nどこかで使えないだろうか...。";
+        }
         else
         {
             text.text = null;
@@ -136,6 +140,11 @@ public class Inventory : MonoBehaviour
             UseItemUI.SetActive(true);
             useItemText.text = "ハンマーを使用しますか？";
         }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.RoomKey))
+        {
+            UseItemUI.SetActive(true);
+            useItemText.text = "部屋の鍵を使用しますか？";
+        }
         else
         {
             UseItemUI.SetActive(false);
@@ -157,6 +166,18 @@ public class Inventory : MonoBehaviour
             canPushTab = true;
             OnClickTab();
             HammerAnimation.instance.OnClickYesButon();
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.RoomKey))
+        {
+            if (UseRoomKey.instance.canUseRoomKey)
+            {
+                OnClickTab();
+                UseRoomKey.instance.Active = true;
+            }
+            else
+            {
+                Debug.Log("ここでは使えない");
+            }
         }
     }
     public void OnClickBackButton()
