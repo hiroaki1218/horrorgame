@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class UseRoomKey : MonoBehaviour
 {
+    [SerializeField] private GameObject door;
+    Door _door;
     public static UseRoomKey instance;
     public bool canUseRoomKey;
     public bool Active;
+    private bool once;
     private void Awake()
     {
         if(instance == null)
@@ -19,6 +22,8 @@ public class UseRoomKey : MonoBehaviour
     {
         canUseRoomKey = false;
         Active = false;
+        _door = door.GetComponent<Door>();
+        once = true;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -37,9 +42,10 @@ public class UseRoomKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Active)
+        if (Active && once)
         {
-            //ドアを開ける処理
+            _door.StartCoroutine(_door.DoorOpenWait());
+            once = false;
         }
     }
 }

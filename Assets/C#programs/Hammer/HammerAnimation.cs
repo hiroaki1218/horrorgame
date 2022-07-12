@@ -69,7 +69,7 @@ public class HammerAnimation : MonoBehaviour
     }
     IEnumerator HammerShake() 
     {
-        if (canShake && Action && !isHammerShake)
+        if (canShake && Action && !isHammerShake && !Menu.pause)
         {
             canClick = false;
             isHammerShake = true;

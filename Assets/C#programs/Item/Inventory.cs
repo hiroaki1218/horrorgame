@@ -176,6 +176,7 @@ public class Inventory : MonoBehaviour
             }
             else
             {
+                OnClickTab();
                 Debug.Log("ここでは使えない");
             }
         }

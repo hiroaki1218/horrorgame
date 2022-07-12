@@ -24,9 +24,17 @@ public class Door : MonoBehaviour
     public bool SecondDoorAnime;
     public bool rockSound;
     public bool isOpen;
-    private bool Action;
+    public bool Action;
     private bool OpenDoorText;
     private bool CloseDoorText;
+    public static Door instance;
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
 
     void Start()
     {
@@ -107,7 +115,7 @@ public class Door : MonoBehaviour
     }
 
 
-    IEnumerator DoorOpenWait()
+    public IEnumerator DoorOpenWait()
     {
 
         //OpenDoorUI.SetActive(false);

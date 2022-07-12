@@ -59,7 +59,7 @@ public class Memo : MonoBehaviour
         subCamera.enabled = false;
         _memo2.SetActive(false);
         Hammer.SetActive(false);
-        RoomKey.SetActive(false);
+        RoomKey.SetActive(true);///false
     }
 
     // Update is called once per frame
@@ -170,14 +170,15 @@ public class Memo : MonoBehaviour
             Hammer.SetActive(true);
             Memo2 = false;
         }
-
+        if (Memo3)
+        {
+            Memo3 = false;
+        }
         if (Memo4)
         {
             Memo4 = false;
             RoomKey.SetActive(true);
         }
-        Memo3 = false;
-        
         Memo5 = false;
         Memo6 = false;
         //_fpc.enabled = true;
