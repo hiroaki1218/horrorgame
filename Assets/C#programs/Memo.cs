@@ -19,6 +19,7 @@ public class Memo : MonoBehaviour
     [SerializeField] private GameObject _memo2;
     [SerializeField] private GameObject Hammer;
     [SerializeField] private GameObject RoomKey;
+    [SerializeField] private Collider _pianocollider;
 
     public static bool LookMemo;
     public static bool Memo1;
@@ -59,7 +60,8 @@ public class Memo : MonoBehaviour
         subCamera.enabled = false;
         _memo2.SetActive(false);
         Hammer.SetActive(false);
-        RoomKey.SetActive(true);///false
+        RoomKey.SetActive(true);///falseに変更忘れず
+        _pianocollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -173,6 +175,7 @@ public class Memo : MonoBehaviour
         if (Memo3)
         {
             Memo3 = false;
+            _pianocollider.enabled = true;
         }
         if (Memo4)
         {

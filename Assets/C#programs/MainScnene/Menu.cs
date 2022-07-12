@@ -19,6 +19,7 @@ public class Menu : MonoBehaviour {
     [SerializeField] private Slider ResumeSlider;
     [SerializeField] public AudioSource SlenderAudioSource;
     [SerializeField] public AudioSource FPSAudioSource;
+    [SerializeField] public AudioSource PianoAudioSource;
     [SerializeField] public AudioSource SEAudioSource;
     [SerializeField] public AudioSource BreathAudioSource;
     [SerializeField] float rainvolume = 0.2f;
@@ -75,6 +76,7 @@ public class Menu : MonoBehaviour {
         OnUnPanel.SetActive(true);     // PanelEscをfalseにする
         SlenderAudioSource.Pause();
         FPSAudioSource.Pause();
+        PianoAudioSource.Pause();
         SEAudioSource.Pause();
         BreathAudioSource.Pause();
         Time.timeScale = 0;
@@ -93,6 +95,7 @@ public class Menu : MonoBehaviour {
         OnPanel.SetActive(false);       // PanelMenuをfalseにする
         OnUnPanel.SetActive(false);      // PanelEscをtrueにする
         SlenderAudioSource.Play();
+        PianoAudioSource.Play();
         SEAudioSource.Play();
         BreathAudioSource.Play();
         //雷の音　(Clip)
