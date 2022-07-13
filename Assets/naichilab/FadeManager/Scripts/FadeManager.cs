@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 /// <summary>
 /// シーン遷移時のフェードイン・アウトを制御するためのクラス .
@@ -18,10 +19,10 @@ public class FadeManager : MonoBehaviour
 	public static FadeManager Instance {
 		get {
 			if (instance == null) {
-				instance = (FadeManager)FindObjectOfType (typeof(FadeManager));
+				instance = (FadeManager)FindObjectOfType(typeof(FadeManager));
 
 				if (instance == null) {
-					Debug.LogError (typeof(FadeManager) + "is nothing");
+					Debug.LogError(typeof(FadeManager) + "is nothing");
 				}
 			}
 
@@ -41,19 +42,27 @@ public class FadeManager : MonoBehaviour
 	private bool isFading = false;
 	/// <summary>フェード色</summary>
 	public Color fadeColor = Color.black;
+	private AsyncOperation async;
+	[SerializeField] private Slider _slider;
+	//[SerializeField] private GameObject Ui;
+	bool Loading;
+	public bool Subscene;
 
 
-	public void Awake ()
+	public void Awake()
 	{
 		if (this != Instance) {
-			Destroy (this.gameObject);
+			Destroy(this.gameObject);
 			return;
 		}
 
-		DontDestroyOnLoad (this.gameObject);
+		DontDestroyOnLoad(this.gameObject);
 	}
-
-	public void OnGUI ()
+	private void Start()
+	{
+		Loading = false;
+	}
+	public void OnGUI()
 	{
 
 		// Fade .
@@ -61,36 +70,36 @@ public class FadeManager : MonoBehaviour
 			//色と透明度を更新して白テクスチャを描画 .
 			this.fadeColor.a = this.fadeAlpha;
 			GUI.color = this.fadeColor;
-			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
+			GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
 		}
 
 		if (this.DebugMode) {
 			if (!this.isFading) {
 				//Scene一覧を作成 .
 				//(UnityEditor名前空間を使わないと自動取得できなかったので決めうちで作成) .
-				List<string> scenes = new List<string> ();
-				scenes.Add ("SampleScene");
+				List<string> scenes = new List<string>();
+				scenes.Add("SampleScene");
 				//scenes.Add ("SomeScene1");
 				//scenes.Add ("SomeScene2");
 
 
 				//Sceneが一つもない .
 				if (scenes.Count == 0) {
-					GUI.Box (new Rect (10, 10, 200, 50), "Fade Manager(Debug Mode)");
-					GUI.Label (new Rect (20, 35, 180, 20), "Scene not found.");
+					GUI.Box(new Rect(10, 10, 200, 50), "Fade Manager(Debug Mode)");
+					GUI.Label(new Rect(20, 35, 180, 20), "Scene not found.");
 					return;
 				}
 
 
-				GUI.Box (new Rect (10, 10, 300, 50 + scenes.Count * 25), "Fade Manager(Debug Mode)");
-				GUI.Label (new Rect (20, 30, 280, 20), "Current Scene : " + SceneManager.GetActiveScene ().name);
+				GUI.Box(new Rect(10, 10, 300, 50 + scenes.Count * 25), "Fade Manager(Debug Mode)");
+				GUI.Label(new Rect(20, 30, 280, 20), "Current Scene : " + SceneManager.GetActiveScene().name);
 
 				int i = 0;
 				foreach (string sceneName in scenes) {
-					if (GUI.Button (new Rect (20, 55 + i * 25, 100, 20), "Load Level")) {
-						LoadScene (sceneName, 1.0f);
+					if (GUI.Button(new Rect(20, 55 + i * 25, 100, 20), "Load Level")) {
+						LoadScene(sceneName, 1.0f);
 					}
-					GUI.Label (new Rect (125, 55 + i * 25, 1000, 20), sceneName);
+					GUI.Label(new Rect(125, 55 + i * 25, 1000, 20), sceneName);
 					i++;
 				}
 			}
@@ -105,9 +114,9 @@ public class FadeManager : MonoBehaviour
 	/// </summary>
 	/// <param name='scene'>シーン名</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
-	public void LoadScene (string scene, float interval)
+	public void LoadScene(string scene, float interval)
 	{
-		StartCoroutine (TransScene (scene, interval));
+		StartCoroutine(TransScene(scene, interval));
 	}
 
 	/// <summary>
@@ -115,28 +124,49 @@ public class FadeManager : MonoBehaviour
 	/// </summary>
 	/// <param name='scene'>シーン名</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
-	private IEnumerator TransScene (string scene, float interval)
+	private IEnumerator TransScene(string scene, float interval)
 	{
 		//だんだん暗く .
-		this.isFading = true;
+        this.isFading = true;
 		float time = 0;
-		while (time <= interval) {
-			this.fadeAlpha = Mathf.Lerp (0f, 1f, time / interval);
+		while (time <= interval)
+		{
+			this.fadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
 			time += Time.deltaTime;
 			yield return 0;
 		}
+		
+		yield return new WaitForSeconds(1f);
+        //シーン切替 .
+        if (Subscene)
+        {
+			Subscene = false;
+        
+		async = SceneManager.LoadSceneAsync(scene);
+		async.allowSceneActivation = false;
 
-		//シーン切替 .
-		SceneManager.LoadScene (scene);
+		//　読み込みが終わるまで進捗状況をスライダーの値に反映させる
+		while (async.progress < 0.9f)
+		{
+			_slider.value = async.progress;
+			yield return null;
+		}
+		_slider.value = 1.0f;
+		async.allowSceneActivation = true;
+		yield return async;
 
+		}
 		//だんだん明るく .
-		time = 0;
-		while (time <= interval) {
-			this.fadeAlpha = Mathf.Lerp (1f, 0f, time / interval);
-			time += Time.deltaTime;
-			yield return 0;
-		}
+		    time = 0;
+			while (time <= interval)
+			{
+				this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
+				time += Time.deltaTime;
+				yield return 0;
+			}
 
-		this.isFading = false;
-	}
+			this.isFading = false;
+
+		
+	} 
 }
