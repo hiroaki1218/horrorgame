@@ -27,7 +27,10 @@ public class SlenderMove : MonoBehaviour
     private AudioSource ads;
     private bool isLooking;
     private bool firstMove;
+    public bool secoundmove;
+    private bool finishsecoundMove;
     private bool canAllMove;
+    public bool slenderfalse;
     NavMeshAgent agent;
     float attention;
     int state;
@@ -52,22 +55,30 @@ public class SlenderMove : MonoBehaviour
         gauge.fillAmount = 0f;
         isLooking = false;
         firstMove = true;
+        secoundmove = false;
+        finishsecoundMove = false;
         ads = AudioSource.GetComponent<AudioSource>();
         //Audio
         canLookSound = false;
         canAllMove = false;
+        slenderfalse = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!finishsecoundMove)
+        {
+            StartCoroutine(SecoundMove());
+        }
+       
         if (Memo.Memo3)
         {
             canAllMove = true;
         }
         attention = Mathf.Clamp(attention, 0f, 1f);
         gauge.fillAmount = attention;
-        if (!firstMove)
+        if (!firstMove && !secoundmove)
         {
             Slender.SetActive(true);
             ads.enabled = true;
@@ -149,6 +160,31 @@ public class SlenderMove : MonoBehaviour
         SlenderMesh.SetActive(true);
         SlenderCollider.enabled = true;
         firstMove = false;
+    }
+    IEnumerator SecoundMove()
+    {
+        if (slenderfalse)
+        {
+            if(attention <= 0)
+            {
+                secoundmove = true;
+                SlenderMesh.SetActive(false);
+                SlenderCollider.enabled = false;
+                agent.speed = 0;
+                agent.transform.position = points.GetChild(5).transform.position;
+                
+                if (Piano.pianoPushed)
+                {
+                    agent.speed = 7f;
+                    agent.destination = Player.transform.position;
+                    SlenderMesh.SetActive(true);
+                    SlenderCollider.enabled = true;
+                    yield return new WaitForSeconds(2f);
+                    secoundmove = false;
+                    finishsecoundMove = true;
+                }
+            }
+        }
     }
     private void OnTriggerStay(Collider other)
     {

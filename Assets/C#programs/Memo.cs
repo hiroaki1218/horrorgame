@@ -169,11 +169,13 @@ public class Memo : MonoBehaviour
         if (Memo2)
         {
             _fpc.enabled = true;
+            SlenderMove.instance.slenderfalse = true;
             Hammer.SetActive(true);
             Memo2 = false;
         }
         if (Memo3)
         {
+            _fpc.enabled = true;
             Memo3 = false;
             _pianocollider.enabled = true;
         }

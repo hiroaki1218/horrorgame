@@ -7,10 +7,12 @@ public class Piano : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip PianoSound;
     private bool CanPushPiano;
+    public static bool pianoPushed;
 
     private void Start()
     {
         CanPushPiano = false;
+        pianoPushed = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,6 +48,7 @@ public class Piano : MonoBehaviour
     IEnumerator AnlockDoor()
     {
         _audioSource.PlayOneShot(PianoSound);
+        pianoPushed = true;
         yield return new WaitForSeconds(5f);
     }
 }

@@ -17,16 +17,23 @@ public class SlenderAttack : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            canCheckTabandItems = false;
-            //もしスマホを開いていたら、バツボタンを押したときと同じようにActiveをfalseにする
-            if (PhoneAnimation.Active)
+            if (!SlenderMove.instance.secoundmove)
             {
-                PhoneAnimation.instance.OnclickExitButton();
+                canCheckTabandItems = false;
+                //もしスマホを開いていたら、バツボタンを押したときと同じようにActiveをfalseにする
+                if (PhoneAnimation.Active)
+                {
+                    PhoneAnimation.instance.OnclickExitButton();
+                }
+                //もしtabを開いていたら、Activeをfalseにする
+                if (Inventory.Active)
+                {
+                    Inventory.instance.OnClickTab();
+                }
             }
-            //もしtabを開いていたら、Activeをfalseにする
-            if (Inventory.Active)
+            else
             {
-                Inventory.instance.OnClickTab();
+                canCheckTabandItems = true;
             }
         }
     }
