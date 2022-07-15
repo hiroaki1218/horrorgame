@@ -13,6 +13,7 @@ public class HammerAnimation : MonoBehaviour
     public static HammerAnimation instance;
     public bool Action;
     private bool canShake;
+    public static bool canShakewithMemo;
     private bool canClick;
     public static bool isHammerShake;
     private void Awake()
@@ -27,6 +28,7 @@ public class HammerAnimation : MonoBehaviour
         Action = false;
         canShake = false;
         canClick = true;
+        canShakewithMemo = true;
         isHammerShake = false;
         FPSHammer.SetActive(false);
         _anim = FirstPerson.GetComponent<Animator>();
@@ -69,7 +71,7 @@ public class HammerAnimation : MonoBehaviour
     }
     IEnumerator HammerShake() 
     {
-        if (canShake && Action && !isHammerShake && !Menu.pause)
+        if (canShake && Action && !isHammerShake && !Menu.pause && canShakewithMemo)
         {
             canClick = false;
             isHammerShake = true;

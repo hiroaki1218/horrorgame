@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6f13fd9830f604dad62fd65776aaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parents: {fileID: 1171949960}
   _audiosource: {fileID: 1811786739}
   _breakWoodSound: {fileID: 8300000, guid: 673d7767c520a469985cb49759328145, type: 3}
 --- !u!65 &29159209
@@ -4985,6 +4986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6f13fd9830f604dad62fd65776aaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parents: {fileID: 586907254}
   _audiosource: {fileID: 1811786739}
   _breakWoodSound: {fileID: 8300000, guid: 673d7767c520a469985cb49759328145, type: 3}
 --- !u!65 &280874937
@@ -9237,6 +9239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6f13fd9830f604dad62fd65776aaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parents: {fileID: 586907254}
   _audiosource: {fileID: 1811786739}
   _breakWoodSound: {fileID: 8300000, guid: 673d7767c520a469985cb49759328145, type: 3}
 --- !u!4 &529373735 stripped
@@ -10844,7 +10847,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4, y: 2.4, z: 0.23}
+  m_Size: {x: 1.4, y: 2.4, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &586907252
 NavMeshObstacle:
@@ -10895,6 +10898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Parents: {fileID: 586907249}
   MaxBreakObj: 4
+  count: 0
+  breaknumber: 0
 --- !u!4 &594395214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459410, guid: c9ec0cf2c9954d144bcfcefa4161913f, type: 3}
@@ -10999,6 +11004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6f13fd9830f604dad62fd65776aaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parents: {fileID: 1171949960}
   _audiosource: {fileID: 1811786739}
   _breakWoodSound: {fileID: 8300000, guid: 673d7767c520a469985cb49759328145, type: 3}
 --- !u!65 &603561758
@@ -22665,6 +22671,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Parents: {fileID: 1171949959}
   MaxBreakObj: 4
+  count: 0
+  breaknumber: 0
 --- !u!65 &1171949961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22676,7 +22684,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4, y: 2.4, z: 0.23}
+  m_Size: {x: 1.4, y: 2.4, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!208 &1171949962
 NavMeshObstacle:
@@ -25238,6 +25246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6f13fd9830f604dad62fd65776aaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parents: {fileID: 586907254}
   _audiosource: {fileID: 1811786739}
   _breakWoodSound: {fileID: 8300000, guid: 673d7767c520a469985cb49759328145, type: 3}
 --- !u!1001 &1319399601
@@ -26221,6 +26230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6f13fd9830f604dad62fd65776aaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parents: {fileID: 586907254}
   _audiosource: {fileID: 1811786739}
   _breakWoodSound: {fileID: 8300000, guid: 673d7767c520a469985cb49759328145, type: 3}
 --- !u!1001 &1395716557
@@ -28049,6 +28059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6f13fd9830f604dad62fd65776aaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parents: {fileID: 1171949960}
   _audiosource: {fileID: 1811786739}
   _breakWoodSound: {fileID: 8300000, guid: 673d7767c520a469985cb49759328145, type: 3}
 --- !u!65 &1485230390
@@ -41552,6 +41563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6f13fd9830f604dad62fd65776aaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parents: {fileID: 1171949960}
   _audiosource: {fileID: 1811786739}
   _breakWoodSound: {fileID: 8300000, guid: 673d7767c520a469985cb49759328145, type: 3}
 --- !u!65 &2080990318
@@ -53280,15 +53292,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 186594323544384927, guid: 7d8419ca99ea80c49b0c1e11c8b5b977, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -265.5072
+      value: -265.4
       objectReference: {fileID: 0}
     - target: {fileID: 186594323544384927, guid: 7d8419ca99ea80c49b0c1e11c8b5b977, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -319.102
+      value: -319.107
       objectReference: {fileID: 0}
     - target: {fileID: 186594323544384927, guid: 7d8419ca99ea80c49b0c1e11c8b5b977, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.55438
+      value: -36.696
       objectReference: {fileID: 0}
     - target: {fileID: 186594323544384927, guid: 7d8419ca99ea80c49b0c1e11c8b5b977, type: 3}
       propertyPath: m_LocalRotation.w

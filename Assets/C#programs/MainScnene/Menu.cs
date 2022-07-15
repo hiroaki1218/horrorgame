@@ -51,23 +51,19 @@ public class Menu : MonoBehaviour {
 
     public void Update()
     {
-        if (!Memo.LookMemo && !Memo.exitMemo1)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                gamePause = !gamePause;
+            gamePause = !gamePause;
 
-                if ( gamePause == true )
-                {
-                    OnPause();
-                }
-                else if( isLoading == false )
-                {
-                    OnUnPause();
-                }
+            if ( gamePause == true )
+            {
+                OnPause();
             }
-        }
-        
+            else if( isLoading == false )
+            {
+                OnUnPause();
+            }
+        } 
     }
 
     public void OnPause()
@@ -104,7 +100,7 @@ public class Menu : MonoBehaviour {
         gamePause = false;
         pause = false;
         FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();
-        if (!PhoneAnimation.isLookPhone)
+        if (!PhoneAnimation.isLookPhone && (!Memo.Memo1 || !Memo.Memo2 || !Memo.Memo3 || !Memo.Memo4 || !Memo.Memo5 || !Memo.Memo6))
         {
             fpc.enabled = true;
         }
