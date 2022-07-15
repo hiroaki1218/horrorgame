@@ -6,8 +6,8 @@ public class HammerBreak : MonoBehaviour
 {
     [SerializeField] private GameObject Parents;
     [SerializeField] private int MaxBreakObj;
-    public static int count;
-    public static int breaknumber;
+    public int count;
+    public int breaknumber;
     public static HammerBreak instance;
     // Start is called before the first frame update
     void Awake()
@@ -28,7 +28,7 @@ public class HammerBreak : MonoBehaviour
         {
             if (count == MaxBreakObj)
             {
-                Destroy(Parents);
+                Destroy(this.Parents);
             }
         }
     }

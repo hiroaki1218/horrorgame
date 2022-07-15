@@ -47,6 +47,8 @@ public class FadeManager : MonoBehaviour
 	//[SerializeField] private GameObject Ui;
 	bool Loading;
 	public bool Subscene;
+	public bool sub;
+	[SerializeField] private GameObject FadeUI;
 
 
 	public void Awake()
@@ -61,6 +63,10 @@ public class FadeManager : MonoBehaviour
 	private void Start()
 	{
 		Loading = false;
+        if (sub)
+        {
+			FadeUI.SetActive(false);
+        }
 	}
 	public void OnGUI()
 	{
@@ -135,38 +141,41 @@ public class FadeManager : MonoBehaviour
 			time += Time.deltaTime;
 			yield return 0;
 		}
-		
+		if (sub)
+		{
+			sub = false;
+			FadeUI.SetActive(true);
+		}
 		yield return new WaitForSeconds(1f);
         //シーン切替 .
         if (Subscene)
         {
 			Subscene = false;
         
-		async = SceneManager.LoadSceneAsync(scene);
-		async.allowSceneActivation = false;
+		    async = SceneManager.LoadSceneAsync(scene);
+		    async.allowSceneActivation = false;
 
-		//　読み込みが終わるまで進捗状況をスライダーの値に反映させる
-		while (async.progress < 0.9f)
-		{
-			_slider.value = async.progress;
-			yield return null;
-		}
-		_slider.value = 1.0f;
-		async.allowSceneActivation = true;
-		yield return async;
+		    //　読み込みが終わるまで進捗状況をスライダーの値に反映させる
+		    while (async.progress < 0.9f)
+		    {
+			    _slider.value = async.progress;
+			    yield return null;
+		    }
+		    _slider.value = 1.0f;
+		    async.allowSceneActivation = true;
+		    yield return async;
 
 		}
 		//だんだん明るく .
-		    time = 0;
-			while (time <= interval)
-			{
-				this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
-				time += Time.deltaTime;
-				yield return 0;
-			}
+	    time = 0;
+     	while (time <= interval)
+		{
+			this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);
+			time += Time.deltaTime;
+			yield return 0;
+		}
 
-			this.isFading = false;
+		this.isFading = false;
 
-		
 	} 
 }

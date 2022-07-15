@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HammerBreakChild : MonoBehaviour
 {
+    [SerializeField] private HammerBreak parents;
     public static bool canBreak;
     [SerializeField] private AudioSource _audiosource;
     [SerializeField] private AudioClip _breakWoodSound;
@@ -16,8 +17,8 @@ public class HammerBreakChild : MonoBehaviour
     {
         if (other.tag == "FPSHammer" && HammerAnimation.isHammerShake && canBreak)
         {
-            HammerBreak.count++;
-            HammerBreak.breaknumber = HammerBreak.count - 1;
+            parents.count++;
+            parents.breaknumber = parents.count - 1;
             _audiosource.PlayOneShot(_breakWoodSound);
             this.gameObject.SetActive(false);
             canBreak = false;

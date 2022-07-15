@@ -69,6 +69,7 @@ public class Memo : MonoBehaviour
     {
         if (Memo1)
         {
+            HammerAnimation.canShakewithMemo = false;
             LookMemo = true;
             Cursor.lockState = CursorLockMode.None;     // 標準モード
             Cursor.visible = true;    // カーソル表示
@@ -81,6 +82,7 @@ public class Memo : MonoBehaviour
         }
         else if (Memo2)
         {
+            HammerAnimation.canShakewithMemo = false;
             LookMemo = true;
             Cursor.lockState = CursorLockMode.None;     // 標準モード
             Cursor.visible = true;    // カーソル表示
@@ -92,6 +94,7 @@ public class Memo : MonoBehaviour
         }
         else if (Memo3)
         {
+            HammerAnimation.canShakewithMemo = false;
             LookMemo = true;
             Cursor.lockState = CursorLockMode.None;     // 標準モード
             Cursor.visible = true;    // カーソル表示
@@ -103,6 +106,7 @@ public class Memo : MonoBehaviour
         }
         else if (Memo4)
         {
+            HammerAnimation.canShakewithMemo = false;
             LookMemo = true;
             Cursor.lockState = CursorLockMode.None;     // 標準モード
             Cursor.visible = true;    // カーソル表示
@@ -114,6 +118,7 @@ public class Memo : MonoBehaviour
         }
         else if (Memo5)
         {
+            HammerAnimation.canShakewithMemo = false;
             LookMemo = true;
             Cursor.lockState = CursorLockMode.None;     // 標準モード
             Cursor.visible = true;    // カーソル表示
@@ -125,6 +130,7 @@ public class Memo : MonoBehaviour
         }
         else if (Memo6)
         {
+            HammerAnimation.canShakewithMemo = false;
             LookMemo = true;
             Cursor.lockState = CursorLockMode.None;     // 標準モード
             Cursor.visible = true;    // カーソル表示
@@ -181,16 +187,31 @@ public class Memo : MonoBehaviour
         }
         if (Memo4)
         {
+            _fpc.enabled = true;
             Memo4 = false;
             RoomKey.SetActive(true);
         }
-        Memo5 = false;
-        Memo6 = false;
+        if (Memo5)
+        {
+            _fpc.enabled = true;
+            Memo5 = false;
+        }
+        if (Memo6)
+        {
+            _fpc.enabled = true;
+            Memo6 = false;
+        }
+        
         //_fpc.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;     // 固定モード
         Cursor.visible = false;    // カーソル非表示
+        StartCoroutine(CanItemUse());
     }
-
+    IEnumerator CanItemUse()
+    {
+        yield return new WaitForSeconds(1);
+        HammerAnimation.canShakewithMemo = true;
+    }
     IEnumerator CameraMove()
     {
         Vector3 direction = target.transform.position - subCamera.transform.position;
