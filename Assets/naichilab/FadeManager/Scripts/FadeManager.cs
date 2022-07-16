@@ -5,6 +5,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 /// <summary>
 /// シーン遷移時のフェードイン・アウトを制御するためのクラス .
@@ -13,10 +14,12 @@ public class FadeManager : MonoBehaviour
 {
 
 	#region Singleton
+	private GameObject fpc;
+	private FirstPersonControllerCustom _fpc;
 
 	private static FadeManager instance;
 
-	public static FadeManager Instance {
+    public static FadeManager Instance {
 		get {
 			if (instance == null) {
 				instance = (FadeManager)FindObjectOfType(typeof(FadeManager));
@@ -57,6 +60,9 @@ public class FadeManager : MonoBehaviour
 			Destroy(this.gameObject);
 			return;
 		}
+
+		fpc = GameObject.Find("FPSController");
+		_fpc = fpc.GetComponent<FirstPersonControllerCustom>();
 
 		DontDestroyOnLoad(this.gameObject);
 	}
@@ -132,8 +138,14 @@ public class FadeManager : MonoBehaviour
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
 	private IEnumerator TransScene(string scene, float interval)
 	{
+        if (sub)
+        {
+			_fpc.enabled = false;
+		}
+
+		
 		//だんだん暗く .
-        this.isFading = true;
+		this.isFading = true;
 		float time = 0;
 		while (time <= interval)
 		{
@@ -146,28 +158,29 @@ public class FadeManager : MonoBehaviour
 			sub = false;
 			FadeUI.SetActive(true);
 		}
-		yield return new WaitForSeconds(1f);
-        //シーン切替 .
-        if (Subscene)
-        {
+		//シーン切替 .
+		if (Subscene)
+		{
+			Debug.Log("Loafing");
 			Subscene = false;
-        
-		    async = SceneManager.LoadSceneAsync(scene);
-		    async.allowSceneActivation = false;
 
-		    //　読み込みが終わるまで進捗状況をスライダーの値に反映させる
-		    while (async.progress < 0.9f)
-		    {
-			    _slider.value = async.progress;
-			    yield return null;
-		    }
-		    _slider.value = 1.0f;
-		    async.allowSceneActivation = true;
-		    yield return async;
+			async = SceneManager.LoadSceneAsync(scene);
+			async.allowSceneActivation = false;
+
+			//　読み込みが終わるまで進捗状況をスライダーの値に反映させる
+			while (async.progress < 0.9f)
+			{
+				_slider.value = async.progress;
+				yield return null;
+			}
+			_slider.value = 1.0f;
+			async.allowSceneActivation = true;
+			yield return async;
 
 		}
+
 		//だんだん明るく .
-	    time = 0;
+		time = 0;
      	while (time <= interval)
 		{
 			this.fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);

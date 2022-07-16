@@ -59,7 +59,7 @@ public class Memo : MonoBehaviour
         MemoUI.SetActive(false);
         subCamera.enabled = false;
         _memo2.SetActive(false);
-        Hammer.SetActive(false);
+        Hammer.SetActive(true);///
         RoomKey.SetActive(true);///falseに変更忘れず
         _pianocollider.enabled = false;
     }

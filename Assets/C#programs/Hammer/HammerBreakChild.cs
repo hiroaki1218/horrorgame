@@ -22,7 +22,7 @@ public class HammerBreakChild : MonoBehaviour
             _audiosource.PlayOneShot(_breakWoodSound);
             this.gameObject.SetActive(false);
             canBreak = false;
-            HammerBreak.instance.StartCoroutine("WaitBreak");
+            HammerBreakManager.instance.StartCoroutine("WaitBreak");
         }
     }
 }

@@ -83,6 +83,9 @@ public class Menu : MonoBehaviour {
         
         Cursor.lockState = CursorLockMode.None;     // 標準モード
         Cursor.visible = true;    // カーソル表示
+
+        //Hammer
+        HammerAnimation.canShakewithMenu = false;
     }
 
     public void OnUnPause()
@@ -109,6 +112,14 @@ public class Menu : MonoBehaviour {
             Cursor.lockState = CursorLockMode.Locked;   // 中央にロック
             Cursor.visible = false;     // カーソル非表示
         }
+
+        //Hammer
+        StartCoroutine(UseHammerWait());
+    }
+    IEnumerator UseHammerWait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        HammerAnimation.canShakewithMenu = true;
     }
 
     public void buckbutton(){

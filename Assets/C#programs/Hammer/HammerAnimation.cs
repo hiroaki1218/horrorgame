@@ -14,6 +14,7 @@ public class HammerAnimation : MonoBehaviour
     public bool Action;
     private bool canShake;
     public static bool canShakewithMemo;
+    public static bool canShakewithMenu;
     private bool canClick;
     public static bool isHammerShake;
     private void Awake()
@@ -29,6 +30,7 @@ public class HammerAnimation : MonoBehaviour
         canShake = false;
         canClick = true;
         canShakewithMemo = true;
+        canShakewithMenu = true;
         isHammerShake = false;
         FPSHammer.SetActive(false);
         _anim = FirstPerson.GetComponent<Animator>();
@@ -56,11 +58,14 @@ public class HammerAnimation : MonoBehaviour
         if (Action)
         {
             FPSHammer.SetActive(true);
-            if (Input.GetMouseButton(0))
+            if (canShakewithMenu)
             {
-                if (canClick)
+                if (Input.GetMouseButton(0))
                 {
-                    canShake = true;
+                    if (canClick)
+                    {
+                        canShake = true;
+                    }
                 }
             }
         }
