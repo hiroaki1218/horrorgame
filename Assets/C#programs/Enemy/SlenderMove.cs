@@ -173,13 +173,13 @@ public class SlenderMove : MonoBehaviour
                 agent.speed = 0;
                 agent.transform.position = points.GetChild(5).transform.position;
                 
-                if (Piano.pianoPushed)
+                if (Memo.SlenderCanMove)
                 {
                     agent.speed = 7f;
                     agent.destination = Player.transform.position;
                     SlenderMesh.SetActive(true);
                     SlenderCollider.enabled = true;
-                    yield return new WaitForSeconds(2f);
+                    yield return new WaitForSeconds(1.5f);
                     secoundmove = false;
                     finishsecoundMove = true;
                 }

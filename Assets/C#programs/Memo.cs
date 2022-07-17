@@ -20,6 +20,7 @@ public class Memo : MonoBehaviour
     [SerializeField] private GameObject Hammer;
     [SerializeField] private GameObject RoomKey;
     [SerializeField] private Collider _pianocollider;
+    [SerializeField] private GameObject _memo4;
 
     public static bool LookMemo;
     public static bool Memo1;
@@ -29,6 +30,7 @@ public class Memo : MonoBehaviour
     public static bool Memo5;
     public static bool Memo6;
     public static bool exitMemo1;
+    public static bool SlenderCanMove;
     private bool looked;
     private bool One;
     GameObject player;
@@ -54,14 +56,16 @@ public class Memo : MonoBehaviour
         Memo5 = false;
         Memo6 = false;
         exitMemo1 = false;
+        SlenderCanMove = false;
         looked = false;
         One = true;
         MemoUI.SetActive(false);
         subCamera.enabled = false;
         _memo2.SetActive(false);
-        Hammer.SetActive(true);///
-        RoomKey.SetActive(true);///falseに変更忘れず
+        Hammer.SetActive(false);
+        RoomKey.SetActive(false);///falseに変更忘れず
         _pianocollider.enabled = false;
+        _memo4.SetActive(false);
     }
 
     // Update is called once per frame
@@ -156,6 +160,11 @@ public class Memo : MonoBehaviour
             subCamera.transform.rotation = mainCamera.transform.rotation;
             subCamera.transform.position = trainCamera.transform.position;
         }
+        //もしピアノを弾き終わったら、メモ４見える
+        if (Piano.pianoPushed)
+        {
+            _memo4.SetActive(true);
+        }
     }
     public void OnButton()
     {
@@ -189,6 +198,7 @@ public class Memo : MonoBehaviour
         {
             _fpc.enabled = true;
             Memo4 = false;
+            SlenderCanMove = true;
             RoomKey.SetActive(true);
         }
         if (Memo5)
