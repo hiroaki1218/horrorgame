@@ -163,7 +163,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        private void ProgressStepCycle(float speed)
+        public void ProgressStepCycle(float speed)
         {
             if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
@@ -182,7 +182,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         //ここが音だぁぁぁぁぁ
-        private void PlayFootStepAudio()
+        public void PlayFootStepAudio()
         {
             if (!m_CharacterController.isGrounded)
             {
@@ -224,24 +224,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Physics.Raycast(RayCube.transform.position,Vector3.down, out hitInfo,1f))
             {
                 string hitColliderTag = hitInfo.collider.tag;
-                    //if(hitColliderTag == "OnWater")
-                    //{
-                       //if (randomizePitch) {
-                    
-                        //m_AudioSource.pitch = 1.0f + Random.Range(-pitchRange, pitchRange);
-                        //int w = Random.Range(8, 10);
-                        //m_AudioSource.clip = m_FootstepSounds[w];
-                        //m_AudioSource.volume = 1.0f;
-                        //m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                        //}
-                       //else if(randomizePitch == false){ 
-                       //Debug.Log("OnWater");
-                       //int p = Random.Range(8, 10);
-                       //m_AudioSource.clip = m_FootstepSounds[p];
-                       //m_AudioSource.volume = 1.0f;
-                       //m_AudioSource.PlayOneShot(m_AudioSource.clip);
-                       //}
-                    //}
 
                  if (hitColliderTag == "Terrain")
                  {
