@@ -24,6 +24,7 @@ public class Items
         Memo4,
         Memo5,
         Memo6,
+        Lens,
     }
 
     //ItemTypeを宣言
