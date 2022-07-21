@@ -13,6 +13,7 @@ public class SubSceneStartMove : MonoBehaviour
     [SerializeField] private CharacterController fps;
     [SerializeField] private Animator _anim;
     [SerializeField] private Camera startCamera;
+    [SerializeField] private GameObject CrosshairUI;
 
     //Audio
     public float timeOut;
@@ -28,6 +29,7 @@ public class SubSceneStartMove : MonoBehaviour
 
     private bool rotating;
     private bool rotating2;
+    private bool rotating3;
     private bool stopping;
     private bool once;
     private bool sitFinish;
@@ -42,12 +44,13 @@ public class SubSceneStartMove : MonoBehaviour
     private void Start()
     {
         SubSceneFirstMoving = true;
-        _anim.Play("SubSceneStartWalk");
         StartCoroutine(FuncCoroutine());
         rotating = false;
         rotating2 = false;
+        rotating3 = false;
         once = true;
         stopping = false;
+        CrosshairUI.SetActive(false);
     }
     private void Update()
     {
@@ -56,43 +59,63 @@ public class SubSceneStartMove : MonoBehaviour
     //人の動き
     IEnumerator FPSAnime()
     {
-        yield return new WaitForSeconds(2f);                //まっすぐ歩く
-        if (!rotating && once)                              ///# 左に回転する
+        if (!SubSceneFirstTrigger.SubFirstTrigger)//まっすぐ歩く
         {
-            once = false;
-            for (int turn = 0; turn < 90; turn++)
-            {
-                _anim.gameObject.transform.Rotate(0, -1, 0);
-                yield return new WaitForSeconds(0.01f);
-            }
-            rotating = true;
-            once = true;
-        }                                                   ///#end
-        yield return new WaitForSeconds(1.9f);              //少し前に歩く
-              
-        stopping = true;
-        if (!rotating2)                                     ///#一度止まる
-        { 
-            _anim.Play("BasicMotions@Idle01");
-            yield return new WaitForSeconds(0.1f);
-            rotating2 = true;
-        }                                                   ///#end
+            _anim.Play("SubSceneStartWalk");
+        }
         else
         {
-            _anim.Play("FPSSitDown");                       //椅子を見て持ってくる
-            yield return new WaitForSeconds(9);
-            sitFinish = true;
-        }
-
-        if (once && sitFinish)                              //しゃがむ（トランスフォームy）
-        {
-            once = false;
-            for (int i = 0; i < 8; i++)
+            if (!rotating && once)                              ///# 左に回転する
             {
-                _anim.gameObject.transform.Translate(0, -0.02f, 0);
-                yield return new WaitForSeconds(0.01f);
+                once = false;
+                for (int turn = 0; turn < 90; turn++)
+                {
+                    _anim.gameObject.transform.Rotate(0, -1, 0);
+                    yield return new WaitForSeconds(0.01f);
+                }
+                rotating = true;
+                once = true;
             }
-        }  
+            ///#end
+            if(SubSceneSecondTrigger.SubSecondTrigger)              //少し前に歩く
+            { 
+            stopping = true;
+            if (!rotating2)                                     ///#一度止まる
+            {
+                _anim.Play("BasicMotions@Idle01");
+                yield return new WaitForSeconds(0.1f);
+                rotating2 = true;
+            }                                                   ///#end
+            else
+            {
+                _anim.Play("FPSSitDown");                       //椅子を見て持ってくる
+                yield return new WaitForSeconds(0.4f);
+                if (!rotating3 && once)                              ///# 左に回転する
+                {
+                    once = false;
+                    for (int turn = 0; turn < 92; turn++)
+                    {
+                        _anim.gameObject.transform.Rotate(0, -1, 0);
+                        yield return new WaitForSeconds(0.01f);
+                    }
+                    rotating3 = true;
+                    once = true;
+                }
+                yield return new WaitForSeconds(1.8f);
+                sitFinish = true;
+            }
+            if (once && sitFinish)                              //しゃがむ（トランスフォームy）
+            {
+                once = false;
+                for (int i = 0; i < 15; i++)
+                {
+                    _anim.gameObject.transform.Translate(0, -0.02f, 0);
+                    yield return new WaitForSeconds(0.01f);
+                }
+                CrosshairUI.SetActive(true);
+            }
+            }
+        }
     }
     float[] slatmap = new float[0];
     RaycastHit hitInfo;

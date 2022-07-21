@@ -45,7 +45,7 @@ public class HammerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Action && canClick && Input.GetMouseButton(1))
+        if(Action && canClick && Input.GetMouseButtonDown(1))
         {
             Action = false;
             Inventory.canPushTab = false;
@@ -58,9 +58,9 @@ public class HammerAnimation : MonoBehaviour
         if (Action)
         {
             FPSHammer.SetActive(true);
-            if (canShakewithMenu)
+            if (canShakewithMenu && canShakewithMemo)
             {
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0))
                 {
                     if (canClick)
                     {
@@ -76,7 +76,7 @@ public class HammerAnimation : MonoBehaviour
     }
     IEnumerator HammerShake() 
     {
-        if (canShake && Action && !isHammerShake && !Menu.pause && canShakewithMemo)
+        if (canShake && Action && !isHammerShake && !Menu.pause)
         {
             canClick = false;
             isHammerShake = true;

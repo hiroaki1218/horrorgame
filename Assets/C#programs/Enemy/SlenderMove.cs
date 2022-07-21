@@ -10,6 +10,7 @@ public class SlenderMove : MonoBehaviour
 {
     [SerializeField] FirstPersonControllerCustom sc_fps;
     [SerializeField] Transform points;
+    [SerializeField] private Transform SlenderFirstMoveNavPoint;
     [SerializeField] Image gauge; //プログレスバー
     [SerializeField] Text text;
     [SerializeField] private GameObject Slender;
@@ -26,7 +27,7 @@ public class SlenderMove : MonoBehaviour
 
     private AudioSource ads;
     private bool isLooking;
-    private bool firstMove;
+    public bool firstMove;
     public bool secoundmove;
     private bool finishsecoundMove;
     private bool canAllMove;
@@ -147,9 +148,9 @@ public class SlenderMove : MonoBehaviour
     {
         Slender.GetComponent<Animator>().Play("Walk");
         agent.speed = 3f;
-        Vector3 dest = points.GetChild(5).transform.position;
+        Vector3 dest = SlenderFirstMoveNavPoint.position;
         agent.destination = dest;
-        yield return new WaitForSeconds(2.7f);
+        yield return new WaitForSeconds(3.7f);
         SlenderMesh.SetActive(false);
         SlenderCollider.enabled = false;
         yield return new WaitForSeconds(1.3f);
@@ -171,7 +172,7 @@ public class SlenderMove : MonoBehaviour
                 SlenderMesh.SetActive(false);
                 SlenderCollider.enabled = false;
                 agent.speed = 0;
-                agent.transform.position = points.GetChild(5).transform.position;
+                Slender.transform.position = points.GetChild(5).transform.position;
                 
                 if (Memo.SlenderCanMove)
                 {

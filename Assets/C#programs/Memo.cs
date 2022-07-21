@@ -6,6 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class Memo : MonoBehaviour
 {
+    [SerializeField] private GameObject FPCHeadMesh;
     [SerializeField] private GameObject CrosshairUI;
     [SerializeField] private GameObject MemoUI;
     [SerializeField] private Text massage;
@@ -33,6 +34,7 @@ public class Memo : MonoBehaviour
     public static bool SlenderCanMove;
     private bool looked;
     private bool One;
+    private bool Once;
     GameObject player;
     FirstPersonControllerCustom _fpc;
 
@@ -59,6 +61,7 @@ public class Memo : MonoBehaviour
         SlenderCanMove = false;
         looked = false;
         One = true;
+        Once = true;
         MemoUI.SetActive(false);
         subCamera.enabled = false;
         _memo2.SetActive(false);
@@ -161,9 +164,10 @@ public class Memo : MonoBehaviour
             subCamera.transform.position = trainCamera.transform.position;
         }
         //もしピアノを弾き終わったら、メモ４見える
-        if (Piano.pianoPushed)
+        if (Piano.pianoPushed && Once)
         {
             _memo4.SetActive(true);
+            Once = false;
         }
     }
     public void OnButton()
@@ -230,6 +234,7 @@ public class Memo : MonoBehaviour
         subCamera.enabled = true;
         if (!looked)
         {
+            FPCHeadMesh.SetActive(false);
             subCamera.transform.rotation = Quaternion.Slerp(subCamera.transform.rotation, targetRotation, 5 * Time.deltaTime);
         }
         else
@@ -246,6 +251,7 @@ public class Memo : MonoBehaviour
             _fpc.enabled = true;
             mainCamera.enabled = true;
             subCamera.enabled = false;
+            FPCHeadMesh.SetActive(true);
         }
         exitMemo1 = false;
     }

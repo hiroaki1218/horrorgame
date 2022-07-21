@@ -17,7 +17,7 @@ public class SlenderAttack : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            if (!SlenderMove.instance.secoundmove)
+            if (!SlenderMove.instance.secoundmove && !SlenderMove.instance.firstMove)
             {
                 canCheckTabandItems = false;
                 //もしスマホを開いていたら、バツボタンを押したときと同じようにActiveをfalseにする

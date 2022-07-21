@@ -14,6 +14,7 @@ public class PickupObj : MonoBehaviour
     public static bool fpsLight;
     public static bool collectPhone;
     [SerializeField] public bool MainScene;
+    private bool once;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class PickupObj : MonoBehaviour
         {
             StartSetItem();
         }
+        once = true;
     }
 
     void StartSetItem()
@@ -70,9 +72,10 @@ public class PickupObj : MonoBehaviour
                         //ItemSetActive(false)
                         ItemBox.instance.SetItem(item);
                         //拾ったオブジェクトがFlashlightだったら、FPSのライトをオンにする
-                        if (item.type == Items.Type.Flashlight)
+                        if (item.type == Items.Type.Flashlight && once) 
                         {
                             fpsLight = true;
+                            once = false;
                         }
                         //拾ったオブジェクトがPhoneだったら、条件3を満たす
                         if (item.type == Items.Type.Phone)

@@ -41,8 +41,7 @@ public class OffstFlashlight : MonoBehaviour
     private void Update()
     {
         bar.fillAmount = Glowingtime / maxglowTime;
-        
-        if (PickupObj.fpsLight && isRemain && !PhoneAnimation.FlashLightEnabled)
+        if (FPSLightManager.pickupFlashLight && isRemain && !PhoneAnimation.FlashLightEnabled)
         {
              FlashlightUI.SetActive(true);
              Fpslight.enabled = true;
@@ -69,7 +68,6 @@ public class OffstFlashlight : MonoBehaviour
             transform.position = goFollow.transform.position + vectOffset;
             transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
         }
-        
 
         //光る時間を徐々に減らす&電池残量の確認
         if (PickupObj.fpsLight && !PhoneAnimation.isLookPhone)
