@@ -90,6 +90,10 @@ public class Inventory : MonoBehaviour
         {
             text.text = "部屋の鍵\nどこかで使えないだろうか...。";
         }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Lens))
+        {
+            text.text = "レンズ\n普通では見えないものが見える";
+        }
         else
         {
             text.text = null;
@@ -145,6 +149,11 @@ public class Inventory : MonoBehaviour
             UseItemUI.SetActive(true);
             useItemText.text = "部屋の鍵を使用しますか？";
         }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Lens))
+        {
+            UseItemUI.SetActive(true);
+            useItemText.text = "レンズを使用しますか？";
+        }
         else
         {
             UseItemUI.SetActive(false);
@@ -179,6 +188,12 @@ public class Inventory : MonoBehaviour
                 OnClickTab();
                 Debug.Log("ここでは使えない");
             }
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Lens))
+        {
+            canPushTab = true;
+            OnClickTab();
+            LensAnimation.instance.OnClickYesButton();
         }
     }
     public void OnClickBackButton()

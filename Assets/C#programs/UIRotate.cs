@@ -12,6 +12,10 @@ public class UIRotate : MonoBehaviour
             //　カメラと同じ向きに設定
             transform.rotation = Camera.main.transform.rotation;
         }
+        else if(Camera.main == null)
+        {
+            return;
+        }
         else
         {
             return;

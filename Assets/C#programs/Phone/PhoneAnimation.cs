@@ -21,6 +21,7 @@ public class PhoneAnimation : MonoBehaviour
     private bool OntoOff;
     private bool finish1;
     private bool finish2;
+    private bool once;
     //private bool isBrank;
     private bool cameraBack;
     public static bool isLookPhone;
@@ -53,10 +54,11 @@ public class PhoneAnimation : MonoBehaviour
         CameraChangeButton.SetActive(false);
         ExitButton.SetActive(false);
         _anim = FirstPerson.GetComponent<Animator>();
+        once = true;
     }
 
     void Update()
-    {
+    {    
         StartProcessing();
     }
 
@@ -105,8 +107,12 @@ public class PhoneAnimation : MonoBehaviour
         {
             if (!OntoOff)
             {
-                mainCamera.enabled = true;
-                PhoneCamera.enabled = false;
+                if (once)
+                {
+                    mainCamera.enabled = true;
+                    PhoneCamera.enabled = false;
+                    once = false;
+                }
                 PhoneCamera.transform.rotation = mainCamera.transform.rotation;
             }
             else
@@ -132,14 +138,14 @@ public class PhoneAnimation : MonoBehaviour
                 cameraBack = false;
                 OntoOff = false;
                 finish2 = true;
+                once = true;
             }
         }
         else if (Active)
         {
             finish1 = false;
             mainCamera.enabled = false;
-            PhoneCamera.enabled = true;   
-
+            PhoneCamera.enabled = true;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             PhoneCamera.transform.rotation = Quaternion.Slerp(PhoneCamera.transform.rotation, targetRotation, 5 * Time.deltaTime);
 
@@ -156,9 +162,9 @@ public class PhoneAnimation : MonoBehaviour
     {
         CameraChangeButton.SetActive(false);
         ExitButton.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
         FlashLightEnabled = false;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.7f);
         fpc.enabled = true;
         isLookPhone = false;
         CrosshairUI.SetActive(true);
