@@ -13,6 +13,7 @@ public class OffstFlashlight : MonoBehaviour
 
     [SerializeField] private GameObject FlashlightUI;
     [SerializeField] private GameObject SubCamera;
+    [SerializeField] private GameObject LensSubCamera;
     [SerializeField] private GameObject PhoneCamera;
     [SerializeField] private Image bar;
     [SerializeField] private float maxglowTime = 100.0f;
@@ -58,15 +59,20 @@ public class OffstFlashlight : MonoBehaviour
             //transform.position = goFollow.transform.position + vectOffset;
             transform.rotation = Quaternion.Slerp(transform.rotation, SubCamera.transform.rotation, speed * Time.deltaTime);
         }
-        else if (!PhoneAnimation.FlashLightEnabled)
+        else if (PhoneAnimation.FlashLightEnabled)
         {
             transform.position = goFollow.transform.position + vectOffset;
             transform.rotation = Quaternion.Slerp(transform.rotation, PhoneCamera.transform.rotation, speed * Time.deltaTime);
         }
+        else if (LensAnimation.FlashLightenabled)
+        {
+            transform.position = goFollow.transform.position + vectOffset;
+            transform.rotation = Quaternion.Slerp(transform.rotation, LensSubCamera.transform.rotation, speed * Time.deltaTime);
+        }
         else
         {
             transform.position = goFollow.transform.position + vectOffset;
-            transform.rotation = Quaternion.Slerp(transform.rotation, goFollow.transform.rotation, speed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Camera.main.transform.rotation, speed * Time.deltaTime);
         }
 
         //光る時間を徐々に減らす&電池残量の確認

@@ -29,6 +29,10 @@ public class FirstPersonAnime : MonoBehaviour
         {
            
         }
+        else if (LensAnimation.isLookLens)
+        {
+
+        }
         else if (HammerAnimation.instance.Action)
         {
 
