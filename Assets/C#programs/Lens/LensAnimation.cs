@@ -143,7 +143,7 @@ public class LensAnimation : MonoBehaviour
             subCamera.transform.rotation = Quaternion.Slerp(subCamera.transform.rotation, targetRotation, 5 * Time.deltaTime);
 
             FpsLens.SetActive(true);
-            _anim.Play("LensUP");
+            _anim.Play("LensUp");
 
             yield return new WaitForSeconds(1.3f);
             OntoOff = true;

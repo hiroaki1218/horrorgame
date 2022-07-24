@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using System;
 using Random = UnityEngine.Random;
+using UnityEngine.Video;
 
 public class SubSceneStartMove : MonoBehaviour
 {
@@ -12,8 +13,16 @@ public class SubSceneStartMove : MonoBehaviour
     [SerializeField] private FirstPersonControllerCustom FPC;
     [SerializeField] private CharacterController fps;
     [SerializeField] private Animator _anim;
+    [SerializeField] private Animator _chairanim;
     [SerializeField] private Camera startCamera;
     [SerializeField] private GameObject CrosshairUI;
+
+    //Video
+    [SerializeField] private VideoPlayer _video;
+    [SerializeField] private GameObject _videoimage;
+
+    [SerializeField] private TutorialMovement _tmt;
+    [SerializeField] private GameObject ConditionCanvas;
 
     //Audio
     public float timeOut;
@@ -32,7 +41,9 @@ public class SubSceneStartMove : MonoBehaviour
     private bool rotating3;
     private bool stopping;
     private bool once;
+    private bool Once;
     private bool sitFinish;
+    private bool secondmove;
     private void Awake()
     {
         _fpcanim.enabled = false;
@@ -49,8 +60,13 @@ public class SubSceneStartMove : MonoBehaviour
         rotating2 = false;
         rotating3 = false;
         once = true;
+        Once = true;
         stopping = false;
         CrosshairUI.SetActive(false);
+        _tmt.enabled = false;
+        ConditionCanvas.SetActive(false);
+        _videoimage.SetActive(false);
+        secondmove = false;
     }
     private void Update()
     {
@@ -59,63 +75,121 @@ public class SubSceneStartMove : MonoBehaviour
     //人の動き
     IEnumerator FPSAnime()
     {
-        if (!SubSceneFirstTrigger.SubFirstTrigger)//まっすぐ歩く
+        if (!secondmove)
         {
-            _anim.Play("SubSceneStartWalk");
-        }
-        else
-        {
-            if (!rotating && once)                              ///# 左に回転する
+            if (!SubSceneFirstTrigger.SubFirstTrigger)//まっすぐ歩く
             {
-                once = false;
-                for (int turn = 0; turn < 90; turn++)
+                _anim.Play("BasicMotions@Walk01 - Forwards");
+                for (int walk = 0; walk < 20; walk++)
                 {
-                    _anim.gameObject.transform.Rotate(0, -1, 0);
+                    _anim.gameObject.transform.Translate(0, 0, 0.001f);
                     yield return new WaitForSeconds(0.01f);
                 }
-                rotating = true;
-                once = true;
             }
-            ///#end
-            if(SubSceneSecondTrigger.SubSecondTrigger)              //少し前に歩く
-            { 
-            stopping = true;
-            if (!rotating2)                                     ///#一度止まる
-            {
-                _anim.Play("BasicMotions@Idle01");
-                yield return new WaitForSeconds(0.1f);
-                rotating2 = true;
-            }                                                   ///#end
             else
             {
-                _anim.Play("FPSSitDown");                       //椅子を見て持ってくる
-                yield return new WaitForSeconds(0.4f);
-                if (!rotating3 && once)                              ///# 左に回転する
+                if (!rotating && once)                              ///# 左に回転する
                 {
                     once = false;
-                    for (int turn = 0; turn < 92; turn++)
+                    for (int turn = 0; turn < 90; turn++)
                     {
                         _anim.gameObject.transform.Rotate(0, -1, 0);
                         yield return new WaitForSeconds(0.01f);
                     }
-                    rotating3 = true;
+                    rotating = true;
                     once = true;
                 }
-                yield return new WaitForSeconds(1.8f);
-                sitFinish = true;
-            }
-            if (once && sitFinish)                              //しゃがむ（トランスフォームy）
-            {
-                once = false;
-                for (int i = 0; i < 15; i++)
+                else if (!SubSceneSecondTrigger.SubSecondTrigger)
                 {
-                    _anim.gameObject.transform.Translate(0, -0.02f, 0);
-                    yield return new WaitForSeconds(0.01f);
+                    _anim.Play("BasicMotions@Walk01 - Forwards");
+                    for (int walk = 0; walk < 20; walk++)
+                    {
+                        _anim.gameObject.transform.Translate(0, 0, 0.001f);
+                        yield return new WaitForSeconds(0.01f);
+                    }
                 }
-                CrosshairUI.SetActive(true);
-            }
+                ///#end
+                if (SubSceneSecondTrigger.SubSecondTrigger && !secondmove)              //少し前に歩く
+                {
+                    stopping = true;
+                    if (!rotating2)                                     ///#一度止まる
+                    {
+                        _anim.Play("BasicMotions@Idle01");
+                        yield return new WaitForSeconds(0.1f);
+                        rotating2 = true;
+                    }                                                   ///#end
+                    else if(!secondmove)
+                    {
+                        _anim.Play("FPSSitDown");                       //椅子を見て持ってくる
+                        yield return new WaitForSeconds(0.6f);
+                        _chairanim.Play("ChairMove");
+                        if (!rotating3 && once)                              ///# 左に回転する
+                        {
+                            once = false;
+                            for (int turn = 0; turn < 92; turn++)
+                            {
+                                _anim.gameObject.transform.Rotate(0, -1, 0);
+                                yield return new WaitForSeconds(0.01f);
+                            }
+                            rotating3 = true;
+                            once = true;
+                        }
+                        yield return new WaitForSeconds(1.8f);
+                        sitFinish = true;
+                    }
+                    if (once && sitFinish && !secondmove)                              //しゃがむ（トランスフォームy）
+                    {
+                        once = false;
+                        for (int i = 0; i < 12; i++)
+                        {
+                            _anim.gameObject.transform.Translate(0, -0.02f, 0);
+                            yield return new WaitForSeconds(0.01f);
+                        }
+                        yield return new WaitForSeconds(1);
+                        _videoimage.SetActive(true);
+                        _video.loopPointReached += LoopPointReached;
+                        _video.Play();
+                    }
+                }
             }
         }
+        else
+        {
+            _chairanim.Play("ChairMoveBack");
+            if (Once)
+            {
+                _anim.Play("FPSStandUp");
+                Once = false;
+                yield return new WaitForSeconds(0.3f);
+                if (!once)                              //しゃがむ（トランスフォームy）
+                {
+                    once = true;
+                    for (int i = 0; i < 12; i++)
+                    {
+                        _anim.gameObject.transform.Translate(0, 0.02f, 0);
+                        yield return new WaitForSeconds(0.01f);
+                    }
+                    for (int turn = 0; turn < 92; turn++)
+                    {
+                        _anim.gameObject.transform.Rotate(0, -1, 0);
+                        yield return new WaitForSeconds(0.004f);
+                    }
+                    _tmt.enabled = true;
+                    fps.enabled = true;
+                    startCamera.enabled = false;
+                    FPC.enabled = true;
+                    _fpcanim.enabled = true;
+                    ConditionCanvas.SetActive(true);
+                    CrosshairUI.SetActive(true);
+                    this.enabled = false;
+                }
+            }
+        }
+    }
+    // 動画再生完了時の処理
+    public void LoopPointReached(VideoPlayer vp)
+    {
+        secondmove = true;
     }
     float[] slatmap = new float[0];
     RaycastHit hitInfo;
