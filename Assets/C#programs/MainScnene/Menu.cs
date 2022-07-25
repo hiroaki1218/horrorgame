@@ -103,7 +103,7 @@ public class Menu : MonoBehaviour {
         gamePause = false;
         pause = false;
         FirstPersonControllerCustom fpc = player.GetComponent<FirstPersonControllerCustom>();
-        if (!PhoneAnimation.isLookPhone && (!Memo.Memo1 || !Memo.Memo2 || !Memo.Memo3 || !Memo.Memo4 || !Memo.Memo5 || !Memo.Memo6))
+        if (!PhoneAnimation.isLookPhone && (!Memo.Memo1 || !Memo.Memo2 || !Memo.Memo3 || !Memo.Memo4 || !Memo.Memo5 || !Memo.Memo6) && !LensAnimation.isLookLens)
         {
             fpc.enabled = true;
         }

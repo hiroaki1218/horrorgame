@@ -20,6 +20,7 @@ public class LensAnimation : MonoBehaviour
     private bool finish2;
     private bool once;
     private bool Once;
+    private bool one;
     private bool cameraBack;
     private bool canClickMouseButton;
     public static bool isLookLens;
@@ -45,6 +46,7 @@ public class LensAnimation : MonoBehaviour
         subCamera.enabled = false;
         once = true;
         Once = true;
+        one = true;
         isLookLens = false;
         FlashLightenabled = false;
         FpsLens.SetActive(false);
@@ -103,12 +105,15 @@ public class LensAnimation : MonoBehaviour
                 {
                     mainCamera.enabled = true;
                     subCamera.enabled = false;
+                    LensCamera.enabled = false;
                     once = false;
                 }
                 subCamera.transform.rotation = mainCamera.transform.rotation;
             }
             else
             {
+                subCamera.enabled = true;
+                LensCamera.enabled = false;
                 finish2 = false;
                 cameraBack = true;
                 _anim.Play("LensDown");
@@ -116,7 +121,7 @@ public class LensAnimation : MonoBehaviour
                 FpsLens.SetActive(false);
                 yield return new WaitForSeconds(0.1f);
                 if (cameraBack)
-                {
+                { 
                     subCamera.transform.position = mainCamera.transform.position;
                     subCamera.transform.rotation = Quaternion.Slerp(subCamera.transform.rotation, mainCamera.transform.rotation, 5 * Time.deltaTime);
                 }
@@ -131,6 +136,7 @@ public class LensAnimation : MonoBehaviour
                 finish2 = true;
                 once = true;
                 Once = true;
+                one = true;
             }
         }
         else if (Active)
@@ -145,13 +151,20 @@ public class LensAnimation : MonoBehaviour
             FpsLens.SetActive(true);
             _anim.Play("LensUp");
 
-            yield return new WaitForSeconds(1.3f);
-            OntoOff = true;
-            finish1 = true;
+            yield return new WaitForSeconds(0.7f);
             if (Once)
             {
-                canClickMouseButton = true;
                 Once = false;
+                subCamera.enabled = false;
+                LensCamera.enabled = true;
+            }
+            yield return new WaitForSeconds(0.6f);
+            OntoOff = true;
+            finish1 = true;
+            if (one)
+            {
+                canClickMouseButton = true;
+                one = false;
             }
         }
     }
