@@ -20,12 +20,10 @@ public class ItemBox : MonoBehaviour
     }
     private void Start()
     {
-        SlotButton[0].interactable = false;
-        SlotButton[1].interactable = false;
-        SlotButton[2].interactable = false;
-        SlotButton[3].interactable = false;
-        SlotButton[4].interactable = false;
-        SlotButton[5].interactable = false;
+        for(int i = 0; i<=SlotButton.Length; i++)
+        {
+            SlotButton[i].interactable = false;
+        } 
     }
     //PickupObjがクリックされたら、スロットにアイテムを入れる
     public void SetItem(Items item)

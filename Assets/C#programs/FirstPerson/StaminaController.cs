@@ -39,6 +39,7 @@ public class StaminaController : MonoBehaviour
 
     private void Update()
     {
+        playerStamina = Mathf.Clamp(playerStamina,0, maxStamina);
         if (!weAreSprinting)
         {
             if(playerStamina <= maxStamina - 0.01f)

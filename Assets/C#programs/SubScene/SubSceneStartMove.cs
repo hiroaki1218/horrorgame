@@ -182,6 +182,7 @@ public class SubSceneStartMove : MonoBehaviour
                     ConditionCanvas.SetActive(true);
                     CrosshairUI.SetActive(true);
                     this.enabled = false;
+                    SubSceneFirstMoving = false;
                 }
             }
         }

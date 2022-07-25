@@ -829,8 +829,12 @@ MonoBehaviour:
   secondclosedoor: SDoorClose
   SecondDoorAnime: 0
   rockSound: 0
+  OneWayDoor: 0
+  FirstMove: 0
+  KeyDoor: 0
   isOpen: 0
   Action: 0
+  usedKey: 0
 --- !u!65 &84762829
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13004,6 +13008,7 @@ MonoBehaviour:
   UseItemUI: {fileID: 1096298121}
   useItemText: {fileID: 1763072724}
   ItemCheckButton: []
+  SubScene: 1
 --- !u!4 &1983007160
 Transform:
   m_ObjectHideFlags: 0

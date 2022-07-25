@@ -25,6 +25,7 @@ public class Items
         Memo5,
         Memo6,
         Lens,
+        HomeKey,
     }
 
     //ItemTypeを宣言

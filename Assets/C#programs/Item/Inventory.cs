@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     public static int k;
     public static int r;
 
+    public bool SubScene;
     public static bool Active;
     public static bool inventory;
     public static bool canPushTab;
@@ -42,9 +43,19 @@ public class Inventory : MonoBehaviour
 
     public void Update()
     {
-        if (!Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo && !Memo.exitMemo1 && !canPushTab && !SubSceneStartMove.SubSceneFirstMoving)
+        if (!Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo && !Memo.exitMemo1 && !canPushTab)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (SubScene)
+            {
+                if (!SubSceneStartMove.SubSceneFirstMoving)
+                {
+                    if (Input.GetKeyDown(KeyCode.Tab))
+                    {
+                        OnClickTab();
+                    }
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Tab))
             {
                 OnClickTab();
             }  
@@ -92,7 +103,11 @@ public class Inventory : MonoBehaviour
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.Lens))
         {
-            text.text = "レンズ\n普通では見えないものが見える";
+            text.text = "レンズ\n普通では見えないものが見える。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.HomeKey))
+        {
+            text.text = "館の鍵\n外に出るために使うことができる。";
         }
         else
         {
@@ -154,6 +169,11 @@ public class Inventory : MonoBehaviour
             UseItemUI.SetActive(true);
             useItemText.text = "レンズを使用しますか？";
         }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.HomeKey))
+        {
+            UseItemUI.SetActive(true);
+            useItemText.text = "館の鍵を使用しますか？";
+        }
         else
         {
             UseItemUI.SetActive(false);
@@ -194,6 +214,19 @@ public class Inventory : MonoBehaviour
             canPushTab = true;
             OnClickTab();
             LensAnimation.instance.OnClickYesButton();
+        }
+        else if(ItemBox.instance.CheckSelectItem(Items.Type.HomeKey))
+        {
+            if (EnterHome.enterThehome)
+            {
+                canPushTab = true;
+                OnClickTab();
+                Door.instance.UseKeyAndOpen();
+            }
+            else
+            {
+                Debug.Log("ここでは使えない");
+            }
         }
     }
     public void OnClickBackButton()

@@ -23,10 +23,16 @@ public class Door : MonoBehaviour
 
     public bool SecondDoorAnime;
     public bool rockSound;
+    public bool OneWayDoor;
+    public bool FirstMove;
+    public bool KeyDoor;
+
     public bool isOpen;
     public bool Action;
+    public bool usedKey;
     private bool OpenDoorText;
     private bool CloseDoorText;
+    private bool once;
     public static Door instance;
     private void Awake()
     {
@@ -44,6 +50,8 @@ public class Door : MonoBehaviour
         Action = false;
         OpenDoorText = true;
         CloseDoorText = false;
+        usedKey = false;
+        once = true;
     }
 
     //トリガーにプレイヤーが入ったとき
@@ -103,7 +111,7 @@ public class Door : MonoBehaviour
                         DoorOpenWait();
                     }
 
-                    if (isOpen == true && Action == true)
+                    if (isOpen == true && Action == true && !OneWayDoor)
                     {
                         StartCoroutine(DoorCloseWait());
                         DoorCloseWait();
@@ -111,7 +119,16 @@ public class Door : MonoBehaviour
                 }
             }
         }
-        
+        if (usedKey)
+        {
+            UseKeyAndOpen();
+        }
+        //家に入ったとき
+        if (FirstMove && EnterHome.enterThehome &&once)
+        {
+            StartCoroutine(DoorCloseWait());
+            once = false;
+        }
     }
 
 
@@ -134,10 +151,11 @@ public class Door : MonoBehaviour
 
         yield return new WaitForSeconds(AnimeTime);
         //CloseDoorUI.SetActive(true);
-        CloseDoorText = true;
+        if (!OneWayDoor)
+        {
+            CloseDoorText = true;
+        }
         isOpen = true;
-        
-
     }
 
     IEnumerator DoorCloseWait()
@@ -161,16 +179,35 @@ public class Door : MonoBehaviour
             audiosource.volume = 1;
             audiosource.PlayOneShot(audiosource.clip);
             yield return new WaitForSeconds(2);
-            OpenDoorText = true;
+            if (!OneWayDoor)
+            {
+                OpenDoorText = true;
+            }
             isOpen = false;
         }
         else
         {
             yield return new WaitForSeconds(AnimeTime);
             //OpenDoorUI.SetActive(true);
-            OpenDoorText = true;
+            if (!OneWayDoor)
+            {
+                OpenDoorText = true;
+            }
             isOpen = false;
         }
     }
-   
+    public void UseKeyAndOpen()
+    {
+        AnimeObject1.GetComponent<Animator>().Play(opendoor);
+        if (SecondDoorAnime)
+        {
+            AnimeObject2.GetComponent<Animator>().Play(secondopendoor);
+        }
+
+        //Audio
+        audiosource.volume = Volume;
+        audiosource.clip = OpenDoorSound;
+        audiosource.PlayOneShot(audiosource.clip);
+        Inventory.canPushTab = false;
+    }
 }
