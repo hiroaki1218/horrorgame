@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
     public static Inventory instance;
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -58,7 +58,7 @@ public class Inventory : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Tab))
             {
                 OnClickTab();
-            }  
+            }
         }
         if (ItemBox.instance.CheckSelectItem(Items.Type.Memo1))
         {
@@ -107,7 +107,11 @@ public class Inventory : MonoBehaviour
         }
         else if (ItemBox.instance.CheckSelectItem(Items.Type.HomeKey))
         {
-            text.text = "館の鍵\n外に出るために使うことができる。";
+            text.text = "館の鍵\n館の外に出るために使うことができる。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Key))
+        {
+            text.text = "門の鍵\n館の敷地から出るために使うことができる。";
         }
         else
         {
@@ -174,6 +178,11 @@ public class Inventory : MonoBehaviour
             UseItemUI.SetActive(true);
             useItemText.text = "館の鍵を使用しますか？";
         }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Key))
+        {
+            UseItemUI.SetActive(true);
+            useItemText.text = "門の鍵を使用しますか？";
+        }
         else
         {
             UseItemUI.SetActive(false);
@@ -202,10 +211,10 @@ public class Inventory : MonoBehaviour
             {
                 OnClickTab();
                 UseRoomKey.instance.Active = true;
+                ItemBox.instance.UseSelectItem();
             }
             else
             {
-                OnClickTab();
                 Debug.Log("ここでは使えない");
             }
         }
@@ -215,13 +224,26 @@ public class Inventory : MonoBehaviour
             OnClickTab();
             LensAnimation.instance.OnClickYesButton();
         }
-        else if(ItemBox.instance.CheckSelectItem(Items.Type.HomeKey))
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.HomeKey))
         {
             if (EnterHome.enterThehome)
             {
+                ItemBox.instance.UseSelectItem();
                 canPushTab = true;
                 OnClickTab();
                 Door.instance.UseKeyAndOpen();
+            }
+            else
+            {
+                Debug.Log("ここでは使えない");
+            }
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Key))
+        {
+            if (LastKeyCreate.instance.canCreateLastKey)
+            {
+                LastKeyCreate.instance.action = true;
+                OnClickTab();
             }
             else
             {

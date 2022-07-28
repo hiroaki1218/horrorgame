@@ -37,6 +37,12 @@ public class ItemSlot : MonoBehaviour
         image.sprite = item.sprite;
         //UpdateImage(item);
     }
+    public void RemoveItem()
+    {
+        item = null;
+        image.sprite = null;
+        HideBackPanel();
+    }
 
     public Items GetItem()
     {
@@ -45,7 +51,7 @@ public class ItemSlot : MonoBehaviour
     //アイテムを受け取ったら画像をスロットに表示
     //void UpdateImage(Items item)
     //{
-        
+
     //}
     public void OnSelect()
     {

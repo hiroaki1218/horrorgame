@@ -59,7 +59,7 @@ public class PickupObj : MonoBehaviour
     {
         if (Action == true)
         {
-            if(!Inventory.inventory && !Menu.pause && !Memo.LookMemo)
+            if (!Inventory.inventory && !Menu.pause && !Memo.LookMemo)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -72,7 +72,7 @@ public class PickupObj : MonoBehaviour
                         //ItemSetActive(false)
                         ItemBox.instance.SetItem(item);
                         //拾ったオブジェクトがFlashlightだったら、FPSのライトをオンにする
-                        if (item.type == Items.Type.Flashlight && once) 
+                        if (item.type == Items.Type.Flashlight && once)
                         {
                             fpsLight = true;
                             once = false;
@@ -83,7 +83,7 @@ public class PickupObj : MonoBehaviour
                             collectPhone = true;
                         }
                         //拾ったオブジェクトがMemo1だったら、Memo1を出す
-                        if(item.type == Items.Type.Memo1)
+                        if (item.type == Items.Type.Memo1)
                         {
                             Memo.Memo1 = true;
                         }
@@ -111,6 +111,15 @@ public class PickupObj : MonoBehaviour
                         if (item.type == Items.Type.Memo6)
                         {
                             Memo.Memo6 = true;
+                        }
+                        if(item.type == Items.Type.Keypiece1
+                           || item.type == Items.Type.Keypiece2
+                           || item.type == Items.Type.Keypiece3
+                           || item.type == Items.Type.Keypiece4
+                           || item.type == Items.Type.Keypiece5
+                           || item.type == Items.Type.Keypiece6)
+                        {
+                            LastKeyCreate.instance.CountUpKeyPiece();     
                         }
                     }
 

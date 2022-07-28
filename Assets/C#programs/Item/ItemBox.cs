@@ -9,26 +9,28 @@ public class ItemBox : MonoBehaviour
     [SerializeField] Button[] SlotButton;
     public static ItemBox instance;
 
-    Items selectItem;
+    ItemSlot selectSlot;
+    ItemSlot moveSlot;
     Items getItem;
+    Items moveitem;
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
     }
     private void Start()
     {
-        for(int i = 0; i<=SlotButton.Length; i++)
+        for (int i = 0; i <= SlotButton.Length; i++)
         {
             SlotButton[i].interactable = false;
-        } 
+        }
     }
     //PickupObjがクリックされたら、スロットにアイテムを入れる
     public void SetItem(Items item)
     {
-        for(int i=0; i< slots.Length; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
             ItemSlot slot = slots[i];
             if (slot.IsEmpty())
@@ -46,11 +48,11 @@ public class ItemBox : MonoBehaviour
         Inventory.k = position;
         //選択したところにアイテムがなかったら何もしない
         if (slots[position].IsEmpty())
-        { 
+        {
             return;
         }
         //一度すべて白にする
-        for(int i=0; i<slots.Length; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
             //slots[i]の背景をなくす
             slots[i].HideBackPanel();
@@ -62,19 +64,48 @@ public class ItemBox : MonoBehaviour
 
         //Inventory.instance.ItemCheckButton[position].interactable = true;
         //選択アイテム
-        selectItem = slots[position].GetItem();
+        selectSlot = slots[position];
     }
     //Itemを選択してるかどうか判定
     public bool CheckSelectItem(Items.Type useItemType)
     {
-        if(selectItem == null)
+        if (selectSlot == null)
         {
             return false;
         }
-        if(selectItem.type == useItemType)
+        if (selectSlot.GetItem().type == useItemType)
         {
             return true;
         }
         return false;
+    }
+    public void UseSelectItem()
+    {
+        StartCoroutine(MoveItem());
+        selectSlot.RemoveItem();
+        SlotButton[Inventory.k].interactable = false;
+        selectSlot = null;
+    }
+    IEnumerator MoveItem()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (Inventory.k + 1 <= slots.Length)
+        {
+            for (int i = Inventory.k + 1; i <= slots.Length; i++)
+            {
+                if (slots[i].GetItem() != null)
+                {
+                    moveitem = slots[i].GetItem();
+                    moveSlot = slots[i];
+                    moveSlot.RemoveItem();
+                    SlotButton[i].interactable = false;
+                    SetItem(moveitem);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
     }
 }
