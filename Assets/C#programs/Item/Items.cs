@@ -26,6 +26,12 @@ public class Items
         Memo6,
         Lens,
         HomeKey,
+        Keypiece1,
+        Keypiece2,
+        Keypiece3,
+        Keypiece4,
+        Keypiece5,
+        Keypiece6,
     }
 
     //ItemTypeを宣言
