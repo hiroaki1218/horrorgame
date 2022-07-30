@@ -38,10 +38,12 @@ public class Items
     public Type type;
     //Item画像を宣言
     public Sprite sprite;
+    public String itemname;
 
-    public Items(Type type, Sprite sprite)
+    public Items(Type type, Sprite sprite , String itemname)
     {
         this.type = type;
         this.sprite = sprite;
+        this.itemname = itemname;
     }
 }

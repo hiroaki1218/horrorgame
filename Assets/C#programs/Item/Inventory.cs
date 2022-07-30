@@ -113,6 +113,30 @@ public class Inventory : MonoBehaviour
         {
             text.text = "門の鍵\n館の敷地から出るために使うことができる。";
         }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Keypiece1))
+        {
+            text.text = "鍵の欠片\nどこかの鍵の欠片のようだ。どこかで合成できないだろうか。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Keypiece2))
+        {
+            text.text = "鍵の欠片\nどこかの鍵の欠片のようだ。どこかで合成できないだろうか。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Keypiece3))
+        {
+            text.text = "鍵の欠片\nどこかの鍵の欠片のようだ。どこかで合成できないだろうか。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Keypiece4))
+        {
+            text.text = "鍵の欠片\nどこかの鍵の欠片のようだ。どこかで合成できないだろうか。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Keypiece5))
+        {
+            text.text = "鍵の欠片\nどこかの鍵の欠片のようだ。どこかで合成できないだろうか。";
+        }
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Keypiece6))
+        {
+            text.text = "鍵の欠片\nどこかの鍵の欠片のようだ。どこかで合成できないだろうか。";
+        }
         else
         {
             text.text = null;
@@ -178,10 +202,15 @@ public class Inventory : MonoBehaviour
             UseItemUI.SetActive(true);
             useItemText.text = "館の鍵を使用しますか？";
         }
-        else if (ItemBox.instance.CheckSelectItem(Items.Type.Key))
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Keypiece1)
+              || ItemBox.instance.CheckSelectItem(Items.Type.Keypiece2)
+              || ItemBox.instance.CheckSelectItem(Items.Type.Keypiece3)
+              || ItemBox.instance.CheckSelectItem(Items.Type.Keypiece4)
+              || ItemBox.instance.CheckSelectItem(Items.Type.Keypiece5)
+              || ItemBox.instance.CheckSelectItem(Items.Type.Keypiece6))
         {
             UseItemUI.SetActive(true);
-            useItemText.text = "門の鍵を使用しますか？";
+            useItemText.text = "鍵の欠片を合成しますか？";
         }
         else
         {
@@ -238,16 +267,26 @@ public class Inventory : MonoBehaviour
                 Debug.Log("ここでは使えない");
             }
         }
-        else if (ItemBox.instance.CheckSelectItem(Items.Type.Key))
+        else if (ItemBox.instance.CheckSelectItem(Items.Type.Keypiece1)
+              || ItemBox.instance.CheckSelectItem(Items.Type.Keypiece2)
+              || ItemBox.instance.CheckSelectItem(Items.Type.Keypiece3)
+              || ItemBox.instance.CheckSelectItem(Items.Type.Keypiece4)
+              || ItemBox.instance.CheckSelectItem(Items.Type.Keypiece5)
+              || ItemBox.instance.CheckSelectItem(Items.Type.Keypiece6))
         {
-            if (LastKeyCreate.instance.canCreateLastKey)
+            if (LastKeyCreate.instance.canCreateLastKey 
+             && LastKeyCreate.instance.getMaxKeyPiece)
             {
                 LastKeyCreate.instance.action = true;
                 OnClickTab();
             }
-            else
+            else if(LastKeyCreate.instance.getMaxKeyPiece)
             {
                 Debug.Log("ここでは使えない");
+            }
+            else
+            {
+                Debug.Log("鍵の欠片の数が足りない");
             }
         }
     }
