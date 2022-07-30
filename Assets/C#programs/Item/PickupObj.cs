@@ -63,6 +63,7 @@ public class PickupObj : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    FirstPersonItemVoiceManager.instance.StartCoroutine(FirstPersonItemVoiceManager.instance.ItemVoice(item));
                     if (itemType == Items.Type.Battery)
                     {
                         OffstFlashlight.instance.SetBattery();

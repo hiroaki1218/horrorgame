@@ -9,6 +9,7 @@ public class LastKeyCreate : MonoBehaviour
     public int maxKeyPieceCount = 6;
     private int keyPieceCount;
     public bool canCreateLastKey;
+    public bool getMaxKeyPiece;
     public bool action;
 
     private void Awake()
@@ -23,26 +24,24 @@ public class LastKeyCreate : MonoBehaviour
     {
         action = false;
         canCreateLastKey = false;
+        getMaxKeyPiece = false;
         _lastKey.SetActive(false);
         keyPieceCount = 0;
     }
     public void CountUpKeyPiece()
     {
         keyPieceCount++;
+        if(keyPieceCount == maxKeyPieceCount)
+        {
+            getMaxKeyPiece = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            if(keyPieceCount == maxKeyPieceCount)
-            {
-                canCreateLastKey = true;
-            }
-            else
-            {
-                canCreateLastKey = false;
-            }
+            canCreateLastKey = true;
         }
     }
 
