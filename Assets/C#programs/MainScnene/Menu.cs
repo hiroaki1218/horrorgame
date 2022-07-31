@@ -51,19 +51,22 @@ public class Menu : MonoBehaviour {
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!CharacterAni.isFirstAnim)
         {
-            gamePause = !gamePause;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                gamePause = !gamePause;
 
-            if ( gamePause == true )
-            {
-                OnPause();
+                if (gamePause == true)
+                {
+                    OnPause();
+                }
+                else if (isLoading == false)
+                {
+                    OnUnPause();
+                }
             }
-            else if( isLoading == false )
-            {
-                OnUnPause();
-            }
-        } 
+        }
     }
 
     public void OnPause()

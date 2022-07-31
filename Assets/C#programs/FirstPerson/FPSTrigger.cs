@@ -45,7 +45,7 @@ public class FPSTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        open = false;
-        close = false;
+        //open = false;
+        //close = false;
     }
 }

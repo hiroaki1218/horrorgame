@@ -43,7 +43,7 @@ public class Inventory : MonoBehaviour
 
     public void Update()
     {
-        if (!Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo && !Memo.exitMemo1 && !canPushTab)
+        if (!Menu.pause && !PhoneAnimation.isLookPhone && !Memo.LookMemo && !Memo.exitMemo1 && !canPushTab && !CharacterAni.isFirstAnim)
         {
             if (SubScene)
             {

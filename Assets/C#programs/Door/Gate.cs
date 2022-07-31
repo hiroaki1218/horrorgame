@@ -20,9 +20,10 @@ public class Gate : MonoBehaviour
 
     public bool SecondAnime;
     public bool rockSound;
-    private bool isOpen = false;
-    private bool Action = false;
-    private bool One = true;
+    private bool isOpen;
+    private bool Action;
+    private bool One;
+    private bool once;
     //private bool OpenDoorText = true;
     //private bool CloseDoorText = false;
 
@@ -30,6 +31,10 @@ public class Gate : MonoBehaviour
     {
         OpenDoorUI.SetActive(false);
         CloseDoorUI.SetActive(false);
+        once = true;
+        isOpen = false;
+        Action = false;
+        One = true;
     }
     
     //private void OnTriggerExit(Collider collision)
@@ -65,14 +70,15 @@ public class Gate : MonoBehaviour
 
             }
 
-            if (Input.GetKeyDown(KeyCode.F))
+            
+            //ドアを自動で開ける処理
+            if (isOpen == false && FPSTrigger.open == true && CharacterAni.isFirstAnim && once)
             {
-                if (isOpen == false && FPSTrigger.open == true)
-                {
-                    StartCoroutine("DoorOpenWait");
-                }
-
+                StartCoroutine("DoorOpenWait");
+                once = false;
             }
+
+            
         }
     }
 
