@@ -26,6 +26,7 @@ public class CharacterAni : MonoBehaviour
     [SerializeField] float pitchRange = 0.1f;
 
     public static bool isFirstAnim;
+
     private bool firstWalk;
     private bool finishfirstStop;
     private bool isfinishWhileStop;
@@ -133,8 +134,24 @@ public class CharacterAni : MonoBehaviour
         else if(secondWalk)
         {
             yield return new WaitForSeconds(1);
+            if (!isfinishWhileSecondFinish)
+            {
+                _anim.Play("BasicMotions@Idle01");
+            }
             isfinishWhileSecondFinish = true;
-            _anim.Play("BasicMotions@Idle01");
+
+            yield return new WaitForSeconds(2);
+            if (once)
+            {
+                CrosshairUI.SetActive(true);
+            }
+            _anim.gameObject.transform.rotation = FPC.gameObject.transform.rotation;
+            _anim.gameObject.transform.localPosition = new Vector3(-0.004f, -1.143f, -0.1f);
+            isFirstAnim = false;
+            fps.enabled = true;
+            startCamera.enabled = false;
+            FPC.enabled = true;
+            _fpcanim.enabled = true;
         }
     }
     float[] slatmap = new float[0];

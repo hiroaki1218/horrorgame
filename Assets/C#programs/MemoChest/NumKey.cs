@@ -23,42 +23,42 @@ public class NumKey : MonoBehaviour
     }
     public void OnClickNumButton(string n)
     {
-        displayText.text = thirdRank + secondRank + firstRank;
-        if (firstRank == null)
+        if (thirdRank == null)
         {
-            firstRank = n;
+            thirdRank = n;
+            displayText.text = thirdRank;
         }
         else if(secondRank == null)
         {
             secondRank = n;
+            displayText.text = thirdRank + secondRank;
         }
-        else if(thirdRank == null)
+        else if(firstRank == null)
         {
-            thirdRank = n;
+            firstRank = n;
+            displayText.text = thirdRank + secondRank + firstRank;
         }
     }
-    public void OnClickBackButton()
+    void OnClickBackButton()
     {
-        displayText.text = thirdRank + secondRank + firstRank;
-        if (firstRank == null)
+        if (thirdRank == null)
         {
-            return;
+            
         }
         else if(secondRank == null)
         {
-            firstRank = null;
+            thirdRank = null;
+            displayText.text = thirdRank + secondRank + firstRank;
         }
-        else if(thirdRank == null)
+        else if(firstRank == null)
         {
-            firstRank = null;
-            firstRank = secondRank;
+            secondRank= null;
+            displayText.text = thirdRank + secondRank + firstRank;
         }
         else
         {
             firstRank = null;
-            firstRank = secondRank;
-            secondRank = null;
-            secondRank = thirdRank;
+            displayText.text = thirdRank + secondRank + firstRank;
         }
     }
     public void OnClickEnterButton()
@@ -78,9 +78,73 @@ public class NumKey : MonoBehaviour
         }
         else
         {
+            Debug.Log("不正解");
             //赤のUI
             yield return new WaitForSeconds(1);
             //赤のUI消す
+        }
+    }
+    private void Update()
+    {
+        Ray ray;
+        RaycastHit hit;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            //マウスカーソルの位置からカメラの画像を通してレイを飛ばす
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, 5))
+            {
+                if(hit.collider.tag == "Key1")
+                {
+                    OnClickNumButton("1");
+                }
+                else if(hit.collider.tag == "Key2")
+                {
+                    OnClickNumButton("2");
+                }
+                else if (hit.collider.tag == "Key3")
+                {
+                    OnClickNumButton("3");
+                }
+                else if (hit.collider.tag == "Key4")
+                {
+                    OnClickNumButton("4");
+                }
+                else if (hit.collider.tag == "Key5")
+                {
+                    OnClickNumButton("5");
+                }
+                else if (hit.collider.tag == "Key6")
+                {
+                    OnClickNumButton("6");
+                }
+                else if (hit.collider.tag == "Key7")
+                {
+                    OnClickNumButton("7");
+                }
+                else if (hit.collider.tag == "Key8")
+                {
+                    OnClickNumButton("8");
+                }
+                else if (hit.collider.tag == "Key9")
+                {
+                    OnClickNumButton("9");
+                }
+                else if (hit.collider.tag == "Key0")
+                {
+                    OnClickNumButton("0");
+                }
+                else if (hit.collider.tag == "KeyBack")
+                {
+                    OnClickBackButton();
+                }
+                else if (hit.collider.tag == "KeyEnter")
+                {
+                    OnClickEnterButton();
+                }
+            }
         }
     }
 }

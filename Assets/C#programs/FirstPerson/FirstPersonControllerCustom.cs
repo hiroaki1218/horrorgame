@@ -16,6 +16,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] public bool m_IsStopping;
         [SerializeField] public bool m_IsRunning;
 
+        [SerializeField] private CharacterAni _chani;
+
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
@@ -83,6 +85,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+            if (!CharacterAni.isFirstAnim)
+            {
+                _chani.enabled = false;
+            }
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
