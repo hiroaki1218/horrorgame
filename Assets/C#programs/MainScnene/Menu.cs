@@ -184,7 +184,6 @@ public class Menu : MonoBehaviour {
 
     IEnumerator ResumeLoad()
     { 
-        TitleVideo.mainTotitle = true;
         isLoading = true;
         async = SceneManager.LoadSceneAsync("TitleScene");
 

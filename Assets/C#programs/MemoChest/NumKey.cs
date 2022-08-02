@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class NumKey : MonoBehaviour
 {
     [SerializeField] private Text displayText;
+    [SerializeField] private AudioSource _audiosource;
+    [SerializeField] private AudioClip Ok;
+    [SerializeField] private AudioClip No;
+    [SerializeField] private AudioClip Push;
     public string TrueThirdRank;
     public string TrueSecondRank;
     public string TrueFirstRank;
@@ -27,38 +31,44 @@ public class NumKey : MonoBehaviour
         {
             thirdRank = n;
             displayText.text = thirdRank;
+            _audiosource.PlayOneShot(Push);
         }
         else if(secondRank == null)
         {
             secondRank = n;
             displayText.text = thirdRank + secondRank;
+            _audiosource.PlayOneShot(Push);
         }
         else if(firstRank == null)
         {
             firstRank = n;
             displayText.text = thirdRank + secondRank + firstRank;
+            _audiosource.PlayOneShot(Push);
         }
     }
     void OnClickBackButton()
     {
         if (thirdRank == null)
         {
-            
+            _audiosource.PlayOneShot(Push);
         }
         else if(secondRank == null)
         {
             thirdRank = null;
             displayText.text = thirdRank + secondRank + firstRank;
+            _audiosource.PlayOneShot(Push);
         }
         else if(firstRank == null)
         {
             secondRank= null;
             displayText.text = thirdRank + secondRank + firstRank;
+            _audiosource.PlayOneShot(Push);
         }
         else
         {
             firstRank = null;
             displayText.text = thirdRank + secondRank + firstRank;
+            _audiosource.PlayOneShot(Push);
         }
     }
     public void OnClickEnterButton()
@@ -71,6 +81,7 @@ public class NumKey : MonoBehaviour
         && secondRank == TrueSecondRank
         && firstRank == TrueFirstRank)
         {
+            _audiosource.PlayOneShot(Ok);
             Debug.Log("正解");
             //緑のUI
             yield return new WaitForSeconds(1);
@@ -78,6 +89,7 @@ public class NumKey : MonoBehaviour
         }
         else
         {
+            _audiosource.PlayOneShot(No);
             Debug.Log("不正解");
             //赤のUI
             yield return new WaitForSeconds(1);
